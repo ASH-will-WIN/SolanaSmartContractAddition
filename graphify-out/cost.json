@@ -1,0 +1,13 @@
+{
+  "runs": [
+    {
+      "date": "2026-10-04T05:13:30.322697+00:00",
+      "input_tokens": null,
+      "output_tokens": null,
+      "files": 22
+    }
+  ],
+  "total_input_tokens": 0,
+  "total_output_tokens": 0,
+  "note": "Host-agent token usage was unavailable; totals count only reported API extraction tokens."
+}
