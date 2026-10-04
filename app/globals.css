@@ -243,6 +243,13 @@ a:hover { text-decoration: underline; }
 .execution-stage { align-self: stretch; display: flex; min-height: 340px; flex-direction: column; }
 .execution-stage-heading { display: flex; justify-content: space-between; align-items: center; padding: 5px 0 17px; color: #77847a; font: 8px ui-monospace, monospace; letter-spacing: .9px; }
 .execution-stage-heading small { color: #9ba69d; font-size: 8px; }
+.execution-progress-track { height: 3px; overflow: hidden; border-radius: 99px; background: #2a342c; }
+.execution-progress-track > span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #5aaf6b, #a6eab0); box-shadow: 0 0 12px #68d7808a; transition: width 1.1s cubic-bezier(.22,.72,.2,1), background .4s; }
+.execution-progress-track > span.is-preparing { background: linear-gradient(90deg, #8b9b69, #d3d890); box-shadow: 0 0 12px #c7d68770; }
+.execution-progress-track > span.is-error { background: #d17c70; box-shadow: 0 0 12px #d17c7070; }
+.execution-progress-track > span.is-complete { background: #a6eab0; }
+.execution-progress-caption { display: flex; justify-content: space-between; margin: 7px 0 11px; color: #879489; font: 8px ui-monospace, monospace; }
+.execution-progress-caption small { color: #a9c9af; font-size: inherit; }
 .execution-steps { position: relative; display: grid; gap: 5px; margin: 0; padding: 0; list-style: none; }
 .execution-steps::before { position: absolute; top: 19px; bottom: 19px; left: 17px; width: 1px; content: ""; background: #303a32; }
 .execution-steps li { position: relative; display: flex; min-height: 58px; align-items: center; gap: 13px; padding: 8px 10px; border: 1px solid transparent; border-radius: 12px; opacity: .48; transition: opacity .7s, background .7s, border-color .7s, box-shadow .7s; }
@@ -346,4 +353,8 @@ a:hover { text-decoration: underline; }
   .execution-network-label { padding-top: 2px; font-size: 7px; white-space: nowrap; }
   .execution-bottom-actions { font-size: 8px; }
   .execution-app .history-scrim, .execution-app .history-drawer { top: 60px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .execution-arrow.is-lit path, .execution-arrow.is-lit i { animation-duration: .42s; }
+  .execution-code pre code { transition-duration: .2s; }
 }

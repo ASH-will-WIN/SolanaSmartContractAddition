@@ -122,8 +122,33 @@ function conditionHistoryState(condition: Condition) {
     : condition.status === "verifying" ? "VERIFYING" : condition.status === "triggered" ? "TRIGGERED" : condition.status === "enabled" ? "ENABLED"
     : condition.status === "failed" ? "FAILED" : condition.status === "draft" ? "DRAFT" : condition.finalResult !== undefined ? "RESOLVED" : "DESIGNING";
 }
+function promptHistoryKey(conditionId: bigint) { return `solana-abstraction-layer:prompt-history:${conditionId.toString()}`; }
+function readPromptHistory(condition: Condition): string[] {
+  const fallback = [condition.prompt];
+  try {
+    const serialized = window.localStorage.getItem(promptHistoryKey(condition.id));
+    if (!serialized) return fallback;
+    const stored = JSON.parse(serialized) as { prompt?: unknown; createdAt?: unknown; history?: unknown };
+    const history = stored.history;
+    if (stored.prompt !== condition.prompt || stored.createdAt !== condition.createdAt.microsSinceUnixEpoch.toString()
+      || !Array.isArray(history) || history.length < 1 || history.length > 50
+      || history.some((entry) => typeof entry !== "string" || !entry.trim() || entry.length > 2000)
+      || history[history.length - 1] !== condition.prompt
+      || history.reduce((total, entry) => total + entry.length, 0) > 32_000) return fallback;
+    return history as string[];
+  } catch { return fallback; }
+}
+function writePromptHistory(condition: Condition, history: string[]) {
+  try {
+    window.localStorage.setItem(promptHistoryKey(condition.id), JSON.stringify({
+      prompt: condition.prompt,
+      createdAt: condition.createdAt.microsSinceUnixEpoch.toString(),
+      history,
+    }));
+  } catch { /* Prompt context remains available in memory when browser storage is unavailable. */ }
+}
 
-export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = false }: { demoDeal?: DemoDeal; onCreateDemoDeal?: () => void; creatingDeal?: boolean }) {
+export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = false }: { demoDeal?: DemoDeal; onCreateDemoDeal?: () => Promise<DemoDeal>; creatingDeal?: boolean }) {
   const { isActive, connectionError, getConnection } = useSpacetimeDB();
   const [conditionRows, conditionsLoading] = useTable(tables.condition);
   const [checkRows, checksLoading] = useTable(tables.verificationCheck);
@@ -134,6 +159,8 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
   const evidence = evidenceRows as readonly EvidenceRow[];
   const documents = documentRows as readonly UploadedDocument[];
   const [prompt, setPrompt] = useState("");
+  const [draftPromptHistory, setDraftPromptHistory] = useState<string[]>([]);
+  const promptHistoryCache = useRef(new Map<string, string[]>());
   const [files, setFiles] = useState<File[]>([]);
   const [planSummaries, setPlanSummaries] = useState<Record<string, string>>({});
   const [submittedFingerprint, setSubmittedFingerprint] = useState("");
@@ -197,6 +224,15 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
     const previousPlan = selectedCondition?.status === "planning" ? selectedCondition : undefined;
     try {
       if (!prompt.trim()) throw new Error("Enter a condition first.");
+      const priorPromptHistory = previousPlan
+        ? promptHistoryCache.current.get(previousPlan.id.toString()) ?? readPromptHistory(previousPlan)
+        : draftPromptHistory;
+      const promptHistory = priorPromptHistory[priorPromptHistory.length - 1] === prompt.trim()
+        ? priorPromptHistory
+        : [...priorPromptHistory, prompt.trim()];
+      if (!promptHistory.length) promptHistory.push(prompt.trim());
+      if (promptHistory.length > 50) throw new Error("This condition has reached the 50-edit context limit. Start a new condition to continue.");
+      if (promptHistory.reduce((total, entry) => total + entry.length, 0) > 32_000) throw new Error("This condition's edit history has reached the 32,000-character context limit. Start a new condition to continue.");
       const connection = getConnection();
       if (!connection) throw new Error("SpacetimeDB is not connected yet.");
       const planDocuments = [
@@ -205,7 +241,7 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
       ];
       if (planDocuments.length > 10) throw new Error("A plan can include up to 10 evidence files. Remove an attachment before revising it.");
       setNotice("Asking the planning model to design verification checks…");
-      const response = await fetch("/api/verification-plan", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ condition: prompt.trim(), ...(planDocuments.length ? { documents: planDocuments } : {}) }) });
+      const response = await fetch("/api/verification-plan", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ condition: prompt.trim(), promptHistory, ...(planDocuments.length ? { documents: planDocuments } : {}) }) });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || "Could not generate a plan.");
       const plan = result as VerificationPlan;
@@ -218,6 +254,8 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
         if (!inserted) await new Promise((resolve) => setTimeout(resolve, 100));
       }
       if (!inserted) throw new Error("The condition was written, but its subscribed row has not arrived yet.");
+      promptHistoryCache.current.set(inserted.id.toString(), promptHistory);
+      writePromptHistory(inserted, promptHistory);
       const priorCheckIds = new Set((Array.from(connection.db.verificationCheck.iter()) as VerificationCheck[]).map((row) => row.id.toString()));
       await setConditionStatus({ conditionId: inserted.id, status: "planning" });
       setNotice("Condition saved. Writing its verification checks…");
@@ -245,7 +283,7 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
     if (!selectedCondition || flowChecks.length === 0) return;
     setNotice("Running public source checks…");
     for (const check of flowChecks) await setCheckRunning({ checkId: check.id });
-    const response = await fetch("/api/verification/run", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ condition: selectedCondition.prompt, hasDocument: flowDocuments.length > 0, checks: flowChecks.map(({ sequence, kind, instruction }) => ({ sequence, kind, instruction, required: true })) }) });
+    const response = await fetch("/api/verification/run", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ condition: selectedCondition.prompt, checks: flowChecks.map(({ sequence, kind, instruction }) => ({ sequence, kind, instruction, required: true })) }) });
     const result = await response.json();
     if (!response.ok) throw new Error(result.error || "Verification could not run.");
     for (const checkResult of result.results as Array<{ sequence: number; status: "passed" | "failed" | "error"; summary: string; evidence: Array<{ sourceType: string; title: string; url?: string; snippet: string; authorOrSource?: string; publishedAt?: string }> }>) {
@@ -256,13 +294,14 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
       else await completeCheck({ checkId: check.id, passed: checkResult.status === "passed", summary: checkResult.summary });
     }
     await resolveCondition({ conditionId: selectedCondition.id, result: result.result === true });
-    setNotice(result.result ? "Condition verified. Preparing the paced execution sequence." : "Verification finished. The condition did not pass all checks.");
+    setNotice(result.result ? "Condition verified: TRUE. Holding the result before on-chain execution." : "Verification finished. The condition did not pass all checks.");
     if (result.result === true) {
       if (!selectedCondition.dealId && demoDeal?.funded) {
         await associateDemoDeal({ conditionId: selectedCondition.id, dealId: BigInt(demoDeal.dealId) });
         setAssociatedDeal(demoDeal);
         setAssociatedDealConditionId(selectedCondition.id);
       }
+      await new Promise((resolve) => window.setTimeout(resolve, 2800));
       setShowExecutionView(true);
     }
   });
@@ -343,9 +382,34 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
     setAssociatedDeal(demoDeal); setAssociatedDealConditionId(selectedCondition.id); setNotice("Funded Devnet deal linked to this condition.");
     if (selectedCondition.finalResult === true) setShowExecutionView(true);
   });
-  const editAsNew = () => { if (selectedCondition) { setPrompt(selectedCondition.prompt); setFiles([]); setSubmittedFingerprint(""); setDraftMode(true); setSelectedId(undefined); setSelectedNode(undefined); setNotice("Draft copied. Orchestrate it to create a new verification plan."); } };
-  const startNew = () => { setShowExecutionView(false); setDraftMode(true); setSelectedId(undefined); setSelectedNode(undefined); setPrompt(""); setFiles([]); setSubmittedFingerprint(""); setNotice("Describe what must become true before settlement executes."); setHistoryOpen(false); };
-  const openCondition = (condition: Condition) => { setShowExecutionView(false); setDraftMode(false); setSelectedId(condition.id); setSelectedNode("condition"); setPrompt(condition.status === "planning" ? condition.prompt : ""); setFiles([]); setHistoryOpen(false); };
+  const prepareSettlement = async () => {
+    if (!selectedCondition || selectedCondition.finalResult !== true) throw new Error("The condition must be verified before preparing settlement.");
+    let readyDeal: DemoDeal;
+    if (selectedCondition.dealId) {
+      if (settlementDeal?.funded) readyDeal = settlementDeal;
+      else {
+        const response = await fetch(`/api/deal/${selectedCondition.dealId.toString()}`);
+        const details = await response.json();
+        if (!response.ok || details.funded !== true) throw new Error(details.error || "The linked Devnet escrow is not funded.");
+        readyDeal = details as DemoDeal;
+      }
+    } else if (demoDeal?.funded) readyDeal = demoDeal;
+    else {
+      if (!onCreateDemoDeal) throw new Error("Automatic Devnet escrow preparation is unavailable.");
+      readyDeal = await onCreateDemoDeal();
+    }
+    if (!readyDeal.funded) throw new Error("The Devnet escrow was created but is not funded.");
+    if (!selectedCondition.dealId) await associateDemoDeal({ conditionId: selectedCondition.id, dealId: BigInt(readyDeal.dealId) });
+    setAssociatedDeal(readyDeal);
+    setAssociatedDealConditionId(selectedCondition.id);
+  };
+  const createDealFromButton = () => {
+    if (!onCreateDemoDeal) return;
+    void onCreateDemoDeal().catch((error) => setNotice(error instanceof Error ? error.message : "Could not create Devnet deal."));
+  };
+  const editAsNew = () => { if (selectedCondition) { const history = promptHistoryCache.current.get(selectedCondition.id.toString()) ?? readPromptHistory(selectedCondition); promptHistoryCache.current.set(selectedCondition.id.toString(), history); setDraftPromptHistory(history); setPrompt(selectedCondition.prompt); setFiles([]); setSubmittedFingerprint(""); setDraftMode(true); setSelectedId(undefined); setSelectedNode(undefined); setNotice("Draft copied with its edit context. Orchestrate it to create a revised verification plan."); } };
+  const startNew = () => { setShowExecutionView(false); setDraftMode(true); setSelectedId(undefined); setSelectedNode(undefined); setPrompt(""); setDraftPromptHistory([]); setFiles([]); setSubmittedFingerprint(""); setNotice("Describe what must become true before settlement executes."); setHistoryOpen(false); };
+  const openCondition = (condition: Condition) => { setShowExecutionView(false); setDraftMode(false); setSelectedId(condition.id); setSelectedNode("condition"); setPrompt(condition.status === "planning" ? condition.prompt : ""); setDraftPromptHistory([]); setFiles([]); setHistoryOpen(false); };
   const saveCheck = (check: VerificationCheck, label: string, instruction: string) => run(async () => { await updateVerificationCheck({ checkId: check.id, label, instruction }); setNotice("Verification check updated."); });
   const explain = () => {
     if (!selectedCondition) return setNotice("Create a condition first to see its decision path.");
@@ -359,11 +423,11 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
   const executionView = showExecutionView && selectedCondition?.finalResult === true;
   if (executionView && selectedCondition) {
     const targetDealId = selectedCondition.dealId ?? (settlementDeal?.funded ? BigInt(settlementDeal.dealId) : undefined);
-    return <ExecutionView key={selectedCondition.id.toString()} condition={selectedCondition} checks={flowChecks} deal={settlementDeal} fundedDemoDeal={demoDeal} conditions={conditions} releaseBusy={releaseBusy} onBack={() => { setShowExecutionView(false); setSelectedNode("condition"); }} onNew={startNew} onOpenCondition={openCondition} onCreateDeal={onCreateDemoDeal} creatingDeal={creatingDeal} onLinkDeal={linkDeal} onRelease={() => targetDealId ? releaseForCondition(selectedCondition, targetDealId) : Promise.resolve(false)} />;
+    return <ExecutionView key={selectedCondition.id.toString()} condition={selectedCondition} checks={flowChecks} deal={settlementDeal} conditions={conditions} releaseBusy={releaseBusy} onBack={() => { setShowExecutionView(false); setSelectedNode("condition"); }} onNew={startNew} onOpenCondition={openCondition} onPrepareDeal={prepareSettlement} onRelease={() => targetDealId ? releaseForCondition(selectedCondition, targetDealId) : Promise.resolve(false)} />;
   }
   return <main className="decision-app">
     <header className="decision-header"><button className="brand-mark" aria-label="New condition" onClick={startNew}>CS</button><div className="brand-copy"><strong>PROGRAMMABLE SETTLEMENT</strong><span>REAL-WORLD CONDITIONS, EXECUTED ON-CHAIN</span></div><div className="history-actions">{selectedCondition?.finalResult === true && <button className="history-button execution-open-button" onClick={() => setShowExecutionView(true)}>View execution ↗</button>}<button className="history-button" onClick={startNew}>＋ New condition</button><button className="history-button" onClick={() => setHistoryOpen(true)}>History <span>{conditions.length}</span></button></div><div className="connection-badge"><span className={`live-dot ${isActive ? "is-live" : ""}`} />{connectionError ? "OFFLINE" : isActive ? "DEVNET · LIVE" : "CONNECTING"}</div>
-      <button className="deal-button" disabled={creatingDeal || Boolean(demoDeal?.funded && !demoDeal.released)} onClick={onCreateDemoDeal}>{creatingDeal ? "Creating deal…" : demoDeal?.funded && !demoDeal.released ? "Devnet deal funded" : "Create funded Devnet deal"}</button>
+      <button className="deal-button" disabled={creatingDeal || Boolean(demoDeal?.funded && !demoDeal.released)} onClick={createDealFromButton}>{creatingDeal ? "Creating deal…" : demoDeal?.funded && !demoDeal.released ? "Devnet deal funded" : "Create funded Devnet deal"}</button>
     </header>
     <section className="canvas-shell" aria-label="Interactive verification decision graph">
       <div className="canvas-legend"><span>DECISION GRAPH</span><i />{flowChecks.length} CHECK{flowChecks.length === 1 ? "" : "S"}<span className="legend-divider" />DRAG TO EXPLORE</div>
@@ -380,7 +444,7 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
           <div className="rule-then"><span><b>THEN</b> ON-CHAIN ACTION</span><code>release_payment()</code><small>Anchor · conditional_escrow · funded Devnet deal</small></div>
         </div>
         {(flowDocuments.length > 0 || files.length > 0) && <div className="attachment-stack">{flowDocuments.map((document) => <div className="attachment-card" key={`saved-${document.id}`}><span className="file-type">{document.fileName.split(".").pop()?.toUpperCase().slice(0, 5) || "FILE"}</span><strong>{document.fileName}</strong><span>SAVED METADATA</span></div>)}{files.map((file, index) => <div className="attachment-card" key={`${file.name}-${file.size}-${index}`}><span className="file-type">{file.name.split(".").pop()?.toUpperCase().slice(0, 5) || "FILE"}</span><strong>{file.name}</strong><span>METADATA ONLY</span><button aria-label={`Remove ${file.name}`} onClick={() => setFiles((current) => current.filter((_, fileIndex) => fileIndex !== index))}>×</button></div>)}</div>}
-        <div className={`rule-editor-footer${selectedCondition ? " has-plan-actions" : ""}`}><label className="attach-button" title="Attach document metadata"><input type="file" hidden multiple disabled={busy} onChange={(event) => { const incoming = Array.from(event.target.files ?? []); setFiles((current) => [...current, ...incoming].slice(0, 10)); event.target.value = ""; }} />＋ <span>Attach evidence metadata</span></label><span className="metadata-note">{selectedCondition ? revisionHasChanges ? "Rebuild to apply these edits before enabling." : "Click a check in the graph to edit its instructions." : "Files are not uploaded or parsed."}</span>{selectedCondition && <button className="dock-enable" disabled={busy || !isActive || revisionHasChanges || !flowChecks.length} title={revisionHasChanges ? "Rebuild the plan to apply your edits before enabling." : undefined} onClick={enableAutomation}>ENABLE CONDITION</button>}<button className="composer-submit" disabled={busy || !isActive || !prompt.trim() || (selectedCondition ? !revisionHasChanges : submittedFingerprint === formFingerprint)} onClick={createPlan}>{busy ? "Orchestrating…" : selectedCondition ? "REBUILD PLAN ↗" : "ORCHESTRATE CONDITION ↗"}</button></div>
+        <div className={`rule-editor-footer${selectedCondition ? " has-plan-actions" : ""}`}><label className="attach-button" title="Attach document metadata"><input type="file" hidden multiple disabled={busy} onChange={(event) => { const incoming = Array.from(event.target.files ?? []); setFiles((current) => [...current, ...incoming].slice(0, 10)); event.target.value = ""; }} />＋ <span>Attach evidence metadata</span></label><span className="metadata-note">{selectedCondition ? revisionHasChanges ? "Earlier instructions stay in context when you update." : "Click a check in the graph to edit its instructions." : "Files are not uploaded or parsed."}</span>{selectedCondition && <button className="dock-enable" disabled={busy || !isActive || revisionHasChanges || !flowChecks.length} title={revisionHasChanges ? "Update the plan before enabling." : undefined} onClick={enableAutomation}>ENABLE CONDITION</button>}<button className="composer-submit" disabled={busy || !isActive || !prompt.trim() || (selectedCondition ? !revisionHasChanges : submittedFingerprint === formFingerprint)} onClick={createPlan}>{busy ? "Orchestrating…" : selectedCondition ? "UPDATE PLAN ↗" : "ORCHESTRATE CONDITION ↗"}</button></div>
         <div className="rule-editor-status" role="status" aria-live="polite">{notice}</div>
       </div>}
     </section>
@@ -406,7 +470,7 @@ function CanvasProvider(props: { graph: { nodes: GraphNode[]; edges: Edge[] }; s
 function StatePill({ children, tone }: { children: React.ReactNode; tone: string }) { return <span className={`state-pill state-${tone}`}>{children}</span>; }
 function DetailRow({ label, value }: { label: string; value: React.ReactNode }) { return <div className="detail-row"><span>{label}</span><div>{value}</div></div>; }
 
-type ExecutionPhase = "condition" | "verifier" | "guard" | "transfer" | "payment" | "submitting" | "complete" | "failed" | "no-escrow";
+type ExecutionPhase = "preparing" | "condition" | "verifier" | "guard" | "transfer" | "payment" | "submitting" | "complete" | "failed" | "setup-failed" | "no-escrow";
 
 function playPaymentChime() {
   try {
@@ -429,7 +493,7 @@ function playPaymentChime() {
   } catch { /* Browsers that block Web Audio still show the visual confirmation. */ }
 }
 
-function ExecutionView({ condition, checks, deal, fundedDemoDeal, conditions, releaseBusy, onBack, onNew, onOpenCondition, onCreateDeal, creatingDeal, onLinkDeal, onRelease }: { condition: Condition; checks: readonly VerificationCheck[]; deal?: DemoDeal; fundedDemoDeal?: DemoDeal; conditions: readonly Condition[]; releaseBusy: boolean; onBack: () => void; onNew: () => void; onOpenCondition: (condition: Condition) => void; onCreateDeal?: () => void; creatingDeal: boolean; onLinkDeal: () => void; onRelease: () => Promise<boolean> }) {
+function ExecutionView({ condition, checks, deal, conditions, releaseBusy, onBack, onNew, onOpenCondition, onPrepareDeal, onRelease }: { condition: Condition; checks: readonly VerificationCheck[]; deal?: DemoDeal; conditions: readonly Condition[]; releaseBusy: boolean; onBack: () => void; onNew: () => void; onOpenCondition: (condition: Condition) => void; onPrepareDeal: () => Promise<void>; onRelease: () => Promise<boolean> }) {
   const confirmed = condition.settlementStatus === "confirmed" || deal?.released === true;
   const submitted = condition.settlementStatus === "submitted" || releaseBusy;
   const failed = condition.settlementStatus === "failed";
@@ -437,10 +501,13 @@ function ExecutionView({ condition, checks, deal, fundedDemoDeal, conditions, re
   const passedChecks = checks.filter((check) => check.passed === true).length;
   const steps = ["Condition", "Verifier", "Program", "Payment"];
   const [historyOpen, setHistoryOpen] = useState(false);
-  const [phase, setPhase] = useState<ExecutionPhase>(() => confirmed ? "complete" : failed ? "failed" : submitted ? "submitting" : hasFundedDeal ? "condition" : "no-escrow");
+  const [phase, setPhase] = useState<ExecutionPhase>(() => confirmed ? "complete" : failed ? "failed" : submitted ? "submitting" : hasFundedDeal ? "condition" : "preparing");
+  const [setupError, setSetupError] = useState("");
+  const [transferProgress, setTransferProgress] = useState(0);
   const releaseCallback = useRef(onRelease);
   useEffect(() => { releaseCallback.current = onRelease; }, [onRelease]);
   const started = useRef(false);
+  const preparation = useRef<Promise<void>>();
   const liveReleaseStarted = useRef(false);
   const chimePlayed = useRef(false);
   const persistedState = useRef({ confirmed, failed, submitted });
@@ -454,8 +521,19 @@ function ExecutionView({ condition, checks, deal, fundedDemoDeal, conditions, re
     }
     if (failed) { setPhase("failed"); return; }
     if (submitted) { setPhase((current) => current === "failed" ? current : "submitting"); return; }
-    if (!hasFundedDeal) setPhase("no-escrow");
-  }, [confirmed, failed, submitted, hasFundedDeal]);
+    if (!hasFundedDeal && phase !== "preparing" && phase !== "setup-failed") setPhase("preparing");
+  }, [confirmed, failed, submitted, hasFundedDeal, phase]);
+
+  useEffect(() => {
+    if (confirmed || failed || submitted || hasFundedDeal || preparation.current) return;
+    setPhase("preparing");
+    preparation.current = onPrepareDeal().then(() => {
+      setPhase("condition");
+    }).catch((error: unknown) => {
+      setSetupError(error instanceof Error ? error.message : "Devnet escrow preparation failed.");
+      setPhase("setup-failed");
+    });
+  }, [condition.id, confirmed, failed, submitted, hasFundedDeal, onPrepareDeal]);
 
   useEffect(() => {
     const state = persistedState.current;
@@ -472,13 +550,17 @@ function ExecutionView({ condition, checks, deal, fundedDemoDeal, conditions, re
       await pause(1900);
       if (!stillPreviewing()) return;
       setPhase("verifier");
-      await pause(1800);
+      await pause(1350);
       if (!stillPreviewing()) return;
       setPhase("guard");
       await pause(1800);
       if (!stillPreviewing()) return;
       setPhase("transfer");
-      await pause(1600);
+      for (let beat = 1; beat <= 4; beat++) {
+        if (!stillPreviewing()) return;
+        setTransferProgress(beat);
+        await pause(400);
+      }
       if (!stillPreviewing()) return;
       setPhase("payment");
       await pause(1350);
@@ -494,15 +576,22 @@ function ExecutionView({ condition, checks, deal, fundedDemoDeal, conditions, re
     return () => { cancelled = true; if (!releaseStarted) started.current = false; };
   }, [condition.id, hasFundedDeal]);
 
-  const stepIndex = phase === "condition" || phase === "no-escrow" ? 0 : phase === "verifier" ? 1 : phase === "guard" || phase === "transfer" ? 2 : 3;
+  const stepIndex = phase === "condition" || phase === "preparing" || phase === "no-escrow" || phase === "setup-failed" ? 0 : phase === "verifier" ? 1 : phase === "guard" || phase === "transfer" ? 2 : 3;
   const isComplete = phase === "complete";
-  const isFailed = phase === "failed";
+  const isFailed = phase === "failed" || phase === "setup-failed";
   const isSending = phase === "submitting";
-  const activeStep = phase === "no-escrow" ? -1 : stepIndex;
-  const title = isComplete ? "Payment complete" : isFailed ? "Payment needs attention" : isSending ? "Sending to Solana Devnet" : phase === "payment" ? "Final confirmation" : phase === "transfer" ? "The program runs" : phase === "guard" ? "The rule checks" : phase === "verifier" ? "The verifier agrees" : phase === "no-escrow" ? "Condition satisfied" : "Condition is true";
-  const detail = isComplete ? "The escrow released the payment to its recipient." : isFailed ? "The release did not confirm. Check the deal on Devnet before taking another action." : isSending ? "Waiting for the payment transaction to confirm on Devnet." : phase === "payment" ? "A final confirmation pulse starts the payment release." : phase === "transfer" ? "The escrow program transfers SOL, then records the release." : phase === "guard" ? "The program checks that this condition passed before moving funds." : phase === "verifier" ? "The checks agree. The result is staged for the final release." : phase === "no-escrow" ? "Connect a funded Devnet escrow to continue the execution." : `${passedChecks} of ${checks.length} required checks passed. Holding here before the release sequence.`;
-  const highlighted = new Set<number>(phase === "guard" ? [30, 34] : phase === "transfer" || phase === "payment" || isSending ? [30, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52] : isComplete ? [30, 53] : []);
-  const doneSteps = isComplete ? 4 : isFailed ? 3 : phase === "no-escrow" ? 1 : isSending || phase === "payment" ? 3 : phase === "transfer" || phase === "guard" ? 2 : phase === "verifier" ? 1 : 0;
+  const activeStep = phase === "no-escrow" || phase === "setup-failed" ? -1 : stepIndex;
+  const title = isComplete ? "Payment complete" : phase === "setup-failed" ? "Escrow setup needs attention" : isFailed ? "Payment needs attention" : isSending ? "Sending to Solana Devnet" : phase === "preparing" ? "Preparing the escrow" : phase === "payment" ? "Final confirmation" : phase === "transfer" ? "The program runs" : phase === "guard" ? "The rule checks" : phase === "verifier" ? "The verifier agrees" : phase === "no-escrow" ? "Condition satisfied" : "Condition is true";
+  const detail = isComplete ? "The escrow released the payment to its recipient." : phase === "setup-failed" ? setupError : isFailed ? "The release did not confirm. Check the deal on Devnet before taking another action." : isSending ? "Waiting for the payment transaction to confirm on Devnet." : phase === "preparing" ? "Creating and funding a 0.001 SOL Devnet escrow. Payment release stays at the final step." : phase === "payment" ? "A final confirmation pulse starts the payment release." : phase === "transfer" ? "The escrow program transfers SOL, then records the release." : phase === "guard" ? "The program checks that this condition passed before moving funds." : phase === "verifier" ? "The checks agree. The result is staged for the final release." : phase === "no-escrow" ? "Preparing a funded Devnet escrow to continue the execution." : `${passedChecks} of ${checks.length} required checks passed. Holding here before the release sequence.`;
+  const transferBatches = [[43, 44], [45, 46, 47], [48, 49, 50], [51, 52]];
+  const highlighted = new Set<number>(phase === "guard" ? [30, 34]
+    : phase === "transfer" ? [30, ...transferBatches.slice(0, transferProgress).flat()]
+    : phase === "payment" || isSending ? [30, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52]
+    : isComplete ? [30, 53] : []);
+  const doneSteps = isComplete ? 4 : phase === "setup-failed" ? 0 : isFailed ? 3 : phase === "no-escrow" ? 1 : isSending || phase === "payment" ? 3 : phase === "transfer" || phase === "guard" ? 2 : phase === "verifier" ? 1 : 0;
+  const progressPercent = phase === "preparing" || phase === "setup-failed" ? 6 : phase === "condition" ? 22 : phase === "verifier" ? 43 : phase === "guard" ? 58 : phase === "transfer" ? 60 + transferProgress * 6 : phase === "payment" ? 88 : isSending ? 96 : isComplete ? 100 : phase === "failed" ? 92 : 0;
+  const progressLabel = phase === "preparing" ? "Preparing escrow" : isComplete ? "Payment confirmed" : isSending ? "Confirming transaction" : phase === "payment" ? "Final confirmation" : phase === "transfer" ? "Program transfer" : phase === "guard" ? "Program checks" : phase === "verifier" ? "Verifier staged" : phase === "condition" ? "Condition true" : phase === "setup-failed" ? "Escrow setup failed" : phase === "failed" ? "Payment failed" : "Waiting";
+  const failedStep = phase === "setup-failed" ? 0 : 3;
   const programLines = [
     { number: 30, text: "pub fn release_payment(ctx: Context<ReleasePayment>) -> Result<()> {" },
     { number: 31, text: "    let deal = &mut ctx.accounts.deal;" },
@@ -536,7 +625,7 @@ function ExecutionView({ condition, checks, deal, fundedDemoDeal, conditions, re
     <div className="execution-shell">
       <section className={`execution-card${isComplete ? " is-settled" : ""}${isFailed ? " is-failed" : ""}`} aria-label="Solana smart contract execution">
         <header className="execution-card-heading">
-          <div><span>CONDITION {condition.id.toString()} <i>·</i> EXECUTION</span><b className={`execution-state state-${isComplete ? "confirmed" : isFailed ? "failed" : isSending ? "pending" : "active"}`}><i />{isComplete ? "SETTLED" : isFailed ? "NEEDS ATTENTION" : isSending ? "CONFIRMING" : phase === "no-escrow" ? "CONDITION TRUE" : "PREVIEW"}</b></div>
+          <div><span>CONDITION {condition.id.toString()} <i>·</i> EXECUTION</span><b className={`execution-state state-${isComplete ? "confirmed" : isFailed ? "failed" : isSending || phase === "preparing" ? "pending" : "active"}`}><i />{isComplete ? "SETTLED" : isFailed ? "NEEDS ATTENTION" : isSending ? "CONFIRMING" : phase === "preparing" ? "PREPARING ESCROW" : phase === "no-escrow" ? "CONDITION TRUE" : "PREVIEW"}</b></div>
           <h1>{title}</h1>
           <p className="execution-condition">{condition.prompt}</p>
         </header>
@@ -544,15 +633,19 @@ function ExecutionView({ condition, checks, deal, fundedDemoDeal, conditions, re
         <div className="execution-workspace">
           <section className="execution-stage" aria-live="polite">
             <div className="execution-stage-heading"><span>EXECUTION PATH</span><small>{isComplete ? "04 / 04" : `0${Math.min(stepIndex + 1, 4)} / 04`}</small></div>
+            <div className="execution-progress-track" role="progressbar" aria-label="Settlement progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={progressPercent} aria-valuetext={progressLabel}>
+              <span className={phase === "preparing" ? "is-preparing" : isFailed ? "is-error" : isComplete ? "is-complete" : ""} style={{ width: `${progressPercent}%` }} />
+            </div>
+            <div className="execution-progress-caption"><span>{progressLabel}</span><small>{progressPercent}%</small></div>
             <ol className="execution-steps">
-              {steps.map((step, index) => <li key={step} data-state={index < doneSteps ? "complete" : index === activeStep && !isComplete && !isFailed ? "active" : isFailed && index === 3 ? "failed" : "waiting"}>
+              {steps.map((step, index) => <li key={step} data-state={index < doneSteps ? "complete" : index === activeStep && !isComplete && !isFailed ? "active" : isFailed && index === failedStep ? "failed" : "waiting"}>
                 <span className="execution-step-icon">{index < doneSteps || isComplete ? "✓" : `0${index + 1}`}</span>
                 <div><strong>{step}</strong><small>{["Real-world result", "Verifier result staged", "Anchor release_payment", "SOL transfer"][index]}</small></div>
               </li>)}
             </ol>
             <div className="execution-message">
               {phase === "payment" ? <span className="payment-mark" aria-hidden="true"><i /><b>◎</b></span> : isComplete ? <span className="payment-mark is-complete" aria-hidden="true"><i /><b>✓</b></span> : <span className={`execution-orbit${isSending ? " is-waiting" : ""}`} aria-hidden="true"><i /></span>}
-              <div><strong>{phase === "no-escrow" ? "No funded escrow linked" : detail}</strong>{isComplete && deal?.amountLamports !== undefined && <small>{(deal.amountLamports / 1_000_000_000).toFixed(3)} SOL sent to {deal.recipient ? `${deal.recipient.slice(0, 5)}…${deal.recipient.slice(-5)}` : "the recipient"}</small>}</div>
+              <div><strong>{detail}</strong>{isComplete && deal?.amountLamports !== undefined && <small>{(deal.amountLamports / 1_000_000_000).toFixed(3)} SOL sent to {deal.recipient ? `${deal.recipient.slice(0, 5)}…${deal.recipient.slice(-5)}` : "the recipient"}</small>}</div>
             </div>
           </section>
 
@@ -566,7 +659,7 @@ function ExecutionView({ condition, checks, deal, fundedDemoDeal, conditions, re
         </div>
 
         <footer className="execution-card-footer">
-          {isComplete ? <div className="payment-receipt"><span>PAYMENT COMPLETE</span>{condition.settlementSignature && <a href={`https://explorer.solana.com/tx/${condition.settlementSignature}?cluster=devnet`} target="_blank" rel="noopener noreferrer">View transaction ↗</a>}</div> : isFailed ? <div className="payment-receipt"><span>Release failed · Check the deal on Devnet.</span></div> : phase === "no-escrow" ? <div className="execution-deal-actions">{fundedDemoDeal?.funded ? <button onClick={onLinkDeal}>Link funded escrow <span>↗</span></button> : onCreateDeal && <button disabled={creatingDeal} onClick={onCreateDeal}>{creatingDeal ? "Creating escrow…" : "Create funded escrow"}<span>↗</span></button>}</div> : <div className="execution-wait-note"><span className="execution-wait-dot" />{isSending ? "The payment transaction is being confirmed." : phase === "payment" ? `${deal?.amountLamports !== undefined ? `${(deal.amountLamports / 1_000_000_000).toFixed(3)} SOL` : "Payment"} · final confirmation` : "The transfer starts after the execution path reaches payment."}</div>}
+          {isComplete ? <div className="payment-receipt"><span>PAYMENT COMPLETE</span>{condition.settlementSignature && <a href={`https://explorer.solana.com/tx/${condition.settlementSignature}?cluster=devnet`} target="_blank" rel="noopener noreferrer">View transaction ↗</a>}</div> : isFailed ? <div className="payment-receipt"><span>{phase === "setup-failed" ? "Escrow setup stopped · no payment was sent." : "Release failed · Check the deal on Devnet."}</span></div> : <div className="execution-wait-note"><span className="execution-wait-dot" />{phase === "preparing" ? "Preparing the funded escrow automatically…" : isSending ? "The payment transaction is being confirmed." : phase === "payment" ? `${deal?.amountLamports !== undefined ? `${(deal.amountLamports / 1_000_000_000).toFixed(3)} SOL` : "Payment"} · final confirmation` : "The transfer starts after the execution path reaches payment."}</div>}
           <span className="execution-network-label">SOLANA DEVNET</span>
         </footer>
       </section>

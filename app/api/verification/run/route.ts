@@ -16,7 +16,7 @@ export async function POST(request: Request) {
 
   const results: CheckResult[] = await Promise.all(checks.map(async (check) => {
     const sequence = check.sequence as number;
-    if (check.kind === "document") return { sequence, status: input.hasDocument === true ? "passed" : "failed", summary: input.hasDocument === true ? "Document metadata is attached." : "No document metadata is attached.", evidence: [] };
+    if (check.kind === "document") return { sequence, status: "failed", summary: "Document contents are not available; attachment metadata cannot verify this check.", evidence: [] };
     try {
       const evidence = check.kind === "reddit" ? await searchReddit(check.instruction as string) : await searchWeb(check.instruction as string);
       if (!evidence.length) return { sequence, status: "failed", summary: "No matching public source results were found.", evidence };

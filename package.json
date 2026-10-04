@@ -21,6 +21,11 @@
     "react-dom": "^18.3.0",
     "spacetimedb": "^2.10.2"
   },
+  "overrides": {
+    "rpc-websockets": {
+      "uuid": "11.1.0"
+    }
+  },
   "devDependencies": {
     "@coral-xyz/anchor": "^0.30.1",
     "@types/bn.js": "^5.1.6",

@@ -13,8 +13,15 @@ function requireDevnet(value = process.env.SOLANA_RPC_URL ?? "") {
   if (!value.includes("devnet")) throw new Error("Refusing to run: SOLANA_RPC_URL must point to Solana devnet.");
   return value;
 }
-function keypair(pathName: "PAYER_KEYPAIR_PATH" | "VERIFIER_KEYPAIR_PATH" | "RECIPIENT_KEYPAIR_PATH") {
-  const path = process.env[pathName]; if (!path) throw new Error(`Missing ${pathName}`);
+type KeypairPathName = "PAYER_KEYPAIR_PATH" | "VERIFIER_KEYPAIR_PATH" | "RECIPIENT_KEYPAIR_PATH";
+
+function keypair(pathName: KeypairPathName) {
+  const jsonName = pathName.replace("_PATH", "_JSON") as "PAYER_KEYPAIR_JSON" | "VERIFIER_KEYPAIR_JSON" | "RECIPIENT_KEYPAIR_JSON";
+  const json = process.env[jsonName];
+  if (json) return Keypair.fromSecretKey(Uint8Array.from(JSON.parse(json)));
+
+  const path = process.env[pathName];
+  if (!path) throw new Error(`Missing ${jsonName} or ${pathName}`);
   return Keypair.fromSecretKey(Uint8Array.from(JSON.parse(readFileSync(path, "utf8"))));
 }
 export function solana() {

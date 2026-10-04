@@ -10,3 +10,5 @@ test-ledger/
 *.keypair.json
 keypairs/
 graphify-out/
+.vercel
+.env*

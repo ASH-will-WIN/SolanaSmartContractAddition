@@ -1,0 +1,110 @@
+{"kind":"deck","id":"pr/tccehq","name":"Deck"}
+{"kind":"layout","layoutId":"e28a53d3-f4cf-4125-854f-65ff903e5237","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"05f29f2e-aa8d-46dd-896f-5ac92e31a7c2","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/c0629p","slide":1,"title":"SOLstice","textShapes":14}
+{"kind":"textbox","id":"sh/cnqpo7qh","slide":1,"text":"SOLstice","textPreview":"SOLstice","textChars":8,"textLines":1,"bbox":[72,68,490,90]}
+{"kind":"shape","id":"sh/bmh8v29w","slide":1,"bbox":[74,184,164,3]}
+{"kind":"textbox","id":"sh/al87mx8b","slide":1,"text":"Conditions beyond\non-chain state","textPreview":"Conditions beyond | on-chain state","textChars":32,"textLines":2,"bbox":[78,207,450,90]}
+{"kind":"textbox","id":"sh/lsjq1wry","slide":1,"text":"Program an escrow rule around a real-world condition.\nSOLstice delivers a verified result that a Solana program can enforce.","textPreview":"Program an escrow rule around a real-world condition. | SOLstice delivers a verified result that a Solana program can enforce.","textChars":124,"textLines":2,"bbox":[78,365,480,62]}
+{"kind":"textbox","id":"sh/krapsrqt","slide":1,"text":"Ashwin Shrivastav, Akhil Swaminathan\nSudeep Gowda, Joshua Asirvatham","textPreview":"Ashwin Shrivastav, Akhil Swaminathan | Sudeep Gowda, Joshua Asirvatham","textChars":68,"textLines":2,"bbox":[72,533,330,34]}
+{"kind":"textbox","id":"sh/zq18zm98","slide":1,"text":"MHACKS","textPreview":"MHACKS","textChars":6,"textLines":1,"bbox":[1080,614,130,18]}
+{"kind":"shape","id":"sh/yps7qh8n","slide":1,"bbox":[590,164,578,348]}
+{"kind":"textbox","id":"sh/tg3q5wra","slide":1,"text":"CONDITION EXECUTION LAYER","textPreview":"CONDITION EXECUTION LAYER","textChars":25,"textLines":1,"bbox":[626,197,300,18]}
+{"kind":"textbox","id":"sh/8vapwrqp","slide":1,"text":"“Release escrow when\nthe condition is verified.”","textPreview":"“Release escrow when | the condition is verified.”","textChars":48,"textLines":2,"bbox":[626,238,300,72]}
+{"kind":"shape","id":"sh/itw76p4b","slide":1,"bbox":[626,333,500,1]}
+{"kind":"textbox","id":"sh/3u5ozu5w","slide":1,"text":"VERIFIER RESULT","textPreview":"VERIFIER RESULT","textChars":15,"textLines":1,"bbox":[626,358,180,18]}
+{"kind":"textbox","id":"sh/4vep8zmh","slide":1,"text":"condition_result = true","textPreview":"condition_result = true","textChars":23,"textLines":1,"bbox":[626,383,270,30]}
+{"kind":"shape","id":"sh/5wnq14n2","slide":1,"bbox":[897,390,64,14]}
+{"kind":"textbox","id":"sh/qxw7a947","slide":1,"text":"SOLANA PROGRAM","textPreview":"SOLANA PROGRAM","textChars":14,"textLines":1,"bbox":[982,358,150,18]}
+{"kind":"textbox","id":"sh/ry583e5s","slide":1,"text":"release_escrow()","textPreview":"release_escrow()","textChars":16,"textLines":1,"bbox":[970,383,185,30]}
+{"kind":"textbox","id":"sh/szypcjmd","slide":1,"text":"A verified condition becomes an on-chain fact.\nThe contract handles the settlement.","textPreview":"A verified condition becomes an on-chain fact. | The contract handles the settlement.","textChars":83,"textLines":2,"bbox":[626,442,470,42]}
+{"kind":"shape","id":"sh/d07q5ony","slide":1,"bbox":[68,650,1144,1]}
+{"kind":"textbox","id":"sh/m1c7y543","slide":1,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[68,668,48,20]}
+{"kind":"textbox","id":"sh/72lora5o","slide":1,"text":"SOLstice / PROJECT OVERVIEW","textPreview":"SOLstice / PROJECT OVERVIEW","textChars":27,"textLines":1,"bbox":[120,668,720,20]}
+{"kind":"notes","id":"nt/c0629p","slide":1,"text":"SOLstice connects off-chain verification with on-chain enforcement in a devnet proof of concept. A centralized verifier submits a condition result; the Solana program enforces the escrow rule."}
+{"kind":"slide","id":"sl/h686pb","slide":2,"title":"02 / EXECUTION MODEL","textShapes":15}
+{"kind":"textbox","id":"sh/s7q1ofax","slide":2,"text":"02 / EXECUTION MODEL","textPreview":"02 / EXECUTION MODEL","textChars":20,"textLines":1,"bbox":[72,50,390,24]}
+{"kind":"textbox","id":"sh/r6hkvatc","slide":2,"text":"How a Solana program executes","textPreview":"How a Solana program executes","textChars":29,"textLines":1,"bbox":[72,98,760,62]}
+{"kind":"textbox","id":"sh/q58jm5s7","slide":2,"text":"A transaction calls the program. The program reads the supplied on-chain accounts and decides what state can change.","textPreview":"A transaction calls the program. The program reads the supplied on-chain accounts and decides what state can change.","textChars":116,"textLines":1,"bbox":[76,190,870,42]}
+{"kind":"shape","id":"sh/1cj21kru","slide":2,"bbox":[76,286,300,190]}
+{"kind":"shape","id":"sh/0ba1sfa9","slide":2,"bbox":[76,286,10,190]}
+{"kind":"textbox","id":"sh/fa1kzu9o","slide":2,"text":"TRANSACTION","textPreview":"TRANSACTION","textChars":11,"textLines":1,"bbox":[108,316,190,18]}
+{"kind":"textbox","id":"sh/e98jqps3","slide":2,"text":"release_escrow","textPreview":"release_escrow","textChars":14,"textLines":1,"bbox":[108,354,220,32]}
+{"kind":"shape","id":"sh/hgfip0ba","slide":2,"bbox":[108,402,220,1]}
+{"kind":"textbox","id":"sh/gf61gvap","slide":2,"text":"Instruction plus\nthe accounts it can read or change","textPreview":"Instruction plus | the accounts it can read or change","textChars":51,"textLines":2,"bbox":[108,419,220,43]}
+{"kind":"shape","id":"sh/ix0bepsf","slide":2,"bbox":[414,376,88,14]}
+{"kind":"shape","id":"sh/jytcnu90","slide":2,"bbox":[542,286,266,190]}
+{"kind":"textbox","id":"sh/4z2tgfal","slide":2,"text":"PROGRAM","textPreview":"PROGRAM","textChars":7,"textLines":1,"bbox":[572,316,180,18]}
+{"kind":"textbox","id":"sh/5kbupkr6","slide":2,"text":"Checks the\nrule","textPreview":"Checks the | rule","textChars":15,"textLines":2,"bbox":[572,353,205,70]}
+{"kind":"textbox","id":"sh/6lkbipsr","slide":2,"text":"on-chain logic","textPreview":"on-chain logic","textChars":14,"textLines":1,"bbox":[572,434,205,22]}
+{"kind":"shape","id":"sh/rmtcru9c","slide":2,"bbox":[846,376,88,14]}
+{"kind":"textbox","id":"sh/sn2tkzax","slide":2,"text":"ON-CHAIN STATE","textPreview":"ON-CHAIN STATE","textChars":14,"textLines":1,"bbox":[970,315,190,18]}
+{"kind":"textbox","id":"sh/tobut4r2","slide":2,"text":"Release SOL\nor keep escrow locked","textPreview":"Release SOL | or keep escrow locked","textChars":33,"textLines":2,"bbox":[970,355,220,72]}
+{"kind":"shape","id":"sh/epkbm9sn","slide":2,"bbox":[76,548,1132,1]}
+{"kind":"textbox","id":"sh/fqdcve98","slide":2,"text":"WHAT SITS OUTSIDE THE TRANSACTION","textPreview":"WHAT SITS OUTSIDE THE TRANSACTION","textChars":33,"textLines":1,"bbox":[76,575,350,18]}
+{"kind":"textbox","id":"sh/buds3epg","slide":2,"text":"News, delivery status, documents, and other real-world facts need a trusted path into the program.","textPreview":"News, delivery status, documents, and other real-world facts need a trusted path into the program.","textChars":98,"textLines":1,"bbox":[76,601,930,26]}
+{"kind":"shape","id":"sh/qt4ba98v","slide":2,"bbox":[68,650,1144,1]}
+{"kind":"textbox","id":"sh/dwva547m","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[68,668,48,20]}
+{"kind":"textbox","id":"sh/cvmtcj61","slide":2,"text":"SOLstice / EXECUTION MODEL","textPreview":"SOLstice / EXECUTION MODEL","textChars":26,"textLines":1,"bbox":[120,668,720,20]}
+{"kind":"notes","id":"nt/h686pb","slide":2,"text":"Solana programs execute when an instruction in a transaction invokes them. The instruction supplies the accounts the program can read or modify. Source: https://solana.com/docs/core/programs and https://solana.com/docs/core."}
+{"kind":"slide","id":"sl/mpqfgb","slide":3,"title":"03 / THE SOLSTICE LAYER","textShapes":18}
+{"kind":"textbox","id":"sh/3id8vulg","slide":3,"text":"03 / THE SOLSTICE LAYER","textPreview":"03 / THE SOLSTICE LAYER","textChars":23,"textLines":1,"bbox":[72,50,390,24]}
+{"kind":"textbox","id":"sh/ojm94f21","slide":3,"text":"External conditions,\non-chain enforcement","textPreview":"External conditions, | on-chain enforcement","textChars":41,"textLines":2,"bbox":[72,98,745,110]}
+{"kind":"textbox","id":"sh/pkvqxk3m","slide":3,"text":"SOLstice turns a condition outside Solana into a result the program can enforce.","textPreview":"SOLstice turns a condition outside Solana into a result the program can enforce.","textChars":80,"textLines":1,"bbox":[78,229,950,34]}
+{"kind":"shape","id":"sh/etkry5kz","slide":3,"bbox":[112,421,1044,2]}
+{"kind":"shape","id":"sh/fud8ralk","slide":3,"bbox":[112,409,24,24]}
+{"kind":"textbox","id":"sh/gfm90f25","slide":3,"text":"CONDITION","textPreview":"CONDITION","textChars":9,"textLines":1,"bbox":[104,300,210,18]}
+{"kind":"textbox","id":"sh/1gvqtk3q","slide":3,"text":"A milestone\nneeds proof","textPreview":"A milestone | needs proof","textChars":23,"textLines":2,"bbox":[104,323,215,54]}
+{"kind":"textbox","id":"sh/6pk7u5k3","slide":3,"text":"The user defines\nwhat must be true","textPreview":"The user defines | what must be true","textChars":34,"textLines":2,"bbox":[104,382,210,42]}
+{"kind":"shape","id":"sh/rqt83al8","slide":3,"bbox":[144,416,194,14]}
+{"kind":"shape","id":"sh/nyhsvuhs","slide":3,"bbox":[390,409,24,24]}
+{"kind":"textbox","id":"sh/2dob2p07","slide":3,"text":"VERIFICATION","textPreview":"VERIFICATION","textChars":12,"textLines":1,"bbox":[382,450,210,18]}
+{"kind":"textbox","id":"sh/p0zax4zi","slide":3,"text":"Evidence supports\nthe condition","textPreview":"Evidence supports | the condition","textChars":31,"textLines":2,"bbox":[382,473,215,54]}
+{"kind":"textbox","id":"sh/ozqt4zid","slide":3,"text":"SOLstice checks\nthe available evidence","textPreview":"SOLstice checks | the available evidence","textChars":38,"textLines":2,"bbox":[382,532,210,42]}
+{"kind":"shape","id":"sh/b2hszeho","slide":3,"bbox":[422,416,194,14]}
+{"kind":"shape","id":"sh/a18b6903","slide":3,"bbox":[668,409,24,24]}
+{"kind":"textbox","id":"sh/x4za1ozu","slide":3,"text":"VERIFIER","textPreview":"VERIFIER","textChars":8,"textLines":1,"bbox":[660,300,210,18]}
+{"kind":"textbox","id":"sh/c3qt8ji9","slide":3,"text":"true / false","textPreview":"true / false","textChars":12,"textLines":1,"bbox":[660,323,215,54]}
+{"kind":"textbox","id":"sh/r6dsna1k","slide":3,"text":"The verifier writes\na result it controls","textPreview":"The verifier writes | a result it controls","textChars":40,"textLines":2,"bbox":[660,382,210,42]}
+{"kind":"shape","id":"sh/q54ru50z","slide":3,"bbox":[700,416,194,14]}
+{"kind":"shape","id":"sh/u1cv2dkn","slide":3,"bbox":[946,409,24,24]}
+{"kind":"textbox","id":"sh/v2lwbi18","slide":3,"text":"PROGRAM","textPreview":"PROGRAM","textChars":7,"textLines":1,"bbox":[938,450,210,18]}
+{"kind":"textbox","id":"sh/gnud4n2d","slide":3,"text":"Rule can\nexecute","textPreview":"Rule can | execute","textChars":16,"textLines":2,"bbox":[938,473,215,54]}
+{"kind":"textbox","id":"sh/ho3edsjy","slide":3,"text":"The Solana program\nchecks that result","textPreview":"The Solana program | checks that result","textChars":37,"textLines":2,"bbox":[938,532,210,42]}
+{"kind":"shape","id":"sh/6xcvydkb","slide":3,"bbox":[72,590,1136,42]}
+{"kind":"textbox","id":"sh/7ylc7i1w","slide":3,"text":"The smart contract still enforces its own rule. SOLstice supplies the verified condition it can read.","textPreview":"The smart contract still enforces its own rule. SOLstice supplies the verified condition it can read.","textChars":101,"textLines":1,"bbox":[96,600,1060,22]}
+{"kind":"shape","id":"sh/8zud0n2h","slide":3,"bbox":[68,650,1144,1]}
+{"kind":"textbox","id":"sh/t03e98j2","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[68,668,48,20]}
+{"kind":"textbox","id":"sh/ytsvutkf","slide":3,"text":"SOLstice / EXTERNAL CONDITION LAYER","textPreview":"SOLstice / EXTERNAL CONDITION LAYER","textChars":35,"textLines":1,"bbox":[120,668,720,20]}
+{"kind":"notes","id":"nt/mpqfgb","slide":3,"text":"The application lets users define real-world conditions when available evidence can support checks. Public web and Reddit search snippets are evaluated off-chain, then the centralized verifier submits a signed result. The verifier is trusted in this devnet proof of concept."}
+{"kind":"slide","id":"sl/s07asj","slide":4,"title":"04 / AUTOMATIC SETTLEMENT","textShapes":19}
+{"kind":"textbox","id":"sh/kfexcfud","slide":4,"text":"04 / AUTOMATIC SETTLEMENT","textPreview":"04 / AUTOMATIC SETTLEMENT","textChars":25,"textLines":1,"bbox":[72,50,390,24]}
+{"kind":"textbox","id":"sh/je5w3ads","slide":4,"text":"One condition.\nAutomatic settlement.","textPreview":"One condition. | Automatic settlement.","textChars":36,"textLines":2,"bbox":[72,98,650,110]}
+{"kind":"textbox","id":"sh/ydwfapc7","slide":4,"text":"The developer sets the rule once. The program executes when the verifier reports that the condition passed.","textPreview":"The developer sets the rule once. The program executes when the verifier reports that the condition passed.","textChars":107,"textLines":1,"bbox":[78,228,880,34]}
+{"kind":"shape","id":"sh/xcne1kvm","slide":4,"bbox":[72,310,370,230]}
+{"kind":"textbox","id":"sh/wbex8fu1","slide":4,"text":"DEVELOPER CONDITION","textPreview":"DEVELOPER CONDITION","textChars":19,"textLines":1,"bbox":[104,340,220,18]}
+{"kind":"textbox","id":"sh/ba5wzadg","slide":4,"text":"Release escrow when\nthe claim is verified.","textPreview":"Release escrow when | the claim is verified.","textChars":42,"textLines":2,"bbox":[104,375,290,66]}
+{"kind":"textbox","id":"sh/a9wf65cv","slide":4,"text":"Enabled automation waits for\nthe condition to trigger.","textPreview":"Enabled automation waits for | the condition to trigger.","textChars":54,"textLines":2,"bbox":[104,470,260,42]}
+{"kind":"shape","id":"sh/9o3ex0vq","slide":4,"bbox":[470,411,92,14]}
+{"kind":"shape","id":"sh/onux4vu5","slide":4,"bbox":[590,310,258,230]}
+{"kind":"textbox","id":"sh/qx0ze90b","slide":4,"text":"VERIFIER RESULT","textPreview":"VERIFIER RESULT","textChars":15,"textLines":1,"bbox":[618,341,180,18]}
+{"kind":"textbox","id":"sh/by9gne1w","slide":4,"text":"condition_result\n= true","textPreview":"condition_result | = true","textChars":23,"textLines":2,"bbox":[618,389,202,58]}
+{"kind":"textbox","id":"sh/cjihgjih","slide":4,"text":"A signed result reaches\nthe program","textPreview":"A signed result reaches | the program","textChars":35,"textLines":2,"bbox":[618,474,202,34]}
+{"kind":"shape","id":"sh/dkrypoj2","slide":4,"bbox":[876,411,92,14]}
+{"kind":"shape","id":"sh/2tgza90f","slide":4,"bbox":[995,310,213,230]}
+{"kind":"textbox","id":"sh/3upgje10","slide":4,"text":"SOLANA PROGRAM","textPreview":"SOLANA PROGRAM","textChars":14,"textLines":1,"bbox":[1023,341,160,18]}
+{"kind":"textbox","id":"sh/ovyhcjil","slide":4,"text":"release_\nescrow()","textPreview":"release_ | escrow()","textChars":17,"textLines":2,"bbox":[1023,386,160,58]}
+{"kind":"textbox","id":"sh/pw7yl4j6","slide":4,"text":"Escrow settles\non devnet","textPreview":"Escrow settles | on devnet","textChars":24,"textLines":2,"bbox":[1023,476,160,34]}
+{"kind":"shape","id":"sh/upgz6p0j","slide":4,"bbox":[72,589,1136,1]}
+{"kind":"textbox","id":"sh/fqpgfu1o","slide":4,"text":"DEMO CONTRACT PATH","textPreview":"DEMO CONTRACT PATH","textChars":18,"textLines":1,"bbox":[72,607,210,18]}
+{"kind":"textbox","id":"sh/ji14r6dk","slide":4,"text":"Enabled","textPreview":"Enabled","textChars":7,"textLines":1,"bbox":[323,602,124,24]}
+{"kind":"shape","id":"sh/yxsny1cz","slide":4,"bbox":[449,608,48,14]}
+{"kind":"textbox","id":"sh/lk3mtgva","slide":4,"text":"Triggered","textPreview":"Triggered","textChars":9,"textLines":1,"bbox":[512,602,136,24]}
+{"kind":"shape","id":"sh/kja50bup","slide":4,"bbox":[652,608,48,14]}
+{"kind":"textbox","id":"sh/7mlov6dg","slide":4,"text":"Verified","textPreview":"Verified","textChars":8,"textLines":1,"bbox":[714,602,124,24]}
+{"kind":"shape","id":"sh/6lcn21cv","slide":4,"bbox":[843,608,48,14]}
+{"kind":"textbox","id":"sh/to36xgbm","slide":4,"text":"Executed","textPreview":"Executed","textChars":8,"textLines":1,"bbox":[906,602,140,24]}
+{"kind":"shape","id":"sh/8nu54bu1","slide":4,"bbox":[68,650,1144,1]}
+{"kind":"textbox","id":"sh/nqh4jmdc","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[68,668,48,20]}
+{"kind":"textbox","id":"sh/mp8nqhcr","slide":4,"text":"SOLstice / AUTOMATIC SETTLEMENT","textPreview":"SOLstice / AUTOMATIC SETTLEMENT","textChars":31,"textLines":1,"bbox":[120,668,720,20]}
+{"kind":"notes","id":"nt/s07asj","slide":4,"text":"The demo starts after the user enables a condition. A simulated trigger starts the real verification runner. The centralized verifier records the result. The Solana program can release a linked, funded devnet escrow after it receives a passing result."}

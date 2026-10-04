@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { buildPlannerMessages, parseVerificationPlan } from "@/lib/verification-plan";
+import { buildPlannerMessages, ExecutionActionAsEvidenceError, parseVerificationPlan } from "@/lib/verification-plan";
 
 export const runtime = "nodejs";
 
@@ -10,11 +10,19 @@ export async function POST(request: Request) {
   try { body = await request.json(); } catch { return badRequest("Request body must be valid JSON."); }
   if (!body || typeof body !== "object" || Array.isArray(body)) return badRequest("Request body is invalid.");
   const input = body as Record<string, unknown>;
-  if (Object.keys(input).some((key) => key !== "condition" && key !== "document" && key !== "documents")) return badRequest("Request contains unsupported fields.");
+  if (Object.keys(input).some((key) => key !== "condition" && key !== "promptHistory" && key !== "document" && key !== "documents")) return badRequest("Request contains unsupported fields.");
   if (typeof input.condition !== "string") return badRequest("Enter a condition first.");
   const condition = input.condition.trim();
   if (!condition) return badRequest("Enter a condition first.");
   if (condition.length > 2000) return badRequest("Condition must be 2,000 characters or fewer.");
+  let promptHistory = [condition];
+  if (input.promptHistory !== undefined) {
+    if (!Array.isArray(input.promptHistory) || input.promptHistory.length < 1 || input.promptHistory.length > 50) return badRequest("Prompt history must contain between 1 and 50 entries.");
+    if (input.promptHistory.some((entry) => typeof entry !== "string" || !entry.trim() || entry.length > 2000)) return badRequest("Prompt history entries must be non-empty and 2,000 characters or fewer.");
+    promptHistory = input.promptHistory.map((entry) => (entry as string).trim());
+    if (promptHistory[promptHistory.length - 1] !== condition) return badRequest("Prompt history must end with the current condition.");
+    if (promptHistory.reduce((total, entry) => total + entry.length, 0) > 32_000) return badRequest("Prompt history cannot exceed 32,000 characters.");
+  }
   let documents: Array<{ fileName: string; mimeType: string; byteCount: number }> = [];
   if (input.documents !== undefined) {
     if (!Array.isArray(input.documents) || input.documents.length > 10) return badRequest("Document metadata is invalid.");
@@ -41,7 +49,7 @@ export async function POST(request: Request) {
     const response = await fetch("https://api.x.ai/v1/chat/completions", {
       method: "POST",
       headers: { authorization: `Bearer ${apiKey}`, "content-type": "application/json" },
-      body: JSON.stringify({ model: process.env.XAI_MODEL || "grok-4.3", messages: buildPlannerMessages({ condition, hasDocument: documents.length > 0, documents: documents.map(({ fileName, mimeType }) => ({ fileName, mimeType })) }), response_format: { type: "json_object" }, temperature: 0.2 }),
+      body: JSON.stringify({ model: process.env.XAI_MODEL || "grok-4.3", messages: buildPlannerMessages({ condition, promptHistory, hasDocument: false }), response_format: { type: "json_object" }, temperature: 0.2 }),
       signal: AbortSignal.timeout(30_000),
     });
     if (response.status === 401 || response.status === 403) {
@@ -59,9 +67,12 @@ export async function POST(request: Request) {
     const choice = (payload as { choices?: Array<{ message?: { content?: unknown } }> }).choices?.[0];
     const content = choice?.message?.content;
     if (typeof content !== "string") throw new Error("Invalid provider response");
-    const plan = parseVerificationPlan(JSON.parse(content), documents.length > 0);
+    const plan = parseVerificationPlan(JSON.parse(content), false);
     return NextResponse.json(plan);
   } catch (error) {
+    if (error instanceof ExecutionActionAsEvidenceError) {
+      return NextResponse.json({ error: "The plan tried to search for the payment itself. Its checks must cover only the real-world condition that triggers payment; please retry." }, { status: 502 });
+    }
     if (error instanceof Error && error.name === "TimeoutError") {
       return NextResponse.json({ error: "The planning service took longer than 30 seconds. Check your connection and try again." }, { status: 504 });
     }
