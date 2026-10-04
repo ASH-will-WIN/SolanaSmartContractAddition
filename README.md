@@ -100,14 +100,12 @@ SpacetimeDB listens on `127.0.0.1:3001` and Next.js uses its usual port 3000. Th
 
 In the **Verification Plan** section, enter a condition and click **Generate verification plan**. The plan and optional document metadata are written through real reducers; subscribed rows appear without a refresh. File bytes, external evidence sources, and Solana settlement are not part of this demonstration.
 
-### Grok planning slice
+### Verification runner
 
-Set `XAI_API_KEY` in `.env.local` (server side only; never use a `NEXT_PUBLIC_` name). `XAI_MODEL` defaults to `grok-4.3`. The Verification Plan form calls `POST /api/verification-plan`, then creates the condition, optional document metadata, and ordered checks through the existing SpacetimeDB reducers. File bytes are never uploaded or read. The displayed rows come from the existing subscriptions. At this stage, external evidence collection has not started; a future server-side verification worker will own writes after it runs the Reddit, web, and document checks.
+Set `XAI_API_KEY` and `FIRECRAWL_API_KEY` in `.env.local` (server side only; never use `NEXT_PUBLIC_` names). `XAI_MODEL` defaults to `grok-4.3`. Generating a plan calls `POST /api/verification-plan`; clicking **Run verification** calls `POST /api/verification/run`, searches up to three Reddit and Firecrawl web results per check, asks Grok to judge relevance from those snippets, and writes evidence and check results through SpacetimeDB reducers. Reddit uses its public search JSON endpoint. Document checks only confirm attached metadata; file contents are never uploaded or read. A true result marks settlement **Ready** but does not send a Solana transaction.
 
-### Future API worker boundary
-
-Future Next.js API routes will receive a verification request, call Grok and the selected external tools, normalize findings into structured evidence, then invoke SpacetimeDB reducers to update checks and evidence. A deterministic evaluator will resolve the condition; only a true resolved condition should proceed to the existing Solana verifier. Keep external calls in Next.js routes or workers: reducers must remain deterministic and must not call Grok, Reddit, web search, document parsers, Nessie, filesystem APIs, clocks, randomness, or Solana RPC.
+External calls stay in Next.js routes: SpacetimeDB reducers remain deterministic and do not call Grok, Reddit, web search, document parsers, Nessie, filesystem APIs, clocks, randomness, or Solana RPC.
 
 ## Intentionally omitted
 
-Real evidence verification, AI/document/image analysis, custom attestations, wallet connections, SPL/stablecoins, banking, mainnet, multi-party oracles, the API worker, and production authorization/key management are intentionally out of scope.
+Nessie, real document parsing, stronger evaluation rules, manual settlement wiring, automatic Solana release, custom attestations, wallet connections, SPL/stablecoins, banking, mainnet, multi-party oracles, and production authorization/key management are intentionally out of scope.

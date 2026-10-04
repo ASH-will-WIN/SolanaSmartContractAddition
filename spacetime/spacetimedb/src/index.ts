@@ -148,6 +148,16 @@ export const complete_check = spacetimedb.reducer(
   },
 );
 
+export const set_check_error = spacetimedb.reducer(
+  { checkId: t.u64(), summary: t.string() },
+  (ctx, { checkId, summary }) => {
+    const row = requireCheck(ctx, checkId);
+    ctx.db.verificationCheck.id.update({ ...row, status: 'error', passed: undefined, summary, updatedAt: ctx.timestamp });
+    const parent = requireCondition(ctx, row.conditionId);
+    ctx.db.condition.id.update({ ...parent, status: 'failed', finalResult: undefined, updatedAt: ctx.timestamp });
+  },
+);
+
 export const add_evidence = spacetimedb.reducer(
   {
     conditionId: t.u64(),

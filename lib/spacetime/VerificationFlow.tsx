@@ -39,6 +39,11 @@ export function VerificationFlow() {
   const setConditionStatus = useReducer(reducers.setConditionStatus);
   const addVerificationCheck = useReducer(reducers.addVerificationCheck);
   const recordUploadedDocument = useReducer(reducers.recordUploadedDocument);
+  const setCheckRunning = useReducer(reducers.setCheckRunning);
+  const completeCheck = useReducer(reducers.completeCheck);
+  const setCheckError = useReducer(reducers.setCheckError);
+  const addEvidence = useReducer(reducers.addEvidence);
+  const resolveCondition = useReducer(reducers.resolveCondition);
 
   const selectedCondition = conditions.find((row) => row.id === selectedId)
     ?? [...conditions].sort(newestFirst)[0];
@@ -104,6 +109,27 @@ export function VerificationFlow() {
     } finally { submitting.current = false; }
   });
 
+  const runVerification = () => run(async () => {
+    if (!selectedCondition || flowChecks.length === 0) return;
+    setNotice("Running public source checks…");
+    for (const check of flowChecks) await setCheckRunning({ checkId: check.id });
+    const response = await fetch("/api/verification/run", {
+      method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ condition: selectedCondition.prompt, hasDocument: flowDocuments.length > 0, checks: flowChecks.map(({ sequence, kind, instruction }) => ({ sequence, kind, instruction, required: true })) }),
+    });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || "Verification could not run.");
+    for (const checkResult of result.results as Array<{ sequence: number; status: "passed" | "failed" | "error"; summary: string; evidence: Array<{ sourceType: string; title: string; url?: string; snippet: string; authorOrSource?: string; publishedAt?: string }> }>) {
+      const check = flowChecks.find((item) => item.sequence === checkResult.sequence);
+      if (!check) continue;
+      for (const item of checkResult.evidence) await addEvidence({ conditionId: selectedCondition.id, checkId: check.id, sourceType: item.sourceType, title: item.title, url: item.url, snippet: item.snippet, authorOrSource: item.authorOrSource, sourcePublishedAt: item.publishedAt, relevanceScore: undefined });
+      if (checkResult.status === "error") await setCheckError({ checkId: check.id, summary: checkResult.summary });
+      else await completeCheck({ checkId: check.id, passed: checkResult.status === "passed", summary: checkResult.summary });
+    }
+    await resolveCondition({ conditionId: selectedCondition.id, result: result.result === true });
+    setNotice(result.result ? "Verification complete — settlement ready." : "Verification finished. The condition did not pass all checks.");
+  });
+
   return <section className="card space-y-4">
     <div className="flex flex-wrap items-start justify-between gap-3">
       <div>
@@ -129,7 +155,7 @@ export function VerificationFlow() {
       <button disabled={busy || !isActive || !prompt.trim() || submittedFingerprint === formFingerprint} onClick={createPlan}>{busy ? "Generating plan…" : submittedFingerprint === formFingerprint ? "Plan generated" : "Generate verification plan"}</button>
     </div>
     <p className="text-xs text-slate-400">{file ? `${file.name} · ${(file.size / 1024).toFixed(1)} KB · metadata only; file contents are not uploaded or read.` : "Optional: attach supporting document. Only its name, type, and size are recorded."}</p>
-    {planSummary && <p className="rounded border border-emerald-900 bg-emerald-950/30 p-3 text-sm">{planSummary} <span className="text-slate-400">External evidence collection has not started yet.</span></p>}
+    {planSummary && <p className="rounded border border-emerald-900 bg-emerald-950/30 p-3 text-sm">{planSummary}</p>}
 
     {conditions.length > 0 && <label className="block space-y-1 text-sm">
       <span className="label">Subscribed conditions</span>
@@ -145,13 +171,15 @@ export function VerificationFlow() {
         <div className="mt-2 text-xs text-slate-400">Created {displayTime(selectedCondition.createdAt)} · Final result: {selectedCondition.finalResult === undefined ? "pending" : String(selectedCondition.finalResult)} · Settlement: {selectedCondition.settlementStatus}</div>
       </div>
 
+      {flowChecks.length > 0 && <button disabled={busy || flowChecks.some((check) => check.status === "running")} onClick={runVerification}>{busy ? "Running verification…" : flowChecks.every((check) => check.status === "pending") ? "Run verification" : "Run verification again"}</button>}
+
       <div className="grid gap-3 md:grid-cols-3">
         {flowChecks.map((check) => <article className="rounded border border-slate-700 p-3" key={check.id.toString()}>
           <div className="flex justify-between gap-2"><strong>{check.label}</strong><span className="rounded bg-slate-800 px-2 py-1 text-xs text-slate-200">{check.status === "pending" ? "Pending evidence" : check.status}</span></div>
           <p className="mt-2 text-xs text-slate-400">{check.instruction}</p>
           {check.summary && <p className="mt-2 text-sm">{check.summary}</p>}
           <p className="mt-2 text-xs text-slate-400">{check.evidenceCount} evidence item(s)</p>
-          <ul className="mt-2 space-y-2">{flowEvidence.filter((item) => item.checkId === check.id).map((item) => <li className="rounded bg-slate-900 p-2 text-xs" key={item.id.toString()}><strong>{item.title}</strong><div className="mt-1 text-slate-400">{item.snippet}</div></li>)}</ul>
+          <ul className="mt-2 space-y-2">{flowEvidence.filter((item) => item.checkId === check.id).map((item) => <li className="rounded bg-slate-900 p-2 text-xs" key={item.id.toString()}><span className="text-slate-500">{item.sourceType}</span><strong className="ml-2">{item.url ? <a className="underline" href={item.url} target="_blank" rel="noreferrer">{item.title}</a> : item.title}</strong><div className="mt-1 text-slate-400">{item.snippet}</div></li>)}</ul>
         </article>)}
         {flowChecks.length === 0 && <p className="text-sm text-slate-400 md:col-span-3">No verification checks in this condition yet.</p>}
       </div>
@@ -162,6 +190,6 @@ export function VerificationFlow() {
       </div>
     </>}
     <p className="text-xs text-slate-400" aria-live="polite">{notice}</p>
-    {selectedCondition && <p className="rounded border border-amber-900 p-3 text-sm text-amber-100">Decision locked until checks run · Settlement locked</p>}
+    {selectedCondition && <p className={`rounded border p-3 text-sm ${selectedCondition.settlementStatus === "ready" ? "border-emerald-800 text-emerald-200" : "border-amber-900 text-amber-100"}`}>{selectedCondition.finalResult === true ? "This condition met the selected verification rules." : selectedCondition.finalResult === false ? "Condition not met. Settlement locked." : "Decision pending · Settlement locked"} · Settlement: {selectedCondition.settlementStatus === "ready" ? "Ready" : "Locked"}</p>}
   </section>;
 }

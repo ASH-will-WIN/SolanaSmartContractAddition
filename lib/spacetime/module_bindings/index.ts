@@ -41,6 +41,7 @@ import CreateConditionReducer from "./create_condition_reducer";
 import RecordSettlementStatusReducer from "./record_settlement_status_reducer";
 import RecordUploadedDocumentReducer from "./record_uploaded_document_reducer";
 import ResolveConditionReducer from "./resolve_condition_reducer";
+import SetCheckErrorReducer from "./set_check_error_reducer";
 import SetCheckRunningReducer from "./set_check_running_reducer";
 import SetConditionStatusReducer from "./set_condition_status_reducer";
 import SetDocumentExtractionStatusReducer from "./set_document_extraction_status_reducer";
@@ -127,6 +128,7 @@ const reducersSchema = __reducers(
   __reducerSchema("record_settlement_status", RecordSettlementStatusReducer),
   __reducerSchema("record_uploaded_document", RecordUploadedDocumentReducer),
   __reducerSchema("resolve_condition", ResolveConditionReducer),
+  __reducerSchema("set_check_error", SetCheckErrorReducer),
   __reducerSchema("set_check_running", SetCheckRunningReducer),
   __reducerSchema("set_condition_status", SetConditionStatusReducer),
   __reducerSchema("set_document_extraction_status", SetDocumentExtractionStatusReducer),
