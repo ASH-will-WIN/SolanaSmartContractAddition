@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { SpacetimeProvider } from "@/lib/spacetime/Provider";
 import { VerificationFlow } from "@/lib/spacetime/VerificationFlow";
 
@@ -18,17 +17,10 @@ async function api(url: string, init?: RequestInit) {
 }
 
 export default function Home() {
-  const [deal, setDeal] = useState<DemoDeal>();
-  const [creatingDeal, setCreatingDeal] = useState(false);
   const createDeal = async (): Promise<DemoDeal> => {
-    setCreatingDeal(true);
-    try {
-      const created = await api("/api/deal/create", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ conditionId: "foundation_milestone_complete", amountSol: 0.001 }) });
-      const state = await api(`/api/deal/${created.dealId}`);
-      const ready = { ...created, ...state } as DemoDeal;
-      setDeal(ready);
-      return ready;
-    } finally { setCreatingDeal(false); }
+    const created = await api("/api/deal/create", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ conditionId: "foundation_milestone_complete", amountSol: 0.001 }) });
+    const state = await api(`/api/deal/${created.dealId}`);
+    return { ...created, ...state } as DemoDeal;
   };
-  return <SpacetimeProvider><VerificationFlow demoDeal={deal} onCreateDemoDeal={createDeal} creatingDeal={creatingDeal} /></SpacetimeProvider>;
+  return <SpacetimeProvider><VerificationFlow onCreateDemoDeal={createDeal} /></SpacetimeProvider>;
 }

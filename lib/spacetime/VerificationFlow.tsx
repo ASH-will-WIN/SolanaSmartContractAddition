@@ -10,7 +10,7 @@ import { useReducer, useSpacetimeDB, useTable } from "spacetimedb/react";
 import { reducers, tables } from "./module_bindings";
 import type { Condition, Evidence as EvidenceRow, UploadedDocument, VerificationCheck } from "./module_bindings/types";
 import type { VerificationPlan } from "@/lib/verification-plan";
-import { requestRelease, SAFE_RELEASE_ERROR } from "@/lib/spacetime/release-state";
+import { requestRelease, ReleaseRequestError, SAFE_RELEASE_ERROR } from "@/lib/spacetime/release-state";
 
 type DemoDeal = { dealId: number; recipient?: string; amountLamports?: number; funded?: boolean; released?: boolean; createSignature?: string };
 type GraphKind = "condition" | "plan" | "result" | "resolution" | "settlement";
@@ -148,7 +148,7 @@ function writePromptHistory(condition: Condition, history: string[]) {
   } catch { /* Prompt context remains available in memory when browser storage is unavailable. */ }
 }
 
-export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = false }: { demoDeal?: DemoDeal; onCreateDemoDeal?: () => Promise<DemoDeal>; creatingDeal?: boolean }) {
+export function VerificationFlow({ onCreateDemoDeal }: { onCreateDemoDeal?: () => Promise<DemoDeal> }) {
   const { isActive, connectionError, getConnection } = useSpacetimeDB();
   const [conditionRows, conditionsLoading] = useTable(tables.condition);
   const [checkRows, checksLoading] = useTable(tables.verificationCheck);
@@ -200,22 +200,25 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
   const formFingerprint = JSON.stringify({ condition: prompt.trim(), documents: files.map((file) => ({ name: file.name, type: file.type, size: file.size })) });
   const revisionHasChanges = Boolean(selectedCondition?.status === "planning" && (prompt.trim() !== selectedCondition.prompt.trim() || files.length > 0));
   const dealId = selectedCondition?.dealId;
-  const settlementDeal = demoDeal && BigInt(demoDeal.dealId) === dealId ? demoDeal
-    : associatedDeal && associatedDealConditionId === selectedCondition?.id && (!dealId || BigInt(associatedDeal.dealId) === dealId) ? associatedDeal : undefined;
+  const settlementDeal = associatedDeal && associatedDealConditionId === selectedCondition?.id && (!dealId || BigInt(associatedDeal.dealId) === dealId) ? associatedDeal : undefined;
   const selectedCheck = flowChecks.find((check) => selectedNode === `plan-${check.id.toString()}` || selectedNode === `result-${check.id.toString()}`);
   const selectedEvidence = selectedCheck ? flowEvidence.filter((item) => item.checkId === selectedCheck.id).sort((a, b) => a.createdAt.microsSinceUnixEpoch > b.createdAt.microsSinceUnixEpoch ? -1 : a.createdAt.microsSinceUnixEpoch < b.createdAt.microsSinceUnixEpoch ? 1 : 0) : [];
   const graph = useMemo(() => buildGraph(selectedCondition, flowChecks, flowEvidence, releaseBusy), [selectedCondition, flowChecks, flowEvidence, releaseBusy]);
 
   useEffect(() => {
-    if (!dealId || (demoDeal && BigInt(demoDeal.dealId) === dealId) || (associatedDealConditionId === selectedCondition?.id && associatedDeal && BigInt(associatedDeal.dealId) === dealId)) return;
+    if (!dealId || (associatedDealConditionId === selectedCondition?.id && associatedDeal && BigInt(associatedDeal.dealId) === dealId)) return;
     let active = true;
+    const conditionId = selectedCondition?.id;
     fetch(`/api/deal/${dealId.toString()}`).then(async (response) => {
       if (!response.ok) throw new Error("Deal unavailable");
-      const details = await response.json();
-      if (active) setAssociatedDeal(details);
+      const details = await response.json() as DemoDeal;
+      if (active) {
+        setAssociatedDeal(details);
+        if (conditionId !== undefined) setAssociatedDealConditionId(conditionId);
+      }
     }).catch(() => { if (active) setAssociatedDeal(undefined); });
     return () => { active = false; };
-  }, [dealId, demoDeal, associatedDeal, associatedDealConditionId, selectedCondition?.id]);
+  }, [dealId, associatedDeal, associatedDealConditionId, selectedCondition?.id]);
 
   const run = async (work: () => Promise<void>) => { setBusy(true); try { await work(); } catch (error) { setNotice(error instanceof Error ? error.message : "SpacetimeDB request failed."); } finally { setBusy(false); } };
   const createPlan = () => run(async () => {
@@ -296,11 +299,6 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
     await resolveCondition({ conditionId: selectedCondition.id, result: result.result === true });
     setNotice(result.result ? "Condition verified: TRUE. Holding the result before on-chain execution." : "Verification finished. The condition did not pass all checks.");
     if (result.result === true) {
-      if (!selectedCondition.dealId && demoDeal?.funded) {
-        await associateDemoDeal({ conditionId: selectedCondition.id, dealId: BigInt(demoDeal.dealId) });
-        setAssociatedDeal(demoDeal);
-        setAssociatedDealConditionId(selectedCondition.id);
-      }
       await new Promise((resolve) => window.setTimeout(resolve, 2800));
       setShowExecutionView(true);
     }
@@ -337,7 +335,29 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
     let transactionConfirmed = false;
     try {
       await recordSettlementStatus({ conditionId: condition.id, status: "submitted", signature: undefined });
-      const signature = await requestRelease(Number(targetDealId));
+      let releaseDealId = targetDealId;
+      let signature: string;
+      try {
+        signature = await requestRelease(Number(releaseDealId));
+      } catch (releaseError) {
+        // A stale browser tab can still submit an older deal ID. Recover only
+        // when the API says conflict AND Devnet confirms that deal is released.
+        if (!(releaseError instanceof ReleaseRequestError) || releaseError.status !== 409 || !onCreateDemoDeal) throw releaseError;
+        const previousResponse = await fetch(`/api/deal/${releaseDealId.toString()}`);
+        const previousDeal = await previousResponse.json().catch(() => ({}));
+        if (!previousResponse.ok || previousDeal.released !== true) throw releaseError;
+
+        const replacement = await onCreateDemoDeal();
+        if (!replacement.funded || replacement.released) throw new Error("A fresh funded Devnet escrow could not be prepared.");
+        releaseDealId = BigInt(replacement.dealId);
+        await associateDemoDeal({ conditionId: condition.id, dealId: releaseDealId });
+        await recordSettlementStatus({ conditionId: condition.id, status: "ready", signature: undefined });
+        setAssociatedDeal(replacement);
+        setAssociatedDealConditionId(condition.id);
+        await recordSettlementStatus({ conditionId: condition.id, status: "submitted", signature: undefined });
+        signature = await requestRelease(Number(releaseDealId));
+        setNotice("The old escrow was already settled. A fresh escrow was created and this condition is now executing.");
+      }
       transactionConfirmed = true;
       try {
         await recordSettlementStatus({ conditionId: condition.id, status: "confirmed", signature });
@@ -376,36 +396,28 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
     }
     setNotice("Condition enabled. The demo trigger starts verification in about 1.5 seconds.");
   });
-  const linkDeal = () => run(async () => {
-    if (!selectedCondition || !demoDeal?.funded) throw new Error("Create and fund a Devnet deal first.");
-    await associateDemoDeal({ conditionId: selectedCondition.id, dealId: BigInt(demoDeal.dealId) });
-    setAssociatedDeal(demoDeal); setAssociatedDealConditionId(selectedCondition.id); setNotice("Funded Devnet deal linked to this condition.");
-    if (selectedCondition.finalResult === true) setShowExecutionView(true);
-  });
   const prepareSettlement = async () => {
     if (!selectedCondition || selectedCondition.finalResult !== true) throw new Error("The condition must be verified before preparing settlement.");
-    let readyDeal: DemoDeal;
+    let readyDeal: DemoDeal | undefined;
     if (selectedCondition.dealId) {
-      if (settlementDeal?.funded) readyDeal = settlementDeal;
+      if (settlementDeal?.funded && !settlementDeal.released) readyDeal = settlementDeal;
       else {
         const response = await fetch(`/api/deal/${selectedCondition.dealId.toString()}`);
-        const details = await response.json();
-        if (!response.ok || details.funded !== true) throw new Error(details.error || "The linked Devnet escrow is not funded.");
-        readyDeal = details as DemoDeal;
+        const details = await response.json().catch(() => ({}));
+        if (response.ok && details.funded === true && details.released !== true) readyDeal = details as DemoDeal;
+        else if (response.status !== 404 && response.ok === false && details.funded === undefined) throw new Error(details.error || "Could not check the linked Devnet escrow.");
       }
-    } else if (demoDeal?.funded) readyDeal = demoDeal;
-    else {
+    }
+    if (!readyDeal) {
       if (!onCreateDemoDeal) throw new Error("Automatic Devnet escrow preparation is unavailable.");
       readyDeal = await onCreateDemoDeal();
     }
-    if (!readyDeal.funded) throw new Error("The Devnet escrow was created but is not funded.");
-    if (!selectedCondition.dealId) await associateDemoDeal({ conditionId: selectedCondition.id, dealId: BigInt(readyDeal.dealId) });
+    if (!readyDeal.funded || readyDeal.released) throw new Error("A fresh funded Devnet escrow could not be prepared.");
+    const newDealId = BigInt(readyDeal.dealId);
+    if (selectedCondition.dealId !== newDealId) await associateDemoDeal({ conditionId: selectedCondition.id, dealId: newDealId });
+    if (selectedCondition.settlementStatus === "failed") await recordSettlementStatus({ conditionId: selectedCondition.id, status: "ready", signature: undefined });
     setAssociatedDeal(readyDeal);
     setAssociatedDealConditionId(selectedCondition.id);
-  };
-  const createDealFromButton = () => {
-    if (!onCreateDemoDeal) return;
-    void onCreateDemoDeal().catch((error) => setNotice(error instanceof Error ? error.message : "Could not create Devnet deal."));
   };
   const editAsNew = () => { if (selectedCondition) { const history = promptHistoryCache.current.get(selectedCondition.id.toString()) ?? readPromptHistory(selectedCondition); promptHistoryCache.current.set(selectedCondition.id.toString(), history); setDraftPromptHistory(history); setPrompt(selectedCondition.prompt); setFiles([]); setSubmittedFingerprint(""); setDraftMode(true); setSelectedId(undefined); setSelectedNode(undefined); setNotice("Draft copied with its edit context. Orchestrate it to create a revised verification plan."); } };
   const startNew = () => { setShowExecutionView(false); setDraftMode(true); setSelectedId(undefined); setSelectedNode(undefined); setPrompt(""); setDraftPromptHistory([]); setFiles([]); setSubmittedFingerprint(""); setNotice("Describe what must become true before settlement executes."); setHistoryOpen(false); };
@@ -422,12 +434,11 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
 
   const executionView = showExecutionView && selectedCondition?.finalResult === true;
   if (executionView && selectedCondition) {
-    const targetDealId = selectedCondition.dealId ?? (settlementDeal?.funded ? BigInt(settlementDeal.dealId) : undefined);
+    const targetDealId = settlementDeal?.funded && !settlementDeal.released ? BigInt(settlementDeal.dealId) : selectedCondition.dealId;
     return <ExecutionView key={selectedCondition.id.toString()} condition={selectedCondition} checks={flowChecks} deal={settlementDeal} conditions={conditions} releaseBusy={releaseBusy} onBack={() => { setShowExecutionView(false); setSelectedNode("condition"); }} onNew={startNew} onOpenCondition={openCondition} onPrepareDeal={prepareSettlement} onRelease={() => targetDealId ? releaseForCondition(selectedCondition, targetDealId) : Promise.resolve(false)} />;
   }
   return <main className="decision-app">
     <header className="decision-header"><button className="brand-mark" aria-label="New condition" onClick={startNew}>S</button><div className="brand-copy"><strong>SOLstice</strong><span>REAL-WORLD CONDITIONS, EXECUTED ON-CHAIN</span></div><div className="history-actions">{selectedCondition?.finalResult === true && <button className="history-button execution-open-button" onClick={() => setShowExecutionView(true)}>View execution ↗</button>}<button className="history-button" onClick={startNew}>＋ New condition</button><button className="history-button" onClick={() => setHistoryOpen(true)}>History <span>{conditions.length}</span></button></div><div className="connection-badge"><span className={`live-dot ${isActive ? "is-live" : ""}`} />{connectionError ? "OFFLINE" : isActive ? "DEVNET · LIVE" : "CONNECTING"}</div>
-      <button className="deal-button" disabled={creatingDeal || Boolean(demoDeal?.funded && !demoDeal.released)} onClick={createDealFromButton}>{creatingDeal ? "Creating deal…" : demoDeal?.funded && !demoDeal.released ? "Devnet deal funded" : "Create funded Devnet deal"}</button>
     </header>
     <section className="canvas-shell" aria-label="Interactive verification decision graph">
       <div className="canvas-legend"><span>DECISION GRAPH</span><i />{flowChecks.length} CHECK{flowChecks.length === 1 ? "" : "S"}<span className="legend-divider" />DRAG TO EXPLORE</div>
@@ -456,7 +467,7 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
         {selectedNodeKind === "result" && <><div className="drawer-section-title">EVIDENCE · {selectedEvidence.length}</div>{selectedEvidence.length ? selectedEvidence.map((item) => <article key={item.id.toString()} className="evidence-item"><div className="evidence-meta">{item.sourceType}{item.authorOrSource ? ` · ${item.authorOrSource}` : ""}</div><strong>{item.url ? <a href={item.url} target="_blank" rel="noopener noreferrer">{item.title} ↗</a> : item.title}</strong><p>{item.snippet || "No snippet provided."}</p><time>{displayTime(item.createdAt)}</time></article>) : <div className="drawer-hint">No evidence rows are attached to this check yet. Evidence appears here when the live verification runner records it.</div>}</>}</div>}
       {selectedNodeKind === "resolution" && selectedCondition && <div className="drawer-content"><StatePill tone={statusTone(selectedCondition.finalResult === true ? "true" : selectedCondition.finalResult === false ? "false" : "pending")}>{selectedCondition.finalResult === true ? "TRUE" : selectedCondition.finalResult === false ? "FALSE" : "PENDING"}</StatePill><h3 className="drawer-primary">{selectedCondition.finalResult === true ? "Condition verified" : selectedCondition.finalResult === false ? "Condition not verified" : "Verification in progress"}</h3><DetailRow label="Required checks passed" value={`${flowChecks.filter((check) => check.passed === true).length} / ${flowChecks.length}`} />{flowChecks.map((check) => <div className="outcome-row" key={check.id.toString()}><span className={`outcome-dot ${statusTone(check.status === "complete" ? check.passed ? "passed" : "failed" : check.status)}`} /><span>{check.label}</span><b>{check.status === "complete" ? check.passed ? "PASS" : "FAIL" : check.status.toUpperCase()}</b></div>)}<div className="drawer-hint">{selectedCondition.finalResult === false ? "One or more required checks did not pass, so settlement remains locked." : "The final result comes from the live verification runner."}</div></div>}
       {selectedNodeKind === "settlement" && selectedCondition && <div className="drawer-content"><StatePill tone={statusTone(selectedCondition.settlementStatus === "ready" ? "ready" : selectedCondition.settlementStatus)}>{selectedCondition.settlementStatus === "ready" ? "READY" : selectedCondition.settlementStatus.toUpperCase()}</StatePill><h3 className="drawer-primary">{selectedCondition.settlementStatus === "ready" ? "Release ready · waiting for the final step" : selectedCondition.settlementStatus === "confirmed" ? "Funds released on Devnet" : "Escrow settlement"}</h3><DetailRow label="Network" value="Solana Devnet" /><DetailRow label="Deal ID" value={dealId?.toString() ?? "Not linked"} />{settlementDeal?.amountLamports !== undefined && <DetailRow label="Amount" value={`${settlementDeal.amountLamports / 1_000_000_000} SOL`} />}{settlementDeal?.recipient && <DetailRow label="Recipient" value={settlementDeal.recipient} />}{selectedCondition.settlementSignature && <DetailRow label="Transaction" value={<a href={`https://explorer.solana.com/tx/${selectedCondition.settlementSignature}?cluster=devnet`} target="_blank" rel="noopener noreferrer">View on Solana Explorer ↗</a>} />}
-        {!dealId && demoDeal?.funded && <button className="drawer-primary-button" onClick={linkDeal}>Link current funded Devnet deal</button>}{selectedCondition.finalResult === true && !dealId && <div className="drawer-hint">Condition verified. No funded Devnet escrow is linked, so no funds have moved.</div>}{selectedCondition.settlementStatus === "submitted" && <div className="drawer-hint">TRANSACTION SUBMITTED · awaiting confirmation</div>}{selectedCondition.settlementStatus === "failed" && <div className="drawer-hint">Devnet settlement failed. No automatic retry was started.</div>}
+        {selectedCondition.finalResult === true && !dealId && <div className="drawer-hint">Condition verified. A fresh funded Devnet escrow is created for this condition before settlement.</div>}{selectedCondition.settlementStatus === "submitted" && <div className="drawer-hint">TRANSACTION SUBMITTED · awaiting confirmation</div>}{selectedCondition.settlementStatus === "failed" && <div className="drawer-hint">The last settlement attempt failed. Opening execution prepares a fresh escrow and retries this verified condition.</div>}
       </div>}
       {selectedNodeKind === "condition" && selectedCondition && <button className="drawer-secondary-button" onClick={editAsNew}>Use this as a new draft</button>}
     </aside></>}
@@ -497,13 +508,14 @@ function ExecutionView({ condition, checks, deal, conditions, releaseBusy, onBac
   const confirmed = condition.settlementStatus === "confirmed" || deal?.released === true;
   const submitted = condition.settlementStatus === "submitted" || releaseBusy;
   const failed = condition.settlementStatus === "failed";
-  const hasFundedDeal = deal?.funded === true;
+  const hasFundedDeal = deal?.funded === true && deal.released !== true;
   const passedChecks = checks.filter((check) => check.passed === true).length;
   const steps = ["Condition", "Verifier", "Program", "Payment"];
   const [historyOpen, setHistoryOpen] = useState(false);
   const [phase, setPhase] = useState<ExecutionPhase>(() => confirmed ? "complete" : failed ? "failed" : submitted ? "submitting" : hasFundedDeal ? "condition" : "preparing");
   const [setupError, setSetupError] = useState("");
   const [transferProgress, setTransferProgress] = useState(0);
+  const [retryPrepared, setRetryPrepared] = useState(false);
   const releaseCallback = useRef(onRelease);
   useEffect(() => { releaseCallback.current = onRelease; }, [onRelease]);
   const started = useRef(false);
@@ -511,7 +523,7 @@ function ExecutionView({ condition, checks, deal, conditions, releaseBusy, onBac
   const liveReleaseStarted = useRef(false);
   const chimePlayed = useRef(false);
   const persistedState = useRef({ confirmed, failed, submitted });
-  persistedState.current = { confirmed, failed, submitted };
+  persistedState.current = { confirmed, failed: failed && !retryPrepared, submitted };
 
   useEffect(() => {
     if (confirmed) {
@@ -519,15 +531,16 @@ function ExecutionView({ condition, checks, deal, conditions, releaseBusy, onBac
       if (liveReleaseStarted.current && !chimePlayed.current) { chimePlayed.current = true; playPaymentChime(); }
       return;
     }
-    if (failed) { setPhase("failed"); return; }
+    if (failed && !retryPrepared) { setPhase("failed"); return; }
     if (submitted) { setPhase((current) => current === "failed" ? current : "submitting"); return; }
     if (!hasFundedDeal && phase !== "preparing" && phase !== "setup-failed") setPhase("preparing");
-  }, [confirmed, failed, submitted, hasFundedDeal, phase]);
+  }, [confirmed, failed, submitted, hasFundedDeal, phase, retryPrepared]);
 
   useEffect(() => {
-    if (confirmed || failed || submitted || hasFundedDeal || preparation.current) return;
+    if (confirmed || submitted || hasFundedDeal || preparation.current) return;
     setPhase("preparing");
     preparation.current = onPrepareDeal().then(() => {
+      setRetryPrepared(true);
       setPhase("condition");
     }).catch((error: unknown) => {
       setSetupError(error instanceof Error ? error.message : "Devnet escrow preparation failed.");
