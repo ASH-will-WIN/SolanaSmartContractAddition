@@ -29,11 +29,34 @@ pub mod conditional_escrow {
     }
     pub fn release_payment(ctx: Context<ReleasePayment>) -> Result<()> {
         let deal = &mut ctx.accounts.deal;
-        require!(deal.funded, EscrowError::NotFunded); require!(deal.has_result, EscrowError::MissingConditionResult); require!(deal.condition_result, EscrowError::ConditionFalse); require!(!deal.released, EscrowError::AlreadyReleased); require!(ctx.accounts.escrow.lamports() >= deal.amount_lamports, EscrowError::InsufficientEscrow);
-        let deal_key = deal.key(); let seeds: &[&[u8]] = &[b"escrow", deal_key.as_ref(), &[ctx.bumps.escrow]];
+        require!(deal.funded, EscrowError::NotFunded);
+        require!(deal.has_result, EscrowError::MissingConditionResult);
+        require!(deal.condition_result, EscrowError::ConditionFalse);
+        require!(!deal.released, EscrowError::AlreadyReleased);
+        require!(
+            ctx.accounts.escrow.lamports() >= deal.amount_lamports,
+            EscrowError::InsufficientEscrow
+        );
+
+        let deal_key = deal.key();
+        let seeds: &[&[u8]] = &[b"escrow", deal_key.as_ref(), &[ctx.bumps.escrow]];
         let ix = system_instruction::transfer(&ctx.accounts.escrow.key(), &ctx.accounts.recipient.key(), deal.amount_lamports);
-        invoke_signed(&ix, &[ctx.accounts.escrow.to_account_info(), ctx.accounts.recipient.to_account_info(), ctx.accounts.system_program.to_account_info()], &[seeds])?;
-        deal.released = true; emit!(PaymentReleased { deal_id: deal.deal_id, recipient: deal.recipient, amount_lamports: deal.amount_lamports }); Ok(())
+        invoke_signed(
+            &ix,
+            &[
+                ctx.accounts.escrow.to_account_info(),
+                ctx.accounts.recipient.to_account_info(),
+                ctx.accounts.system_program.to_account_info(),
+            ],
+            &[seeds],
+        )?;
+        deal.released = true;
+        emit!(PaymentReleased {
+            deal_id: deal.deal_id,
+            recipient: deal.recipient,
+            amount_lamports: deal.amount_lamports,
+        });
+        Ok(())
     }
 }
 #[derive(Accounts)]
