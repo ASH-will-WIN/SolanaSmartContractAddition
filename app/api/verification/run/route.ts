@@ -10,7 +10,7 @@ export async function POST(request: Request) {
   try { body = await request.json(); } catch { return NextResponse.json({ error: "Request body must be valid JSON." }, { status: 400 }); }
   if (!body || typeof body !== "object" || Array.isArray(body)) return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   const input = body as Record<string, unknown>;
-  if (typeof input.condition !== "string" || !input.condition.trim() || !Array.isArray(input.checks) || input.checks.length < 1 || input.checks.length > 3) return NextResponse.json({ error: "Condition and 1–3 checks are required." }, { status: 400 });
+  if (typeof input.condition !== "string" || !input.condition.trim() || !Array.isArray(input.checks) || input.checks.length < 1 || input.checks.length > 12) return NextResponse.json({ error: "Condition and 1–12 checks are required." }, { status: 400 });
   const checks = input.checks as Array<Record<string, unknown>>;
   if (checks.some((c) => !Number.isInteger(c.sequence) || typeof c.kind !== "string" || !["reddit", "web", "document"].includes(c.kind) || typeof c.instruction !== "string" || typeof c.required !== "boolean")) return NextResponse.json({ error: "Invalid check data." }, { status: 400 });
 

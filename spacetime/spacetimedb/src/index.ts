@@ -110,11 +110,24 @@ export const create_condition = spacetimedb.reducer({ prompt: t.string() }, (ctx
 export const set_condition_status = spacetimedb.reducer(
   { conditionId: t.u64(), status: t.string() },
   (ctx, { conditionId, status }) => {
-    if (!['draft', 'planning', 'verifying', 'resolved', 'failed'].includes(status)) throw new Error('Invalid condition status');
+    if (!['draft', 'planning', 'enabled', 'triggered', 'verifying', 'resolved', 'executed', 'failed'].includes(status)) throw new Error('Invalid condition status');
     const row = requireCondition(ctx, conditionId);
     ctx.db.condition.id.update({ ...row, status, updatedAt: ctx.timestamp });
   },
 );
+
+export const enable_condition = spacetimedb.reducer({ conditionId: t.u64() }, (ctx, { conditionId }) => {
+  const row = requireCondition(ctx, conditionId);
+  if (row.status !== 'planning') throw new Error('Condition is no longer in the planning state');
+  if (row.finalResult !== undefined) throw new Error('A resolved condition cannot be enabled again');
+  ctx.db.condition.id.update({ ...row, status: 'enabled', updatedAt: ctx.timestamp });
+});
+
+export const trigger_condition = spacetimedb.reducer({ conditionId: t.u64() }, (ctx, { conditionId }) => {
+  const row = requireCondition(ctx, conditionId);
+  if (row.status !== 'enabled') throw new Error('Condition trigger was already claimed');
+  ctx.db.condition.id.update({ ...row, status: 'triggered', updatedAt: ctx.timestamp });
+});
 
 export const add_verification_check = spacetimedb.reducer(
   { conditionId: t.u64(), sequence: t.u32(), kind: t.string(), label: t.string(), instruction: t.string() },
@@ -135,10 +148,33 @@ export const add_verification_check = spacetimedb.reducer(
 
 export const set_check_running = spacetimedb.reducer({ checkId: t.u64() }, (ctx, { checkId }) => {
   const row = requireCheck(ctx, checkId);
+  if (row.status !== 'pending') throw new Error('Verification check was already started');
   ctx.db.verificationCheck.id.update({ ...row, status: 'running', updatedAt: ctx.timestamp });
   const parent = requireCondition(ctx, row.conditionId);
   ctx.db.condition.id.update({ ...parent, status: 'verifying', updatedAt: ctx.timestamp });
 });
+
+export const update_condition_prompt = spacetimedb.reducer(
+  { conditionId: t.u64(), prompt: t.string() },
+  (ctx, { conditionId, prompt }) => {
+    const row = requireCondition(ctx, conditionId);
+    if (row.status !== 'planning') throw new Error('Only a planned condition can be edited');
+    if (!prompt.trim()) throw new Error('Condition prompt cannot be empty');
+    ctx.db.condition.id.update({ ...row, prompt: prompt.trim(), updatedAt: ctx.timestamp });
+  },
+);
+
+export const update_verification_check = spacetimedb.reducer(
+  { checkId: t.u64(), label: t.string(), instruction: t.string() },
+  (ctx, { checkId, label, instruction }) => {
+    const row = requireCheck(ctx, checkId);
+    const parent = requireCondition(ctx, row.conditionId);
+    if (parent.status !== 'planning') throw new Error('Only a planned verification check can be edited');
+    if (!label.trim() || !instruction.trim()) throw new Error('Check label and instruction are required');
+    ctx.db.verificationCheck.id.update({ ...row, label: label.trim(), instruction: instruction.trim(), updatedAt: ctx.timestamp });
+    ctx.db.condition.id.update({ ...parent, updatedAt: ctx.timestamp });
+  },
+);
 
 export const complete_check = spacetimedb.reducer(
   { checkId: t.u64(), passed: t.bool(), summary: t.string() },
@@ -244,6 +280,7 @@ export const record_settlement_status = spacetimedb.reducer(
     if (!['idle', 'ready', 'submitted', 'confirmed', 'failed'].includes(status)) throw new Error('Invalid settlement status');
     const row = requireCondition(ctx, conditionId);
     if (status !== 'idle' && row.finalResult !== true) throw new Error('Settlement requires a true condition result');
+    if (status === 'submitted' && ['submitted', 'confirmed'].includes(row.settlementStatus)) throw new Error('Settlement was already submitted');
     ctx.db.condition.id.update({ ...row, settlementStatus: status, settlementSignature: signature, updatedAt: ctx.timestamp });
   },
 );

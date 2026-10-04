@@ -39,6 +39,7 @@ import AddVerificationCheckReducer from "./add_verification_check_reducer";
 import AssociateDemoDealReducer from "./associate_demo_deal_reducer";
 import CompleteCheckReducer from "./complete_check_reducer";
 import CreateConditionReducer from "./create_condition_reducer";
+import EnableConditionReducer from "./enable_condition_reducer";
 import RecordSettlementStatusReducer from "./record_settlement_status_reducer";
 import RecordUploadedDocumentReducer from "./record_uploaded_document_reducer";
 import ResolveConditionReducer from "./resolve_condition_reducer";
@@ -46,6 +47,9 @@ import SetCheckErrorReducer from "./set_check_error_reducer";
 import SetCheckRunningReducer from "./set_check_running_reducer";
 import SetConditionStatusReducer from "./set_condition_status_reducer";
 import SetDocumentExtractionStatusReducer from "./set_document_extraction_status_reducer";
+import TriggerConditionReducer from "./trigger_condition_reducer";
+import UpdateConditionPromptReducer from "./update_condition_prompt_reducer";
+import UpdateVerificationCheckReducer from "./update_verification_check_reducer";
 
 // Import all procedure arg schemas
 
@@ -127,6 +131,7 @@ const reducersSchema = __reducers(
   __reducerSchema("associate_demo_deal", AssociateDemoDealReducer),
   __reducerSchema("complete_check", CompleteCheckReducer),
   __reducerSchema("create_condition", CreateConditionReducer),
+  __reducerSchema("enable_condition", EnableConditionReducer),
   __reducerSchema("record_settlement_status", RecordSettlementStatusReducer),
   __reducerSchema("record_uploaded_document", RecordUploadedDocumentReducer),
   __reducerSchema("resolve_condition", ResolveConditionReducer),
@@ -134,6 +139,9 @@ const reducersSchema = __reducers(
   __reducerSchema("set_check_running", SetCheckRunningReducer),
   __reducerSchema("set_condition_status", SetConditionStatusReducer),
   __reducerSchema("set_document_extraction_status", SetDocumentExtractionStatusReducer),
+  __reducerSchema("trigger_condition", TriggerConditionReducer),
+  __reducerSchema("update_condition_prompt", UpdateConditionPromptReducer),
+  __reducerSchema("update_verification_check", UpdateVerificationCheckReducer),
 );
 
 /** The schema information for all procedures in this module. This is defined the same way as the procedures would have been defined in the server. */

@@ -14,7 +14,7 @@ export function parseVerificationPlan(value: unknown, hasDocument: boolean): Ver
   const plan = value as Record<string, unknown>;
   if (Object.keys(plan).some((key) => key !== "summary" && key !== "checks")) throw new Error("Unexpected plan fields");
   if (typeof plan.summary !== "string" || plan.summary.trim().length < 1 || plan.summary.length > 400) throw new Error("Invalid summary");
-  if (!Array.isArray(plan.checks) || plan.checks.length < 2 || plan.checks.length > 3) throw new Error("Invalid checks");
+  if (!Array.isArray(plan.checks) || plan.checks.length < 1 || plan.checks.length > 12) throw new Error("Invalid checks");
   const checks = plan.checks.map((item): PlanCheck => {
     if (!item || typeof item !== "object" || Array.isArray(item)) throw new Error("Invalid check");
     const check = item as Record<string, unknown>;
@@ -30,8 +30,8 @@ export function parseVerificationPlan(value: unknown, hasDocument: boolean): Ver
   return { summary: plan.summary.trim(), checks };
 }
 
-export function buildPlannerMessages(input: { condition: string; hasDocument: boolean; fileName?: string; mimeType?: string }) {
-  const system = `You are a verification-plan designer. Return JSON only with exactly this shape: {"summary": string, "checks": [{"kind":"document"|"reddit"|"web","label":string,"instruction":string,"required":boolean}]}. Return 2–3 checks. Only include document when hasDocument is true. Never say anything is true, false, proven, verified, or corroborated. Never fabricate evidence, URLs, sources, posts, dates, results, or payout decisions. Use only the allowed check kinds. Do not suggest tools or actions outside those kinds. Use clear labels and concrete instructions tailored to the condition. You design future checks only; external evidence collection has not happened.`;
-  const user = { condition: input.condition, hasDocument: input.hasDocument, ...(input.hasDocument ? { fileName: input.fileName, mimeType: input.mimeType } : {}) };
+export function buildPlannerMessages(input: { condition: string; hasDocument: boolean; documents?: Array<{ fileName: string; mimeType: string }> }) {
+  const system = `You are a verification-plan designer. Return JSON only with exactly this shape: {"summary": string, "checks": [{"kind":"document"|"reddit"|"web","label":string,"instruction":string,"required":boolean}]}. Choose the number of checks that condition needs, from 1 to 12. Only include document when hasDocument is true. Never say anything is true, false, proven, verified, or corroborated. Never fabricate evidence, URLs, sources, posts, dates, results, or payout decisions. Use only the allowed check kinds. Do not suggest tools or actions outside those kinds. Use clear labels and concrete instructions tailored to the condition. You design future checks only; external evidence collection has not happened.`;
+  const user = { condition: input.condition, hasDocument: input.hasDocument, ...(input.hasDocument ? { documents: input.documents } : {}) };
   return [{ role: "system", content: system }, { role: "user", content: JSON.stringify(user) }];
 }

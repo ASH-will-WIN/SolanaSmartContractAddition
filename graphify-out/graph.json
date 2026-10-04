@@ -27,11 +27,10 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
       "file_type": "code",
       "norm_label": "errorcontext",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L173"
+      "source_location": "L181"
     },
     {
       "id": "lib_spacetime_module_bindings_index_eventcontext",
@@ -40,11 +39,10 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
       "file_type": "code",
       "norm_label": "eventcontext",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L167"
+      "source_location": "L175"
     },
     {
       "id": "lib_spacetime_module_bindings_index_reducereventcontext",
@@ -53,11 +51,10 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
       "file_type": "code",
       "norm_label": "reducereventcontext",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L169"
+      "source_location": "L177"
     },
     {
       "id": "lib_spacetime_module_bindings_index_subscriptioneventcontext",
@@ -66,11 +63,10 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
       "file_type": "code",
       "norm_label": "subscriptioneventcontext",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L171"
+      "source_location": "L179"
     },
     {
       "id": "lib_spacetime_module_bindings_index_subscriptionhandle",
@@ -79,11 +75,10 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
       "file_type": "code",
       "norm_label": "subscriptionhandle",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L175"
+      "source_location": "L183"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_addevidenceparams",
@@ -92,11 +87,10 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
       "file_type": "code",
       "norm_label": "addevidenceparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L22"
+      "source_location": "L26"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_addverificationcheckparams",
@@ -105,11 +99,10 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
       "file_type": "code",
       "norm_label": "addverificationcheckparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L23"
+      "source_location": "L27"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_associatedemodealparams",
@@ -118,11 +111,10 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
       "file_type": "code",
       "norm_label": "associatedemodealparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L24"
+      "source_location": "L28"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_completecheckparams",
@@ -131,11 +123,10 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
       "file_type": "code",
       "norm_label": "completecheckparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L25"
+      "source_location": "L29"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_createconditionparams",
@@ -144,11 +135,22 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
       "file_type": "code",
       "norm_label": "createconditionparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L26"
+      "source_location": "L30"
+    },
+    {
+      "id": "lib_spacetime_module_bindings_types_reducers_enableconditionparams",
+      "label": "EnableConditionParams",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "enableconditionparams",
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L31"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_recordsettlementstatusparams",
@@ -157,11 +159,10 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
       "file_type": "code",
       "norm_label": "recordsettlementstatusparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L27"
+      "source_location": "L32"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_recorduploadeddocumentparams",
@@ -170,11 +171,10 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
       "file_type": "code",
       "norm_label": "recorduploadeddocumentparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L28"
+      "source_location": "L33"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_resolveconditionparams",
@@ -183,11 +183,10 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
       "file_type": "code",
       "norm_label": "resolveconditionparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L29"
+      "source_location": "L34"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_setcheckerrorparams",
@@ -196,11 +195,10 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
       "file_type": "code",
       "norm_label": "setcheckerrorparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L30"
+      "source_location": "L35"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_setcheckrunningparams",
@@ -209,11 +207,10 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
       "file_type": "code",
       "norm_label": "setcheckrunningparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L31"
+      "source_location": "L36"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_setconditionstatusparams",
@@ -222,11 +219,10 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
       "file_type": "code",
       "norm_label": "setconditionstatusparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L32"
+      "source_location": "L37"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_setdocumentextractionstatusparams",
@@ -235,167 +231,137 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
       "file_type": "code",
       "norm_label": "setdocumentextractionstatusparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L33"
+      "source_location": "L38"
     },
     {
-      "id": "app_page_demodeal",
-      "label": "DemoDeal",
+      "id": "lib_spacetime_module_bindings_types_reducers_triggerconditionparams",
+      "label": "TriggerConditionParams",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "triggerconditionparams",
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L39"
+    },
+    {
+      "id": "lib_spacetime_module_bindings_types_reducers_updateconditionpromptparams",
+      "label": "UpdateConditionPromptParams",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "updateconditionpromptparams",
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L40"
+    },
+    {
+      "id": "lib_spacetime_module_bindings_types_reducers_updateverificationcheckparams",
+      "label": "UpdateVerificationCheckParams",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "updateverificationcheckparams",
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L41"
+    },
+    {
+      "id": "lib_platform_conditionresult",
+      "label": "ConditionResult",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Frontend Graph and Providers",
+      "community_name": "Legacy Checklist Verifier",
       "file_type": "code",
-      "norm_label": "demodeal",
-      "source_file": "app/page.tsx",
-      "source_location": "L7"
+      "norm_label": "conditionresult",
+      "source_file": "lib/platform.ts",
+      "source_location": "L4"
     },
     {
-      "id": "lib_spacetime_module_bindings_index_dbconnection",
-      "label": "DbConnection",
+      "id": "lib_platform_constructioncheck",
+      "label": "ConstructionCheck",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Frontend Graph and Providers",
+      "community_name": "Legacy Checklist Verifier",
       "file_type": "code",
-      "norm_label": "dbconnection",
-      "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L184"
+      "norm_label": "constructioncheck",
+      "source_file": "lib/platform.ts",
+      "source_location": "L3"
     },
     {
-      "id": "lib_spacetime_module_bindings_index_dbconnectionbuilder",
-      "label": "DbConnectionBuilder",
+      "id": "lib_platform_constructionchecks",
+      "label": "ConstructionChecks",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Frontend Graph and Providers",
+      "community_name": "Legacy Checklist Verifier",
       "file_type": "code",
-      "norm_label": "dbconnectionbuilder",
-      "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L181"
+      "norm_label": "constructionchecks",
+      "source_file": "lib/platform.ts",
+      "source_location": "L2"
     },
     {
-      "id": "lib_spacetime_module_bindings_index_subscriptionbuilder",
-      "label": "SubscriptionBuilder",
+      "id": "lib_platform_platformglobal",
+      "label": "PlatformGlobal",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Frontend Graph and Providers",
+      "community_name": "Legacy Checklist Verifier",
       "file_type": "code",
-      "norm_label": "subscriptionbuilder",
-      "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L178"
-    },
-    {
-      "id": "lib_spacetime_module_bindings_types_condition",
-      "label": "Condition",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
-      "file_type": "code",
-      "norm_label": "condition",
-      "source_file": "lib/spacetime/module_bindings/types.ts",
-      "source_location": "L13"
-    },
-    {
-      "id": "lib_spacetime_module_bindings_types_evidence",
-      "label": "Evidence",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
-      "file_type": "code",
-      "norm_label": "evidence",
-      "source_file": "lib/spacetime/module_bindings/types.ts",
-      "source_location": "L27"
-    },
-    {
-      "id": "lib_spacetime_module_bindings_types_uploadeddocument",
-      "label": "UploadedDocument",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
-      "file_type": "code",
-      "norm_label": "uploadeddocument",
-      "source_file": "lib/spacetime/module_bindings/types.ts",
-      "source_location": "L42"
-    },
-    {
-      "id": "lib_spacetime_module_bindings_types_verificationcheck",
-      "label": "VerificationCheck",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
-      "file_type": "code",
-      "norm_label": "verificationcheck",
-      "source_file": "lib/spacetime/module_bindings/types.ts",
-      "source_location": "L57"
-    },
-    {
-      "id": "lib_spacetime_verificationflow_demodeal",
-      "label": "DemoDeal",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
-      "file_type": "code",
-      "norm_label": "demodeal",
-      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "norm_label": "platformglobal",
+      "source_file": "lib/platform.ts",
       "source_location": "L15"
     },
     {
-      "id": "lib_spacetime_verificationflow_graphdata",
-      "label": "GraphData",
+      "id": "lib_platform_platformstate",
+      "label": "PlatformState",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Frontend Graph and Providers",
+      "community_name": "Legacy Checklist Verifier",
       "file_type": "code",
-      "norm_label": "graphdata",
-      "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L17"
+      "norm_label": "platformstate",
+      "source_file": "lib/platform.ts",
+      "source_location": "L5"
     },
     {
-      "id": "lib_spacetime_verificationflow_graphkind",
-      "label": "GraphKind",
+      "id": "lib_spacetime_release_state_settlementstatus",
+      "label": "SettlementStatus",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Frontend Graph and Providers",
+      "community_name": "Legacy Checklist Verifier",
       "file_type": "code",
-      "norm_label": "graphkind",
-      "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L16"
+      "norm_label": "settlementstatus",
+      "source_file": "lib/spacetime/release-state.ts",
+      "source_location": "L1"
     },
     {
-      "id": "lib_spacetime_verificationflow_graphnode",
-      "label": "GraphNode",
+      "id": "lib_verifier_submitter",
+      "label": "Submitter",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Frontend Graph and Providers",
+      "community_name": "Legacy Checklist Verifier",
       "file_type": "code",
-      "norm_label": "graphnode",
-      "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L18"
+      "norm_label": "submitter",
+      "source_file": "lib/verifier.ts",
+      "source_location": "L3"
     },
     {
       "id": "lib_verification_tools_types_checkresult",
@@ -430,7 +396,6 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 13,
-      "community_name": "Verification Plan Planner",
       "file_type": "code",
       "norm_label": "plancheck",
       "source_file": "lib/verification-plan.ts",
@@ -443,317 +408,350 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 13,
-      "community_name": "Verification Plan Planner",
       "file_type": "code",
       "norm_label": "verificationplan",
       "source_file": "lib/verification-plan.ts",
       "source_location": "L8"
     },
     {
-      "id": "lib_platform_conditionresult",
-      "label": "ConditionResult",
+      "id": "app_page_demodeal",
+      "label": "DemoDeal",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "conditionresult",
-      "source_file": "lib/platform.ts",
-      "source_location": "L4"
-    },
-    {
-      "id": "lib_platform_constructioncheck",
-      "label": "ConstructionCheck",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "constructioncheck",
-      "source_file": "lib/platform.ts",
-      "source_location": "L3"
-    },
-    {
-      "id": "lib_platform_constructionchecks",
-      "label": "ConstructionChecks",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "constructionchecks",
-      "source_file": "lib/platform.ts",
-      "source_location": "L2"
-    },
-    {
-      "id": "lib_platform_platformglobal",
-      "label": "PlatformGlobal",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "platformglobal",
-      "source_file": "lib/platform.ts",
-      "source_location": "L15"
-    },
-    {
-      "id": "lib_platform_platformstate",
-      "label": "PlatformState",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "platformstate",
-      "source_file": "lib/platform.ts",
-      "source_location": "L5"
-    },
-    {
-      "id": "lib_spacetime_release_state_settlementstatus",
-      "label": "SettlementStatus",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "settlementstatus",
-      "source_file": "lib/spacetime/release-state.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "lib_verifier_submitter",
-      "label": "Submitter",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "submitter",
-      "source_file": "lib/verifier.ts",
-      "source_location": "L3"
-    },
-    {
-      "id": "app_page_api",
-      "label": "api()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
       "community_name": "Frontend Graph and Providers",
       "file_type": "code",
-      "norm_label": "api()",
+      "norm_label": "demodeal",
       "source_file": "app/page.tsx",
-      "source_location": "L8"
+      "source_location": "L7"
     },
     {
-      "id": "app_page_home",
-      "label": "Home()",
+      "id": "lib_spacetime_module_bindings_types_condition",
+      "label": "Condition",
       "_callable": true,
+      "_callable_class": true,
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "community_name": "Frontend Graph and Providers",
       "file_type": "code",
-      "norm_label": "home()",
-      "source_file": "app/page.tsx",
-      "source_location": "L15"
+      "norm_label": "condition",
+      "source_file": "lib/spacetime/module_bindings/types.ts",
+      "source_location": "L13"
     },
     {
-      "id": "lib_spacetime_module_bindings_index_dbconnection_builder",
-      "label": ".builder()",
+      "id": "lib_spacetime_module_bindings_types_evidence",
+      "label": "Evidence",
       "_callable": true,
+      "_callable_class": true,
       "_origin": "ast",
-      "community": 1,
+      "community": 2,
       "community_name": "Frontend Graph and Providers",
       "file_type": "code",
-      "norm_label": ".builder()",
+      "norm_label": "evidence",
+      "source_file": "lib/spacetime/module_bindings/types.ts",
+      "source_location": "L27"
+    },
+    {
+      "id": "lib_spacetime_module_bindings_types_uploadeddocument",
+      "label": "UploadedDocument",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Frontend Graph and Providers",
+      "file_type": "code",
+      "norm_label": "uploadeddocument",
+      "source_file": "lib/spacetime/module_bindings/types.ts",
+      "source_location": "L42"
+    },
+    {
+      "id": "lib_spacetime_module_bindings_types_verificationcheck",
+      "label": "VerificationCheck",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Frontend Graph and Providers",
+      "file_type": "code",
+      "norm_label": "verificationcheck",
+      "source_file": "lib/spacetime/module_bindings/types.ts",
+      "source_location": "L57"
+    },
+    {
+      "id": "lib_spacetime_module_bindings_index_dbconnection",
+      "label": "DbConnection",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "dbconnection",
+      "source_file": "lib/spacetime/module_bindings/index.ts",
+      "source_location": "L192"
+    },
+    {
+      "id": "lib_spacetime_module_bindings_index_dbconnectionbuilder",
+      "label": "DbConnectionBuilder",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "dbconnectionbuilder",
+      "source_file": "lib/spacetime/module_bindings/index.ts",
+      "source_location": "L189"
+    },
+    {
+      "id": "lib_spacetime_module_bindings_index_subscriptionbuilder",
+      "label": "SubscriptionBuilder",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "subscriptionbuilder",
       "source_file": "lib/spacetime/module_bindings/index.ts",
       "source_location": "L186"
     },
     {
-      "id": "lib_spacetime_module_bindings_index_dbconnection_subscriptionbuilder",
-      "label": ".subscriptionBuilder()",
+      "id": "lib_spacetime_verificationflow_demodeal",
+      "label": "DemoDeal",
       "_callable": true,
+      "_callable_class": true,
       "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
+      "community": 2,
       "file_type": "code",
-      "norm_label": ".subscriptionbuilder()",
-      "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L191"
-    },
-    {
-      "id": "lib_spacetime_provider_spacetimeprovider",
-      "label": "SpacetimeProvider()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
-      "file_type": "code",
-      "norm_label": "spacetimeprovider()",
-      "source_file": "lib/spacetime/Provider.tsx",
-      "source_location": "L7"
-    },
-    {
-      "id": "lib_spacetime_verificationflow_buildgraph",
-      "label": "buildGraph()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
-      "file_type": "code",
-      "norm_label": "buildgraph()",
+      "norm_label": "demodeal",
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L39"
+      "source_location": "L15"
     },
     {
-      "id": "lib_spacetime_verificationflow_canvasprovider",
-      "label": "CanvasProvider()",
+      "id": "lib_spacetime_verificationflow_graphdata",
+      "label": "GraphData",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "graphdata",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L17"
+    },
+    {
+      "id": "lib_spacetime_verificationflow_graphkind",
+      "label": "GraphKind",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "graphkind",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L16"
+    },
+    {
+      "id": "lib_spacetime_verificationflow_graphnode",
+      "label": "GraphNode",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "graphnode",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L18"
+    },
+    {
+      "id": "app_api_platform_result_route_get",
+      "label": "GET()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "Frontend Graph and Providers",
+      "community_name": "Legacy Checklist Verifier",
       "file_type": "code",
-      "norm_label": "canvasprovider()",
-      "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L291"
+      "norm_label": "get()",
+      "source_file": "app/api/platform/result/route.ts",
+      "source_location": "L4"
     },
     {
-      "id": "lib_spacetime_verificationflow_detailrow",
-      "label": "DetailRow()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
-      "file_type": "code",
-      "norm_label": "detailrow()",
-      "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L295"
-    },
-    {
-      "id": "lib_spacetime_verificationflow_displaytime",
-      "label": "displayTime()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
-      "file_type": "code",
-      "norm_label": "displaytime()",
-      "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L117"
-    },
-    {
-      "id": "lib_spacetime_verificationflow_graphcanvas",
-      "label": "GraphCanvas()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
-      "file_type": "code",
-      "norm_label": "graphcanvas()",
-      "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L90"
-    },
-    {
-      "id": "lib_spacetime_verificationflow_graphcardnode",
-      "label": "GraphCardNode()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
-      "file_type": "code",
-      "norm_label": "graphcardnode()",
-      "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L25"
-    },
-    {
-      "id": "lib_spacetime_verificationflow_newestfirst",
-      "label": "newestFirst()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
-      "file_type": "code",
-      "norm_label": "newestfirst()",
-      "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L118"
-    },
-    {
-      "id": "lib_spacetime_verificationflow_statepill",
-      "label": "StatePill()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
-      "file_type": "code",
-      "norm_label": "statepill()",
-      "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L294"
-    },
-    {
-      "id": "lib_spacetime_verificationflow_statustone",
-      "label": "statusTone()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
-      "file_type": "code",
-      "norm_label": "statustone()",
-      "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L21"
-    },
-    {
-      "id": "lib_spacetime_verificationflow_verificationflow",
-      "label": "VerificationFlow()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
-      "file_type": "code",
-      "norm_label": "verificationflow()",
-      "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L122"
-    },
-    {
-      "id": "app_api_verification_run_route_judgerelevance",
-      "label": "judgeRelevance()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "Verification Evidence Runner",
-      "file_type": "code",
-      "norm_label": "judgerelevance()",
-      "source_file": "app/api/verification/run/route.ts",
-      "source_location": "L33"
-    },
-    {
-      "id": "app_api_verification_run_route_post",
+      "id": "app_api_platform_result_route_post",
       "label": "POST()",
       "_callable": true,
       "_origin": "ast",
-      "community": 11,
-      "community_name": "Verification Evidence Runner",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
       "file_type": "code",
       "norm_label": "post()",
-      "source_file": "app/api/verification/run/route.ts",
-      "source_location": "L8"
+      "source_file": "app/api/platform/result/route.ts",
+      "source_location": "L11"
     },
     {
-      "id": "lib_verification_tools_reddit_searchreddit",
-      "label": "searchReddit()",
+      "id": "app_api_verify_route_post",
+      "label": "POST()",
       "_callable": true,
       "_origin": "ast",
-      "community": 11,
-      "community_name": "Verification Evidence Runner",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
       "file_type": "code",
-      "norm_label": "searchreddit()",
-      "source_file": "lib/verification-tools/reddit.ts",
+      "norm_label": "post()",
+      "source_file": "app/api/verify/route.ts",
+      "source_location": "L3"
+    },
+    {
+      "id": "lib_platform_checksfor",
+      "label": "checksFor()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "checksfor()",
+      "source_file": "lib/platform.ts",
+      "source_location": "L22"
+    },
+    {
+      "id": "lib_platform_copystate",
+      "label": "copyState()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "copystate()",
+      "source_file": "lib/platform.ts",
+      "source_location": "L23"
+    },
+    {
+      "id": "lib_platform_emptychecks",
+      "label": "emptyChecks()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "emptychecks()",
+      "source_file": "lib/platform.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "lib_platform_getplatformstate",
+      "label": "getPlatformState()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "getplatformstate()",
+      "source_file": "lib/platform.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "lib_platform_initializeconstructionchecklist",
+      "label": "initializeConstructionChecklist()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "initializeconstructionchecklist()",
+      "source_file": "lib/platform.ts",
+      "source_location": "L25"
+    },
+    {
+      "id": "lib_platform_isfoundationmilestonecomplete",
+      "label": "isFoundationMilestoneComplete()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "isfoundationmilestonecomplete()",
+      "source_file": "lib/platform.ts",
+      "source_location": "L19"
+    },
+    {
+      "id": "lib_platform_updateconstructioncheck",
+      "label": "updateConstructionCheck()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "updateconstructioncheck()",
+      "source_file": "lib/platform.ts",
+      "source_location": "L36"
+    },
+    {
+      "id": "lib_platform_verifycondition",
+      "label": "verifyCondition()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "verifycondition()",
+      "source_file": "lib/platform.ts",
+      "source_location": "L43"
+    },
+    {
+      "id": "lib_spacetime_release_state_canrelease",
+      "label": "canRelease()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "canrelease()",
+      "source_file": "lib/spacetime/release-state.ts",
+      "source_location": "L3"
+    },
+    {
+      "id": "lib_spacetime_release_state_releaselabel",
+      "label": "releaseLabel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "releaselabel()",
+      "source_file": "lib/spacetime/release-state.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "lib_spacetime_release_state_requestrelease",
+      "label": "requestRelease()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "requestrelease()",
+      "source_file": "lib/spacetime/release-state.ts",
+      "source_location": "L18"
+    },
+    {
+      "id": "lib_verifier_createverifierservice",
+      "label": "createVerifierService()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "createverifierservice()",
+      "source_file": "lib/verifier.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "app_api_deal_create_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Solana Deal API",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "app/api/deal/create/route.ts",
       "source_location": "L4"
     },
     {
@@ -769,12 +767,44 @@
       "source_location": "L3"
     },
     {
+      "id": "app_api_verification_run_route_judgerelevance",
+      "label": "judgeRelevance()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "file_type": "code",
+      "norm_label": "judgerelevance()",
+      "source_file": "app/api/verification/run/route.ts",
+      "source_location": "L33"
+    },
+    {
+      "id": "app_api_verification_run_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "app/api/verification/run/route.ts",
+      "source_location": "L8"
+    },
+    {
+      "id": "lib_verification_tools_reddit_searchreddit",
+      "label": "searchReddit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "file_type": "code",
+      "norm_label": "searchreddit()",
+      "source_file": "lib/verification-tools/reddit.ts",
+      "source_location": "L4"
+    },
+    {
       "id": "app_api_verification_plan_route_badrequest",
       "label": "badRequest()",
       "_callable": true,
       "_origin": "ast",
       "community": 13,
-      "community_name": "Verification Plan Planner",
       "file_type": "code",
       "norm_label": "badrequest()",
       "source_file": "app/api/verification-plan/route.ts",
@@ -786,7 +816,6 @@
       "_callable": true,
       "_origin": "ast",
       "community": 13,
-      "community_name": "Verification Plan Planner",
       "file_type": "code",
       "norm_label": "post()",
       "source_file": "app/api/verification-plan/route.ts",
@@ -798,7 +827,6 @@
       "_callable": true,
       "_origin": "ast",
       "community": 13,
-      "community_name": "Verification Plan Planner",
       "file_type": "code",
       "norm_label": "buildplannermessages()",
       "source_file": "lib/verification-plan.ts",
@@ -810,7 +838,6 @@
       "_callable": true,
       "_origin": "ast",
       "community": 13,
-      "community_name": "Verification Plan Planner",
       "file_type": "code",
       "norm_label": "parseverificationplan()",
       "source_file": "lib/verification-plan.ts",
@@ -829,184 +856,194 @@
       "source_location": "L4"
     },
     {
-      "id": "app_api_platform_result_route_get",
-      "label": "GET()",
+      "id": "app_page_api",
+      "label": "api()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "Legacy Checklist Verifier",
+      "community_name": "Frontend Graph and Providers",
       "file_type": "code",
-      "norm_label": "get()",
-      "source_file": "app/api/platform/result/route.ts",
-      "source_location": "L4"
+      "norm_label": "api()",
+      "source_file": "app/page.tsx",
+      "source_location": "L8"
     },
     {
-      "id": "app_api_platform_result_route_post",
-      "label": "POST()",
+      "id": "app_page_home",
+      "label": "Home()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "Legacy Checklist Verifier",
+      "community_name": "Frontend Graph and Providers",
       "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "app/api/platform/result/route.ts",
-      "source_location": "L11"
+      "norm_label": "home()",
+      "source_file": "app/page.tsx",
+      "source_location": "L15"
     },
     {
-      "id": "app_api_verify_route_post",
-      "label": "POST()",
+      "id": "lib_spacetime_provider_spacetimeprovider",
+      "label": "SpacetimeProvider()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "Legacy Checklist Verifier",
+      "community_name": "Frontend Graph and Providers",
       "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "app/api/verify/route.ts",
-      "source_location": "L3"
-    },
-    {
-      "id": "lib_platform_checksfor",
-      "label": "checksFor()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "checksfor()",
-      "source_file": "lib/platform.ts",
-      "source_location": "L22"
-    },
-    {
-      "id": "lib_platform_copystate",
-      "label": "copyState()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "copystate()",
-      "source_file": "lib/platform.ts",
-      "source_location": "L23"
-    },
-    {
-      "id": "lib_platform_emptychecks",
-      "label": "emptyChecks()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "emptychecks()",
-      "source_file": "lib/platform.ts",
-      "source_location": "L10"
-    },
-    {
-      "id": "lib_platform_getplatformstate",
-      "label": "getPlatformState()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "getplatformstate()",
-      "source_file": "lib/platform.ts",
-      "source_location": "L32"
-    },
-    {
-      "id": "lib_platform_initializeconstructionchecklist",
-      "label": "initializeConstructionChecklist()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "initializeconstructionchecklist()",
-      "source_file": "lib/platform.ts",
-      "source_location": "L25"
-    },
-    {
-      "id": "lib_platform_isfoundationmilestonecomplete",
-      "label": "isFoundationMilestoneComplete()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "isfoundationmilestonecomplete()",
-      "source_file": "lib/platform.ts",
-      "source_location": "L19"
-    },
-    {
-      "id": "lib_platform_updateconstructioncheck",
-      "label": "updateConstructionCheck()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "updateconstructioncheck()",
-      "source_file": "lib/platform.ts",
-      "source_location": "L36"
-    },
-    {
-      "id": "lib_platform_verifycondition",
-      "label": "verifyCondition()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "verifycondition()",
-      "source_file": "lib/platform.ts",
-      "source_location": "L43"
-    },
-    {
-      "id": "lib_spacetime_release_state_canrelease",
-      "label": "canRelease()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "canrelease()",
-      "source_file": "lib/spacetime/release-state.ts",
-      "source_location": "L3"
-    },
-    {
-      "id": "lib_spacetime_release_state_releaselabel",
-      "label": "releaseLabel()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "releaselabel()",
-      "source_file": "lib/spacetime/release-state.ts",
+      "norm_label": "spacetimeprovider()",
+      "source_file": "lib/spacetime/Provider.tsx",
       "source_location": "L7"
     },
     {
-      "id": "lib_spacetime_release_state_requestrelease",
-      "label": "requestRelease()",
+      "id": "lib_spacetime_module_bindings_index_dbconnection_builder",
+      "label": ".builder()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "Legacy Checklist Verifier",
       "file_type": "code",
-      "norm_label": "requestrelease()",
-      "source_file": "lib/spacetime/release-state.ts",
-      "source_location": "L18"
+      "norm_label": ".builder()",
+      "source_file": "lib/spacetime/module_bindings/index.ts",
+      "source_location": "L194"
     },
     {
-      "id": "lib_verifier_createverifierservice",
-      "label": "createVerifierService()",
+      "id": "lib_spacetime_module_bindings_index_dbconnection_subscriptionbuilder",
+      "label": ".subscriptionBuilder()",
       "_callable": true,
       "_origin": "ast",
       "community": 2,
-      "community_name": "Legacy Checklist Verifier",
       "file_type": "code",
-      "norm_label": "createverifierservice()",
-      "source_file": "lib/verifier.ts",
-      "source_location": "L4"
+      "norm_label": ".subscriptionbuilder()",
+      "source_file": "lib/spacetime/module_bindings/index.ts",
+      "source_location": "L199"
+    },
+    {
+      "id": "lib_spacetime_verificationflow_buildgraph",
+      "label": "buildGraph()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "buildgraph()",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L39"
+    },
+    {
+      "id": "lib_spacetime_verificationflow_canvasprovider",
+      "label": "CanvasProvider()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "canvasprovider()",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L352"
+    },
+    {
+      "id": "lib_spacetime_verificationflow_conditionhistorystate",
+      "label": "conditionHistoryState()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "conditionhistorystate()",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L120"
+    },
+    {
+      "id": "lib_spacetime_verificationflow_detailrow",
+      "label": "DetailRow()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "detailrow()",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L356"
+    },
+    {
+      "id": "lib_spacetime_verificationflow_displaytime",
+      "label": "displayTime()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "displaytime()",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L116"
+    },
+    {
+      "id": "lib_spacetime_verificationflow_executionview",
+      "label": "ExecutionView()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "executionview()",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L358"
+    },
+    {
+      "id": "lib_spacetime_verificationflow_graphcanvas",
+      "label": "GraphCanvas()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "graphcanvas()",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L90"
+    },
+    {
+      "id": "lib_spacetime_verificationflow_graphcardnode",
+      "label": "GraphCardNode()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "graphcardnode()",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L25"
+    },
+    {
+      "id": "lib_spacetime_verificationflow_newestfirst",
+      "label": "newestFirst()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "newestfirst()",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L117"
+    },
+    {
+      "id": "lib_spacetime_verificationflow_statepill",
+      "label": "StatePill()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "statepill()",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L355"
+    },
+    {
+      "id": "lib_spacetime_verificationflow_statustone",
+      "label": "statusTone()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "statustone()",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L21"
+    },
+    {
+      "id": "lib_spacetime_verificationflow_verificationflow",
+      "label": "VerificationFlow()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "verificationflow()",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L126"
     },
     {
       "id": "tests_conditional_escrow_expectfail",
@@ -1033,23 +1070,44 @@
       "source_location": "L4"
     },
     {
-      "id": "app_api_deal_create_route_post",
-      "label": "POST()",
+      "id": "spacetime_spacetimedb_src_index_requirecheck",
+      "label": "requireCheck()",
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "Solana Deal API",
       "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "app/api/deal/create/route.ts",
-      "source_location": "L4"
+      "norm_label": "requirecheck()",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L82"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_requirecondition",
+      "label": "requireCondition()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "requirecondition()",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L76"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_requiredocument",
+      "label": "requireDocument()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "requiredocument()",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L88"
     },
     {
       "id": "app_api_deal_dealid_route_get",
       "label": "GET()",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "get()",
@@ -1061,7 +1119,7 @@
       "label": "POST()",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "post()",
@@ -1073,7 +1131,7 @@
       "label": "addresses()",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "addresses()",
@@ -1085,7 +1143,7 @@
       "label": "asSol()",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "assol()",
@@ -1097,7 +1155,7 @@
       "label": "conditionHash()",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "conditionhash()",
@@ -1109,7 +1167,7 @@
       "label": "createAndFundDeal()",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "createandfunddeal()",
@@ -1121,7 +1179,7 @@
       "label": "discriminator()",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "discriminator()",
@@ -1133,7 +1191,7 @@
       "label": "ensureConfig()",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "ensureconfig()",
@@ -1145,7 +1203,7 @@
       "label": "getDeal()",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "getdeal()",
@@ -1157,7 +1215,7 @@
       "label": "keypair()",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "keypair()",
@@ -1169,7 +1227,7 @@
       "label": "releaseDeal()",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "releasedeal()",
@@ -1181,7 +1239,7 @@
       "label": "requireDevnet()",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "requiredevnet()",
@@ -1193,7 +1251,7 @@
       "label": "send()",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "send()",
@@ -1205,7 +1263,7 @@
       "label": "solana()",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "solana()",
@@ -1217,7 +1275,7 @@
       "label": "submitCondition()",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "submitcondition()",
@@ -1229,7 +1287,7 @@
       "label": "u64()",
       "_callable": true,
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "u64()",
@@ -1237,40 +1295,15 @@
       "source_location": "L8"
     },
     {
-      "id": "spacetime_spacetimedb_src_index_requirecheck",
-      "label": "requireCheck()",
-      "_callable": true,
+      "id": "ref_spacetimedb",
+      "label": "spacetimedb",
       "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "requirecheck()",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L82"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_requirecondition",
-      "label": "requireCondition()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "requirecondition()",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L76"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_requiredocument",
-      "label": "requireDocument()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "requiredocument()",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L88"
+      "community": 0,
+      "community_name": "Runtime Dependencies",
+      "file_type": "concept",
+      "norm_label": "spacetimedb",
+      "source_file": "package.json",
+      "source_location": "L22"
     },
     {
       "id": "lib_spacetime_module_bindings_add_evidence_reducer",
@@ -1350,72 +1383,6 @@
       "source_location": "L1"
     },
     {
-      "id": "lib_spacetime_module_bindings_index",
-      "label": "module_bindings/index.ts",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
-      "file_type": "code",
-      "norm_label": "module_bindings/index.ts",
-      "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "lib_spacetime_module_bindings_index_procedures",
-      "label": "procedures",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
-      "file_type": "code",
-      "norm_label": "procedures",
-      "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L164"
-    },
-    {
-      "id": "lib_spacetime_module_bindings_index_proceduresschema",
-      "label": "proceduresSchema",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
-      "file_type": "code",
-      "norm_label": "proceduresschema",
-      "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L140"
-    },
-    {
-      "id": "lib_spacetime_module_bindings_index_reducersschema",
-      "label": "reducersSchema",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
-      "file_type": "code",
-      "norm_label": "reducersschema",
-      "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L124"
-    },
-    {
-      "id": "lib_spacetime_module_bindings_index_remote_module",
-      "label": "REMOTE_MODULE",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
-      "file_type": "code",
-      "norm_label": "remote_module",
-      "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L144"
-    },
-    {
-      "id": "lib_spacetime_module_bindings_index_tablesschema",
-      "label": "tablesSchema",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
-      "file_type": "code",
-      "norm_label": "tablesschema",
-      "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L61"
-    },
-    {
       "id": "lib_spacetime_module_bindings_record_settlement_status_reducer",
       "label": "record_settlement_status_reducer.ts",
       "_origin": "ast",
@@ -1493,17 +1460,6 @@
       "source_location": "L1"
     },
     {
-      "id": "lib_spacetime_module_bindings_types_reducers",
-      "label": "reducers.ts",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "SpacetimeDB Client Bindings",
-      "file_type": "code",
-      "norm_label": "reducers.ts",
-      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L1"
-    },
-    {
       "id": "lib_spacetime_module_bindings_uploaded_document_table",
       "label": "uploaded_document_table.ts",
       "_origin": "ast",
@@ -1526,92 +1482,267 @@
       "source_location": "L1"
     },
     {
-      "id": "app_page",
-      "label": "page.tsx",
+      "id": "lib_spacetime_module_bindings_enable_condition_reducer",
+      "label": "enable_condition_reducer.ts",
       "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
+      "community": 0,
       "file_type": "code",
-      "norm_label": "page.tsx",
-      "source_file": "app/page.tsx",
+      "norm_label": "enable_condition_reducer.ts",
+      "source_file": "lib/spacetime/module_bindings/enable_condition_reducer.ts",
       "source_location": "L1"
+    },
+    {
+      "id": "lib_spacetime_module_bindings_index",
+      "label": "module_bindings/index.ts",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "module_bindings/index.ts",
+      "source_file": "lib/spacetime/module_bindings/index.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_spacetime_module_bindings_index_procedures",
+      "label": "procedures",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "procedures",
+      "source_file": "lib/spacetime/module_bindings/index.ts",
+      "source_location": "L172"
+    },
+    {
+      "id": "lib_spacetime_module_bindings_index_proceduresschema",
+      "label": "proceduresSchema",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "proceduresschema",
+      "source_file": "lib/spacetime/module_bindings/index.ts",
+      "source_location": "L148"
     },
     {
       "id": "lib_spacetime_module_bindings_index_reducers",
       "label": "reducers",
       "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
+      "community": 0,
       "file_type": "code",
       "norm_label": "reducers",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L161"
+      "source_location": "L169"
     },
     {
-      "id": "lib_spacetime_module_bindings_index_tables",
-      "label": "tables",
+      "id": "lib_spacetime_module_bindings_index_reducersschema",
+      "label": "reducersSchema",
       "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
+      "community": 0,
       "file_type": "code",
-      "norm_label": "tables",
+      "norm_label": "reducersschema",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L158"
+      "source_location": "L128"
     },
     {
-      "id": "lib_spacetime_module_bindings_types",
-      "label": "module_bindings/types.ts",
+      "id": "lib_spacetime_module_bindings_index_remote_module",
+      "label": "REMOTE_MODULE",
       "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
+      "community": 0,
       "file_type": "code",
-      "norm_label": "module_bindings/types.ts",
-      "source_file": "lib/spacetime/module_bindings/types.ts",
+      "norm_label": "remote_module",
+      "source_file": "lib/spacetime/module_bindings/index.ts",
+      "source_location": "L152"
+    },
+    {
+      "id": "lib_spacetime_module_bindings_index_tablesschema",
+      "label": "tablesSchema",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "tablesschema",
+      "source_file": "lib/spacetime/module_bindings/index.ts",
+      "source_location": "L65"
+    },
+    {
+      "id": "lib_spacetime_module_bindings_trigger_condition_reducer",
+      "label": "trigger_condition_reducer.ts",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "trigger_condition_reducer.ts",
+      "source_file": "lib/spacetime/module_bindings/trigger_condition_reducer.ts",
       "source_location": "L1"
     },
     {
-      "id": "lib_spacetime_provider",
-      "label": "Provider.tsx",
+      "id": "lib_spacetime_module_bindings_types_reducers",
+      "label": "reducers.ts",
       "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
+      "community": 0,
       "file_type": "code",
-      "norm_label": "provider.tsx",
-      "source_file": "lib/spacetime/Provider.tsx",
+      "norm_label": "reducers.ts",
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
       "source_location": "L1"
     },
     {
-      "id": "lib_spacetime_verificationflow",
-      "label": "VerificationFlow.tsx",
+      "id": "lib_spacetime_module_bindings_update_condition_prompt_reducer",
+      "label": "update_condition_prompt_reducer.ts",
       "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
+      "community": 0,
       "file_type": "code",
-      "norm_label": "verificationflow.tsx",
-      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "norm_label": "update_condition_prompt_reducer.ts",
+      "source_file": "lib/spacetime/module_bindings/update_condition_prompt_reducer.ts",
       "source_location": "L1"
     },
     {
-      "id": "lib_spacetime_verificationflow_nodetypes",
-      "label": "nodeTypes",
+      "id": "lib_spacetime_module_bindings_update_verification_check_reducer",
+      "label": "update_verification_check_reducer.ts",
       "_origin": "ast",
-      "community": 1,
-      "community_name": "Frontend Graph and Providers",
+      "community": 0,
       "file_type": "code",
-      "norm_label": "nodetypes",
-      "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L20"
+      "norm_label": "update_verification_check_reducer.ts",
+      "source_file": "lib/spacetime/module_bindings/update_verification_check_reducer.ts",
+      "source_location": "L1"
     },
     {
-      "id": "ref_react",
-      "label": "react",
+      "id": "app_api_platform_result_route",
+      "label": "result/route.ts",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Frontend Graph and Providers",
-      "file_type": "concept",
-      "norm_label": "react",
-      "source_file": "package.json",
-      "source_location": "L20"
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "result/route.ts",
+      "source_file": "app/api/platform/result/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_api_platform_result_route_dynamic",
+      "label": "dynamic",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "dynamic",
+      "source_file": "app/api/platform/result/route.ts",
+      "source_location": "L3"
+    },
+    {
+      "id": "app_api_verify_route",
+      "label": "verify/route.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "verify/route.ts",
+      "source_file": "app/api/verify/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_platform",
+      "label": "platform.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "platform.ts",
+      "source_file": "lib/platform.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_platform_check_labels",
+      "label": "CHECK_LABELS",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "check_labels",
+      "source_file": "lib/platform.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "lib_platform_foundation_condition_id",
+      "label": "FOUNDATION_CONDITION_ID",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "foundation_condition_id",
+      "source_file": "lib/platform.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_spacetime_release_state",
+      "label": "release-state.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "release-state.ts",
+      "source_file": "lib/spacetime/release-state.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_spacetime_release_state_safe_release_error",
+      "label": "SAFE_RELEASE_ERROR",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "safe_release_error",
+      "source_file": "lib/spacetime/release-state.ts",
+      "source_location": "L16"
+    },
+    {
+      "id": "lib_verifier",
+      "label": "verifier.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "verifier.ts",
+      "source_file": "lib/verifier.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_verifier_verifierservice",
+      "label": "verifierService",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "verifierservice",
+      "source_file": "lib/verifier.ts",
+      "source_location": "L12"
+    },
+    {
+      "id": "tests_backend_flow_test",
+      "label": "backend-flow.test.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "backend-flow.test.ts",
+      "source_file": "tests/backend-flow.test.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_backend_flow_test_allcheckids",
+      "label": "allCheckIds",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Legacy Checklist Verifier",
+      "file_type": "code",
+      "norm_label": "allcheckids",
+      "source_file": "tests/backend-flow.test.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "app_api_deal_create_route",
+      "label": "create/route.ts",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "Solana Deal API",
+      "file_type": "code",
+      "norm_label": "create/route.ts",
+      "source_file": "app/api/deal/create/route.ts",
+      "source_location": "L1"
     },
     {
       "id": "spacetime_spacetimedb_package",
@@ -1768,39 +1899,6 @@
       "source_location": "L3"
     },
     {
-      "id": "app_api_verification_run_route",
-      "label": "run/route.ts",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "Verification Evidence Runner",
-      "file_type": "code",
-      "norm_label": "run/route.ts",
-      "source_file": "app/api/verification/run/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_api_verification_run_route_runtime",
-      "label": "runtime",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "Verification Evidence Runner",
-      "file_type": "code",
-      "norm_label": "runtime",
-      "source_file": "app/api/verification/run/route.ts",
-      "source_location": "L6"
-    },
-    {
-      "id": "lib_verification_tools_reddit",
-      "label": "reddit.ts",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "Verification Evidence Runner",
-      "file_type": "code",
-      "norm_label": "reddit.ts",
-      "source_file": "lib/verification-tools/reddit.ts",
-      "source_location": "L1"
-    },
-    {
       "id": "lib_verification_tools_types",
       "label": "verification-tools/types.ts",
       "_origin": "ast",
@@ -1820,6 +1918,36 @@
       "file_type": "code",
       "norm_label": "web.ts",
       "source_file": "lib/verification-tools/web.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_api_verification_run_route",
+      "label": "run/route.ts",
+      "_origin": "ast",
+      "community": 11,
+      "file_type": "code",
+      "norm_label": "run/route.ts",
+      "source_file": "app/api/verification/run/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_api_verification_run_route_runtime",
+      "label": "runtime",
+      "_origin": "ast",
+      "community": 11,
+      "file_type": "code",
+      "norm_label": "runtime",
+      "source_file": "app/api/verification/run/route.ts",
+      "source_location": "L6"
+    },
+    {
+      "id": "lib_verification_tools_reddit",
+      "label": "reddit.ts",
+      "_origin": "ast",
+      "community": 11,
+      "file_type": "code",
+      "norm_label": "reddit.ts",
+      "source_file": "lib/verification-tools/reddit.ts",
       "source_location": "L1"
     },
     {
@@ -1948,7 +2076,6 @@
       "label": "verification-plan/route.ts",
       "_origin": "ast",
       "community": 13,
-      "community_name": "Verification Plan Planner",
       "file_type": "code",
       "norm_label": "verification-plan/route.ts",
       "source_file": "app/api/verification-plan/route.ts",
@@ -1959,7 +2086,6 @@
       "label": "runtime",
       "_origin": "ast",
       "community": 13,
-      "community_name": "Verification Plan Planner",
       "file_type": "code",
       "norm_label": "runtime",
       "source_file": "app/api/verification-plan/route.ts",
@@ -1970,7 +2096,6 @@
       "label": "verification-plan.ts",
       "_origin": "ast",
       "community": 13,
-      "community_name": "Verification Plan Planner",
       "file_type": "code",
       "norm_label": "verification-plan.ts",
       "source_file": "lib/verification-plan.ts",
@@ -1981,7 +2106,6 @@
       "label": "allowedKinds",
       "_origin": "ast",
       "community": 13,
-      "community_name": "Verification Plan Planner",
       "file_type": "code",
       "norm_label": "allowedkinds",
       "source_file": "lib/verification-plan.ts",
@@ -2043,136 +2167,78 @@
       "source_location": "L1"
     },
     {
-      "id": "app_api_platform_result_route",
-      "label": "result/route.ts",
+      "id": "app_page",
+      "label": "page.tsx",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Legacy Checklist Verifier",
+      "community_name": "Frontend Graph and Providers",
       "file_type": "code",
-      "norm_label": "result/route.ts",
-      "source_file": "app/api/platform/result/route.ts",
+      "norm_label": "page.tsx",
+      "source_file": "app/page.tsx",
       "source_location": "L1"
     },
     {
-      "id": "app_api_platform_result_route_dynamic",
-      "label": "dynamic",
+      "id": "lib_spacetime_module_bindings_types",
+      "label": "module_bindings/types.ts",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Legacy Checklist Verifier",
+      "community_name": "Frontend Graph and Providers",
       "file_type": "code",
-      "norm_label": "dynamic",
-      "source_file": "app/api/platform/result/route.ts",
-      "source_location": "L3"
-    },
-    {
-      "id": "app_api_verify_route",
-      "label": "verify/route.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "verify/route.ts",
-      "source_file": "app/api/verify/route.ts",
+      "norm_label": "module_bindings/types.ts",
+      "source_file": "lib/spacetime/module_bindings/types.ts",
       "source_location": "L1"
     },
     {
-      "id": "lib_platform",
-      "label": "platform.ts",
+      "id": "lib_spacetime_provider",
+      "label": "Provider.tsx",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Legacy Checklist Verifier",
+      "community_name": "Frontend Graph and Providers",
       "file_type": "code",
-      "norm_label": "platform.ts",
-      "source_file": "lib/platform.ts",
+      "norm_label": "provider.tsx",
+      "source_file": "lib/spacetime/Provider.tsx",
       "source_location": "L1"
     },
     {
-      "id": "lib_platform_check_labels",
-      "label": "CHECK_LABELS",
+      "id": "ref_react",
+      "label": "react",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "check_labels",
-      "source_file": "lib/platform.ts",
-      "source_location": "L7"
+      "community_name": "Frontend Graph and Providers",
+      "file_type": "concept",
+      "norm_label": "react",
+      "source_file": "package.json",
+      "source_location": "L20"
     },
     {
-      "id": "lib_platform_foundation_condition_id",
-      "label": "FOUNDATION_CONDITION_ID",
+      "id": "lib_spacetime_module_bindings_index_tables",
+      "label": "tables",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Legacy Checklist Verifier",
       "file_type": "code",
-      "norm_label": "foundation_condition_id",
-      "source_file": "lib/platform.ts",
+      "norm_label": "tables",
+      "source_file": "lib/spacetime/module_bindings/index.ts",
+      "source_location": "L166"
+    },
+    {
+      "id": "lib_spacetime_verificationflow",
+      "label": "VerificationFlow.tsx",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "verificationflow.tsx",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
       "source_location": "L1"
     },
     {
-      "id": "lib_spacetime_release_state",
-      "label": "release-state.ts",
+      "id": "lib_spacetime_verificationflow_nodetypes",
+      "label": "nodeTypes",
       "_origin": "ast",
       "community": 2,
-      "community_name": "Legacy Checklist Verifier",
       "file_type": "code",
-      "norm_label": "release-state.ts",
-      "source_file": "lib/spacetime/release-state.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "lib_spacetime_release_state_safe_release_error",
-      "label": "SAFE_RELEASE_ERROR",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "safe_release_error",
-      "source_file": "lib/spacetime/release-state.ts",
-      "source_location": "L16"
-    },
-    {
-      "id": "lib_verifier",
-      "label": "verifier.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "verifier.ts",
-      "source_file": "lib/verifier.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "lib_verifier_verifierservice",
-      "label": "verifierService",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "verifierservice",
-      "source_file": "lib/verifier.ts",
-      "source_location": "L12"
-    },
-    {
-      "id": "tests_backend_flow_test",
-      "label": "backend-flow.test.ts",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "backend-flow.test.ts",
-      "source_file": "tests/backend-flow.test.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "tests_backend_flow_test_allcheckids",
-      "label": "allCheckIds",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "Legacy Checklist Verifier",
-      "file_type": "code",
-      "norm_label": "allcheckids",
-      "source_file": "tests/backend-flow.test.ts",
-      "source_location": "L7"
+      "norm_label": "nodetypes",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L20"
     },
     {
       "id": "next_config",
@@ -2429,17 +2495,6 @@
       "norm_label": "@solana/web3.js",
       "source_file": "package.json",
       "source_location": "L17"
-    },
-    {
-      "id": "ref_spacetimedb",
-      "label": "spacetimedb",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "Runtime Dependencies",
-      "file_type": "concept",
-      "norm_label": "spacetimedb",
-      "source_file": "package.json",
-      "source_location": "L22"
     },
     {
       "id": "ref_tailwindcss",
@@ -2838,21 +2893,230 @@
       "source_location": ""
     },
     {
-      "id": "app_api_deal_create_route",
-      "label": "create/route.ts",
+      "id": "spacetime_spacetimedb_src_index",
+      "label": "src/index.ts",
       "_origin": "ast",
       "community": 5,
-      "community_name": "Solana Deal API",
       "file_type": "code",
-      "norm_label": "create/route.ts",
-      "source_file": "app/api/deal/create/route.ts",
+      "norm_label": "src/index.ts",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
       "source_location": "L1"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_add_evidence",
+      "label": "add_evidence",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "add_evidence",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L199"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_add_verification_check",
+      "label": "add_verification_check",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "add_verification_check",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L132"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_associate_demo_deal",
+      "label": "associate_demo_deal",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "associate_demo_deal",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L288"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_complete_check",
+      "label": "complete_check",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "complete_check",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L179"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_condition",
+      "label": "condition",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "condition",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L5"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_create_condition",
+      "label": "create_condition",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "create_condition",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L94"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_enable_condition",
+      "label": "enable_condition",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "enable_condition",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L119"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_evidence",
+      "label": "evidence",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "evidence",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L39"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_record_settlement_status",
+      "label": "record_settlement_status",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "record_settlement_status",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L277"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_record_uploaded_document",
+      "label": "record_uploaded_document",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "record_uploaded_document",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L229"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_resolve_condition",
+      "label": "resolve_condition",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "resolve_condition",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L263"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_set_check_error",
+      "label": "set_check_error",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "set_check_error",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L189"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_set_check_running",
+      "label": "set_check_running",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "set_check_running",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L149"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_set_condition_status",
+      "label": "set_condition_status",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "set_condition_status",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L110"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_set_document_extraction_status",
+      "label": "set_document_extraction_status",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "set_document_extraction_status",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L252"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_spacetimedb",
+      "label": "spacetimedb",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "spacetimedb",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L73"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_trigger_condition",
+      "label": "trigger_condition",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "trigger_condition",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L126"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_update_condition_prompt",
+      "label": "update_condition_prompt",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "update_condition_prompt",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L157"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_update_verification_check",
+      "label": "update_verification_check",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "update_verification_check",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L167"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_uploadeddocument",
+      "label": "uploadedDocument",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "uploadeddocument",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L56"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_verificationcheck",
+      "label": "verificationCheck",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "verificationcheck",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L21"
     },
     {
       "id": "app_api_deal_dealid_route",
       "label": "[dealId]/route.ts",
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "[dealid]/route.ts",
@@ -2863,7 +3127,7 @@
       "id": "app_api_deal_release_route",
       "label": "release/route.ts",
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "release/route.ts",
@@ -2874,7 +3138,7 @@
       "id": "lib_solana",
       "label": "solana.ts",
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "solana.ts",
@@ -2885,7 +3149,7 @@
       "id": "lib_solana_config_seed",
       "label": "CONFIG_SEED",
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "config_seed",
@@ -2896,7 +3160,7 @@
       "id": "lib_solana_deal_seed",
       "label": "DEAL_SEED",
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "deal_seed",
@@ -2907,210 +3171,12 @@
       "id": "lib_solana_escrow_seed",
       "label": "ESCROW_SEED",
       "_origin": "ast",
-      "community": 5,
+      "community": 6,
       "community_name": "Solana Deal API",
       "file_type": "code",
       "norm_label": "escrow_seed",
       "source_file": "lib/solana.ts",
       "source_location": "L7"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index",
-      "label": "src/index.ts",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "src/index.ts",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_add_evidence",
-      "label": "add_evidence",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "add_evidence",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L163"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_add_verification_check",
-      "label": "add_verification_check",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "add_verification_check",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L119"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_associate_demo_deal",
-      "label": "associate_demo_deal",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "associate_demo_deal",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L251"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_complete_check",
-      "label": "complete_check",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "complete_check",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L143"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_condition",
-      "label": "condition",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "condition",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L5"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_create_condition",
-      "label": "create_condition",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "create_condition",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L94"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_evidence",
-      "label": "evidence",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "evidence",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L39"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_record_settlement_status",
-      "label": "record_settlement_status",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "record_settlement_status",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L241"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_record_uploaded_document",
-      "label": "record_uploaded_document",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "record_uploaded_document",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L193"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_resolve_condition",
-      "label": "resolve_condition",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "resolve_condition",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L227"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_set_check_error",
-      "label": "set_check_error",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "set_check_error",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L153"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_set_check_running",
-      "label": "set_check_running",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "set_check_running",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L136"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_set_condition_status",
-      "label": "set_condition_status",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "set_condition_status",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L110"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_set_document_extraction_status",
-      "label": "set_document_extraction_status",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "set_document_extraction_status",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L216"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_spacetimedb",
-      "label": "spacetimedb",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "spacetimedb",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L73"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_uploadeddocument",
-      "label": "uploadedDocument",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "uploadeddocument",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L56"
-    },
-    {
-      "id": "spacetime_spacetimedb_src_index_verificationcheck",
-      "label": "verificationCheck",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "SpacetimeDB Reducers and Tables",
-      "file_type": "code",
-      "norm_label": "verificationcheck",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L21"
     },
     {
       "id": "tsconfig",
@@ -3605,6 +3671,7 @@
     {
       "id": "readme_anchor_program",
       "label": "Anchor Conditional Escrow Program",
+      "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 9,
@@ -3619,6 +3686,7 @@
     {
       "id": "readme_centralized_verifier",
       "label": "Centralized Verifier Service",
+      "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 9,
@@ -3633,6 +3701,7 @@
     {
       "id": "readme_conditional_escrow_mvp",
       "label": "Conditional Escrow MVP",
+      "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 9,
@@ -3647,6 +3716,7 @@
     {
       "id": "readme_firecrawl",
       "label": "Firecrawl Web Search",
+      "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 9,
@@ -3661,6 +3731,7 @@
     {
       "id": "readme_grok",
       "label": "Grok",
+      "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 9,
@@ -3675,6 +3746,7 @@
     {
       "id": "readme_human_confirmation",
       "label": "Human Release Confirmation",
+      "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 9,
@@ -3689,6 +3761,7 @@
     {
       "id": "readme_nextjs_frontend",
       "label": "Next.js Frontend",
+      "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 9,
@@ -3703,6 +3776,7 @@
     {
       "id": "readme_platform_checklist",
       "label": "Platform Mock Construction Checklist",
+      "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 9,
@@ -3717,6 +3791,7 @@
     {
       "id": "readme_reddit",
       "label": "Reddit Public Search",
+      "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 9,
@@ -3731,6 +3806,7 @@
     {
       "id": "readme_solana_devnet",
       "label": "Solana Devnet",
+      "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 9,
@@ -3745,6 +3821,7 @@
     {
       "id": "readme_spacetimedb",
       "label": "SpacetimeDB Live Verification State",
+      "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 9,
@@ -3759,6 +3836,7 @@
     {
       "id": "readme_verification_runner",
       "label": "Verification Runner",
+      "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 9,
@@ -3773,6 +3851,7 @@
     {
       "id": "readme_readme",
       "label": "Conditional Escrow MVP README",
+      "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 9,
@@ -3787,6 +3866,7 @@
     {
       "id": "readme_development_open_access",
       "label": "Development-Open Table and Reducer Access",
+      "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 9,
@@ -3801,6 +3881,7 @@
     {
       "id": "readme_not_trustless_oracle",
       "label": "Not a Trustless Oracle",
+      "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 9,
@@ -3931,7 +4012,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/verification-plan/route.ts",
-      "source_location": "L33",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -3943,7 +4024,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/verification-plan/route.ts",
-      "source_location": "L42",
+      "source_location": "L53",
       "weight": 1.0
     },
     {
@@ -4423,7 +4504,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L187",
+      "source_location": "L195",
       "weight": 1.0
     },
     {
@@ -4435,7 +4516,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L187",
+      "source_location": "L195",
       "weight": 1.0
     },
     {
@@ -4447,7 +4528,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L192",
+      "source_location": "L200",
       "weight": 1.0
     },
     {
@@ -4475,6 +4556,30 @@
       "weight": 1.0
     },
     {
+      "source": "lib_spacetime_verificationflow_executionview",
+      "target": "lib_spacetime_verificationflow_conditionhistorystate",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L385",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_verificationflow_executionview",
+      "target": "lib_spacetime_verificationflow_displaytime",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L385",
+      "weight": 1.0
+    },
+    {
       "source": "lib_spacetime_verificationflow_verificationflow",
       "target": "lib_spacetime_verificationflow_buildgraph",
       "relation": "calls",
@@ -4483,7 +4588,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L165",
+      "source_location": "L176",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_verificationflow_verificationflow",
+      "target": "lib_spacetime_release_state_requestrelease",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L283",
       "weight": 1.0
     },
     {
@@ -4495,7 +4612,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L277",
+      "source_location": "L338",
       "weight": 1.0
     },
     {
@@ -4507,7 +4624,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L277",
+      "source_location": "L340",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_verificationflow_verificationflow",
+      "target": "lib_spacetime_verificationflow_conditionhistorystate",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L348",
       "weight": 1.0
     },
     {
@@ -4519,7 +4648,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/verification-tools/reddit.ts",
-      "source_location": "L11",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -4531,7 +4660,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L176",
+      "source_location": "L212",
       "weight": 1.0
     },
     {
@@ -4543,7 +4672,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L177",
+      "source_location": "L213",
       "weight": 1.0
     },
     {
@@ -4555,7 +4684,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L122",
+      "source_location": "L135",
       "weight": 1.0
     },
     {
@@ -4567,7 +4696,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L254",
+      "source_location": "L291",
       "weight": 1.0
     },
     {
@@ -4579,7 +4708,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L146",
+      "source_location": "L182",
       "weight": 1.0
     },
     {
@@ -4591,7 +4720,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L148",
+      "source_location": "L184",
+      "weight": 1.0
+    },
+    {
+      "source": "spacetime_spacetimedb_src_index_enable_condition",
+      "target": "spacetime_spacetimedb_src_index_requirecondition",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L120",
       "weight": 1.0
     },
     {
@@ -4603,7 +4744,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L245",
+      "source_location": "L281",
       "weight": 1.0
     },
     {
@@ -4615,7 +4756,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L203",
+      "source_location": "L239",
       "weight": 1.0
     },
     {
@@ -4627,7 +4768,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L230",
+      "source_location": "L266",
       "weight": 1.0
     },
     {
@@ -4639,7 +4780,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L156",
+      "source_location": "L192",
       "weight": 1.0
     },
     {
@@ -4651,7 +4792,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L158",
+      "source_location": "L194",
       "weight": 1.0
     },
     {
@@ -4663,7 +4804,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L137",
+      "source_location": "L150",
       "weight": 1.0
     },
     {
@@ -4675,7 +4816,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L139",
+      "source_location": "L153",
       "weight": 1.0
     },
     {
@@ -4699,7 +4840,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L220",
+      "source_location": "L256",
       "weight": 1.0
     },
     {
@@ -4711,7 +4852,55 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L222",
+      "source_location": "L258",
+      "weight": 1.0
+    },
+    {
+      "source": "spacetime_spacetimedb_src_index_trigger_condition",
+      "target": "spacetime_spacetimedb_src_index_requirecondition",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "spacetime_spacetimedb_src_index_update_condition_prompt",
+      "target": "spacetime_spacetimedb_src_index_requirecondition",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L160",
+      "weight": 1.0
+    },
+    {
+      "source": "spacetime_spacetimedb_src_index_update_verification_check",
+      "target": "spacetime_spacetimedb_src_index_requirecheck",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L170",
+      "weight": 1.0
+    },
+    {
+      "source": "spacetime_spacetimedb_src_index_update_verification_check",
+      "target": "spacetime_spacetimedb_src_index_requirecondition",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L171",
       "weight": 1.0
     },
     {
@@ -5508,18 +5697,6 @@
     },
     {
       "source": "lib_spacetime_verificationflow",
-      "target": "lib_spacetime_release_state_canrelease",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_spacetime_verificationflow",
       "target": "lib_spacetime_release_state_requestrelease",
       "relation": "imports",
       "_origin": "ast",
@@ -6156,6 +6333,18 @@
       "weight": 1.0
     },
     {
+      "source": "lib_spacetime_module_bindings_enable_condition_reducer",
+      "target": "ref_spacetimedb",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/module_bindings/enable_condition_reducer.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
       "source": "lib_spacetime_module_bindings_index",
       "target": "lib_spacetime_module_bindings_add_evidence_reducer",
       "relation": "imports_from",
@@ -6217,7 +6406,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_record_settlement_status_reducer",
+      "target": "lib_spacetime_module_bindings_enable_condition_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6229,7 +6418,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_record_uploaded_document_reducer",
+      "target": "lib_spacetime_module_bindings_record_settlement_status_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6241,7 +6430,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_resolve_condition_reducer",
+      "target": "lib_spacetime_module_bindings_record_uploaded_document_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6253,7 +6442,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_set_check_error_reducer",
+      "target": "lib_spacetime_module_bindings_resolve_condition_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6265,7 +6454,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_set_check_running_reducer",
+      "target": "lib_spacetime_module_bindings_set_check_error_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6277,7 +6466,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_set_condition_status_reducer",
+      "target": "lib_spacetime_module_bindings_set_check_running_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6289,7 +6478,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_set_document_extraction_status_reducer",
+      "target": "lib_spacetime_module_bindings_set_condition_status_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6301,6 +6490,54 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
+      "target": "lib_spacetime_module_bindings_set_document_extraction_status_reducer",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/module_bindings/index.ts",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_index",
+      "target": "lib_spacetime_module_bindings_trigger_condition_reducer",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/module_bindings/index.ts",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_index",
+      "target": "lib_spacetime_module_bindings_update_condition_prompt_reducer",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/module_bindings/index.ts",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_index",
+      "target": "lib_spacetime_module_bindings_update_verification_check_reducer",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/module_bindings/index.ts",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_index",
       "target": "lib_spacetime_module_bindings_condition_table",
       "relation": "imports_from",
       "_origin": "ast",
@@ -6308,7 +6545,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L53",
+      "source_location": "L57",
       "weight": 1.0
     },
     {
@@ -6320,7 +6557,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L54",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -6332,7 +6569,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L55",
+      "source_location": "L59",
       "weight": 1.0
     },
     {
@@ -6344,7 +6581,31 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L56",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_index",
+      "target": "ref_spacetimedb",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/module_bindings/index.ts",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_trigger_condition_reducer",
+      "target": "ref_spacetimedb",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/module_bindings/trigger_condition_reducer.ts",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -6397,7 +6658,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_record_settlement_status_reducer",
+      "target": "lib_spacetime_module_bindings_enable_condition_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6409,7 +6670,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_record_uploaded_document_reducer",
+      "target": "lib_spacetime_module_bindings_record_settlement_status_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6421,7 +6682,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_resolve_condition_reducer",
+      "target": "lib_spacetime_module_bindings_record_uploaded_document_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6433,7 +6694,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_set_check_error_reducer",
+      "target": "lib_spacetime_module_bindings_resolve_condition_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6445,7 +6706,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_set_check_running_reducer",
+      "target": "lib_spacetime_module_bindings_set_check_error_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6457,7 +6718,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_set_condition_status_reducer",
+      "target": "lib_spacetime_module_bindings_set_check_running_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6469,7 +6730,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_set_document_extraction_status_reducer",
+      "target": "lib_spacetime_module_bindings_set_condition_status_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6477,6 +6738,66 @@
       "context": "import",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
       "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_types_reducers",
+      "target": "lib_spacetime_module_bindings_set_document_extraction_status_reducer",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_types_reducers",
+      "target": "lib_spacetime_module_bindings_trigger_condition_reducer",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_types_reducers",
+      "target": "lib_spacetime_module_bindings_update_condition_prompt_reducer",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_types_reducers",
+      "target": "lib_spacetime_module_bindings_update_verification_check_reducer",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_types_reducers",
+      "target": "ref_spacetimedb",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -6489,6 +6810,30 @@
       "context": "import",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_update_condition_prompt_reducer",
+      "target": "ref_spacetimedb",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/module_bindings/update_condition_prompt_reducer.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_update_verification_check_reducer",
+      "target": "ref_spacetimedb",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/module_bindings/update_verification_check_reducer.ts",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -7462,7 +7807,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L124",
+      "source_location": "L128",
       "weight": 1.0
     },
     {
@@ -7473,7 +7818,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L140",
+      "source_location": "L148",
       "weight": 1.0
     },
     {
@@ -7484,7 +7829,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L144",
+      "source_location": "L152",
       "weight": 1.0
     },
     {
@@ -7495,7 +7840,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L158",
+      "source_location": "L166",
       "weight": 1.0
     },
     {
@@ -7506,7 +7851,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L161",
+      "source_location": "L169",
       "weight": 1.0
     },
     {
@@ -7517,7 +7862,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L164",
+      "source_location": "L172",
       "weight": 1.0
     },
     {
@@ -7528,7 +7873,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L167",
+      "source_location": "L175",
       "weight": 1.0
     },
     {
@@ -7539,7 +7884,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L169",
+      "source_location": "L177",
       "weight": 1.0
     },
     {
@@ -7550,7 +7895,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L171",
+      "source_location": "L179",
       "weight": 1.0
     },
     {
@@ -7561,7 +7906,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L173",
+      "source_location": "L181",
       "weight": 1.0
     },
     {
@@ -7572,7 +7917,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L175",
+      "source_location": "L183",
       "weight": 1.0
     },
     {
@@ -7583,7 +7928,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L178",
+      "source_location": "L186",
       "weight": 1.0
     },
     {
@@ -7594,7 +7939,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L181",
+      "source_location": "L189",
       "weight": 1.0
     },
     {
@@ -7605,7 +7950,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L184",
+      "source_location": "L192",
       "weight": 1.0
     },
     {
@@ -7616,7 +7961,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L61",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
@@ -7671,7 +8016,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L22",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -7682,7 +8027,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L23",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -7693,7 +8038,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L24",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -7704,7 +8049,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L25",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -7715,56 +8060,12 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L26",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_types_reducers_recordsettlementstatusparams",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L27",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_types_reducers_recorduploadeddocumentparams",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L28",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_types_reducers_resolveconditionparams",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L29",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_types_reducers_setcheckerrorparams",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
       "source_location": "L30",
       "weight": 1.0
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_types_reducers_setcheckrunningparams",
+      "target": "lib_spacetime_module_bindings_types_reducers_enableconditionparams",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7775,7 +8076,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_types_reducers_setconditionstatusparams",
+      "target": "lib_spacetime_module_bindings_types_reducers_recordsettlementstatusparams",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7786,13 +8087,101 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_types_reducers_setdocumentextractionstatusparams",
+      "target": "lib_spacetime_module_bindings_types_reducers_recorduploadeddocumentparams",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
       "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_types_reducers",
+      "target": "lib_spacetime_module_bindings_types_reducers_resolveconditionparams",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_types_reducers",
+      "target": "lib_spacetime_module_bindings_types_reducers_setcheckerrorparams",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_types_reducers",
+      "target": "lib_spacetime_module_bindings_types_reducers_setcheckrunningparams",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_types_reducers",
+      "target": "lib_spacetime_module_bindings_types_reducers_setconditionstatusparams",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_types_reducers",
+      "target": "lib_spacetime_module_bindings_types_reducers_setdocumentextractionstatusparams",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_types_reducers",
+      "target": "lib_spacetime_module_bindings_types_reducers_triggerconditionparams",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_types_reducers",
+      "target": "lib_spacetime_module_bindings_types_reducers_updateconditionpromptparams",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_types_reducers",
+      "target": "lib_spacetime_module_bindings_types_reducers_updateverificationcheckparams",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -7869,7 +8258,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L117",
+      "source_location": "L116",
       "weight": 1.0
     },
     {
@@ -7880,7 +8269,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L118",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_verificationflow",
+      "target": "lib_spacetime_verificationflow_conditionhistorystate",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L120",
       "weight": 1.0
     },
     {
@@ -7891,7 +8291,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L122",
+      "source_location": "L126",
       "weight": 1.0
     },
     {
@@ -7968,7 +8368,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L291",
+      "source_location": "L352",
       "weight": 1.0
     },
     {
@@ -7979,7 +8379,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L294",
+      "source_location": "L355",
       "weight": 1.0
     },
     {
@@ -7990,7 +8390,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L295",
+      "source_location": "L356",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_verificationflow",
+      "target": "lib_spacetime_verificationflow_executionview",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L358",
       "weight": 1.0
     },
     {
@@ -8875,7 +9286,7 @@
     },
     {
       "source": "spacetime_spacetimedb_src_index",
-      "target": "spacetime_spacetimedb_src_index_add_verification_check",
+      "target": "spacetime_spacetimedb_src_index_enable_condition",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8886,13 +9297,57 @@
     },
     {
       "source": "spacetime_spacetimedb_src_index",
+      "target": "spacetime_spacetimedb_src_index_trigger_condition",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "spacetime_spacetimedb_src_index",
+      "target": "spacetime_spacetimedb_src_index_add_verification_check",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
+      "source": "spacetime_spacetimedb_src_index",
       "target": "spacetime_spacetimedb_src_index_set_check_running",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L136",
+      "source_location": "L149",
+      "weight": 1.0
+    },
+    {
+      "source": "spacetime_spacetimedb_src_index",
+      "target": "spacetime_spacetimedb_src_index_update_condition_prompt",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L157",
+      "weight": 1.0
+    },
+    {
+      "source": "spacetime_spacetimedb_src_index",
+      "target": "spacetime_spacetimedb_src_index_update_verification_check",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L167",
       "weight": 1.0
     },
     {
@@ -8903,7 +9358,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L143",
+      "source_location": "L179",
       "weight": 1.0
     },
     {
@@ -8914,7 +9369,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L153",
+      "source_location": "L189",
       "weight": 1.0
     },
     {
@@ -8925,18 +9380,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L163",
-      "weight": 1.0
-    },
-    {
-      "source": "spacetime_spacetimedb_src_index",
-      "target": "spacetime_spacetimedb_src_index_record_uploaded_document",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L193",
+      "source_location": "L199",
       "weight": 1.0
     },
     {
@@ -8952,13 +9396,24 @@
     },
     {
       "source": "spacetime_spacetimedb_src_index",
+      "target": "spacetime_spacetimedb_src_index_record_uploaded_document",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L229",
+      "weight": 1.0
+    },
+    {
+      "source": "spacetime_spacetimedb_src_index",
       "target": "spacetime_spacetimedb_src_index_set_document_extraction_status",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L216",
+      "source_location": "L252",
       "weight": 1.0
     },
     {
@@ -8969,7 +9424,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L227",
+      "source_location": "L263",
       "weight": 1.0
     },
     {
@@ -8980,7 +9435,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L241",
+      "source_location": "L277",
       "weight": 1.0
     },
     {
@@ -8991,7 +9446,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L251",
+      "source_location": "L288",
       "weight": 1.0
     },
     {
@@ -9332,7 +9787,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L191",
+      "source_location": "L199",
       "weight": 1.0
     },
     {
@@ -9347,6 +9802,18 @@
       "weight": 1.0
     },
     {
+      "source": "lib_spacetime_verificationflow_executionview",
+      "target": "lib_spacetime_verificationflow_newestfirst",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "argument",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L385",
+      "weight": 1.0
+    },
+    {
       "source": "lib_spacetime_verificationflow_verificationflow",
       "target": "lib_spacetime_verificationflow_newestfirst",
       "relation": "indirect_call",
@@ -9355,7 +9822,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L155",
+      "source_location": "L348",
       "weight": 1.0
     },
     {
@@ -9368,6 +9835,182 @@
       "context": "collection",
       "source_file": "lib/spacetime/VerificationFlow.tsx",
       "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_centralized_verifier",
+      "target": "readme_anchor_program",
+      "relation": "calls",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_centralized_verifier",
+      "target": "readme_platform_checklist",
+      "relation": "calls",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_human_confirmation",
+      "target": "readme_solana_devnet",
+      "relation": "calls",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_verification_runner",
+      "target": "readme_firecrawl",
+      "relation": "calls",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_verification_runner",
+      "target": "readme_grok",
+      "relation": "calls",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_verification_runner",
+      "target": "readme_reddit",
+      "relation": "calls",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_verification_runner",
+      "target": "readme_spacetimedb",
+      "relation": "calls",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_anchor_program",
+      "target": "readme_solana_devnet",
+      "relation": "conceptually_related_to",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_conditional_escrow_mvp",
+      "target": "readme_centralized_verifier",
+      "relation": "conceptually_related_to",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_conditional_escrow_mvp",
+      "target": "readme_platform_checklist",
+      "relation": "conceptually_related_to",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_nextjs_frontend",
+      "target": "readme_anchor_program",
+      "relation": "conceptually_related_to",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_conditional_escrow_mvp",
+      "target": "readme_anchor_program",
+      "relation": "implements",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_spacetimedb",
+      "target": "readme_development_open_access",
+      "relation": "rationale_for",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_conditional_escrow_mvp",
+      "target": "readme_not_trustless_oracle",
+      "relation": "references",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_nextjs_frontend",
+      "target": "readme_spacetimedb",
+      "relation": "references",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_readme",
+      "target": "readme_conditional_escrow_mvp",
+      "relation": "references",
+      "_origin": "semantic",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
       "weight": 1.0
     },
     {
@@ -9415,169 +10058,10 @@
       "weight": 1.0
     },
     {
-      "source": "readme_centralized_verifier",
-      "target": "readme_anchor_program",
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "readme_centralized_verifier",
-      "target": "readme_platform_checklist",
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "readme_human_confirmation",
-      "target": "readme_solana_devnet",
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "readme_verification_runner",
-      "target": "readme_firecrawl",
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "readme_verification_runner",
-      "target": "readme_grok",
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "readme_verification_runner",
-      "target": "readme_reddit",
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "readme_verification_runner",
-      "target": "readme_spacetimedb",
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "readme_anchor_program",
-      "target": "readme_solana_devnet",
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "readme_conditional_escrow_mvp",
-      "target": "readme_centralized_verifier",
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "readme_conditional_escrow_mvp",
-      "target": "readme_platform_checklist",
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "readme_nextjs_frontend",
-      "target": "readme_anchor_program",
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "readme_conditional_escrow_mvp",
-      "target": "readme_anchor_program",
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "readme_spacetimedb",
-      "target": "readme_development_open_access",
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "readme_conditional_escrow_mvp",
-      "target": "readme_not_trustless_oracle",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "readme_nextjs_frontend",
-      "target": "readme_spacetimedb",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "readme_readme",
-      "target": "readme_conditional_escrow_mvp",
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "README.md",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
       "source": "readme_development_open_access",
       "target": "readme_human_confirmation",
       "relation": "conceptually_related_to",
+      "_origin": "semantic",
       "confidence": "INFERRED",
       "confidence_score": 0.55,
       "source_file": "README.md",
@@ -9601,5 +10085,5 @@
       "source_file": "README.md"
     }
   ],
-  "built_at_commit": "e6f99dea6a85547b5a60e31129e52109280cf9ee"
+  "built_at_commit": "fd0c8c60ba03f39bf53565027fd0cd02ce1bb456"
 }
