@@ -45,14 +45,11 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`. Create a **fresh** 0.001 SOL deal with `foundation_milestone_complete`; this amount keeps the escrow PDA rent-exempt while remaining small for demos. Existing deals have a fixed, older condition hash and cannot be reused for this demo. The payer must have sufficient Devnet SOL before you create and fund a deal. Each fresh deal also consumes account rent and transaction fees, so repeated live Devnet runs still consume payer balance beyond the escrow amount.
+Open `http://localhost:3000`. Create a **fresh** 0.001 SOL deal with `foundation_milestone_complete`; this amount keeps the escrow PDA rent-exempt while remaining small for demos. The payer must have sufficient Devnet SOL before you create and fund a deal. Each fresh deal also consumes account rent and transaction fees, so repeated live Devnet runs still consume payer balance beyond the escrow amount.
 
 The checklist begins with all five checks incomplete. Its actions are deliberately mock/demo actions only: they do not upload files, inspect evidence, or obtain real approvals. The shown filenames and approval labels are mock metadata.
 
-1. Mark any four checks complete and leave inspector approval incomplete.
-2. Run verification: the centralized verifier independently reads the platform's current checklist, calculates `false`, and the program keeps payment locked.
-3. Approve as inspector and run verification again. The verifier calculates `true` and records it on-chain.
-4. The deal is now **ready to release**, not released. Click **Release Payment** as a separate explicit action, then open the Devnet Explorer links.
+The older construction-checklist controls remain a separate legacy demo. They do not authorize the release button in the SpacetimeDB verification flow.
 
 Checklist state is process-local memory indexed by deal ID and resets if the server restarts. It is intentionally not a database or production evidence store.
 
@@ -98,7 +95,7 @@ npm run dev
 
 SpacetimeDB listens on `127.0.0.1:3001` and Next.js uses its usual port 3000. The database name is `condition-oracle`. Override `NEXT_PUBLIC_SPACETIMEDB_URI` or `NEXT_PUBLIC_SPACETIMEDB_DATABASE` in `.env.local` if needed. The checked-in template config is explicitly set to the local server; nothing in this setup publishes to Maincloud. Run `npm run spacetime:generate` after changing the module schema to refresh generated client bindings.
 
-In the **Verification Plan** section, enter a condition and click **Generate verification plan**. The plan and optional document metadata are written through real reducers; subscribed rows appear without a refresh. File bytes, external evidence sources, and Solana settlement are not part of this demonstration.
+In the **Verification Plan** section, enter a condition and click **Generate verification plan**. The plan and optional document metadata are written through real reducers; subscribed rows appear without a refresh. Link the current funded Devnet deal to the condition when the condition passes.
 
 ### Verification runner
 
@@ -106,6 +103,19 @@ Set `XAI_API_KEY` and `FIRECRAWL_API_KEY` in `.env.local` (server side only; nev
 
 External calls stay in Next.js routes: SpacetimeDB reducers remain deterministic and do not call Grok, Reddit, web search, document parsers, Nessie, filesystem APIs, clocks, randomness, or Solana RPC.
 
+### Devnet release demo
+
+1. Create and fund the existing Devnet deal.
+2. Generate a verification plan and run it.
+3. Get a true result from the current SpacetimeDB condition.
+4. Confirm its settlement status is **Ready**.
+5. Link the current funded deal if it is not already linked, then click **Release test funds on Devnet**.
+6. Review the recipient, amount, and Devnet confirmation panel.
+7. Click **Confirm release**.
+8. Show **Funds released on Devnet** and its real Solana Explorer transaction link.
+
+Nothing is released when verification finishes. The separate human confirmation sends one explicit Devnet release request; the subscribed SpacetimeDB condition records submitted, confirmed, or failed settlement state and the returned signature.
+
 ## Intentionally omitted
 
-Nessie, real document parsing, stronger evaluation rules, manual settlement wiring, automatic Solana release, custom attestations, wallet connections, SPL/stablecoins, banking, mainnet, multi-party oracles, and production authorization/key management are intentionally out of scope.
+Nessie, real document parsing, stronger evaluation rules, automatic Solana release, custom attestations, wallet connections, SPL/stablecoins, banking, mainnet, multi-party oracles, and production authorization/key management are intentionally out of scope.

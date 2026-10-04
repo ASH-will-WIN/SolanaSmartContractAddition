@@ -18,6 +18,7 @@ export const Condition = __t.object("Condition", {
   finalResult: __t.option(__t.bool()),
   settlementStatus: __t.string(),
   settlementSignature: __t.option(__t.string()),
+  dealId: __t.option(__t.u64()),
   createdAt: __t.timestamp(),
   updatedAt: __t.timestamp(),
 });

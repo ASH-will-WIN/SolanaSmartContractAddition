@@ -36,6 +36,7 @@ import {
 // Import all reducer arg schemas
 import AddEvidenceReducer from "./add_evidence_reducer";
 import AddVerificationCheckReducer from "./add_verification_check_reducer";
+import AssociateDemoDealReducer from "./associate_demo_deal_reducer";
 import CompleteCheckReducer from "./complete_check_reducer";
 import CreateConditionReducer from "./create_condition_reducer";
 import RecordSettlementStatusReducer from "./record_settlement_status_reducer";
@@ -123,6 +124,7 @@ const tablesSchema = __schema({
 const reducersSchema = __reducers(
   __reducerSchema("add_evidence", AddEvidenceReducer),
   __reducerSchema("add_verification_check", AddVerificationCheckReducer),
+  __reducerSchema("associate_demo_deal", AssociateDemoDealReducer),
   __reducerSchema("complete_check", CompleteCheckReducer),
   __reducerSchema("create_condition", CreateConditionReducer),
   __reducerSchema("record_settlement_status", RecordSettlementStatusReducer),

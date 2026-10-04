@@ -1,11 +1,12 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useReducer, useSpacetimeDB, useTable } from "spacetimedb/react";
 import { reducers, tables } from "./module_bindings";
 import type { Condition, Evidence as EvidenceRow, UploadedDocument, VerificationCheck } from "./module_bindings/types";
 
 import type { VerificationPlan } from "@/lib/verification-plan";
+import { canRelease, requestRelease, SAFE_RELEASE_ERROR } from "@/lib/spacetime/release-state";
 
 function displayTime(value: { microsSinceUnixEpoch: bigint }) {
   return new Date(Number(value.microsSinceUnixEpoch / 1000n)).toLocaleString();
@@ -16,7 +17,8 @@ function newestFirst<T extends { createdAt: { microsSinceUnixEpoch: bigint } }>(
     : a.createdAt.microsSinceUnixEpoch < b.createdAt.microsSinceUnixEpoch ? 1 : 0;
 }
 
-export function VerificationFlow() {
+type DemoDeal = { dealId: number; recipient?: string; amountLamports?: number; funded?: boolean; released?: boolean };
+export function VerificationFlow({ demoDeal }: { demoDeal?: DemoDeal }) {
   const { isActive, connectionError, getConnection } = useSpacetimeDB();
   const [conditionRows, conditionsLoading] = useTable(tables.condition);
   const [checkRows, checksLoading] = useTable(tables.verificationCheck);
@@ -33,6 +35,9 @@ export function VerificationFlow() {
   const [selectedId, setSelectedId] = useState<bigint>();
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState("Describe what must be true before funds release.");
+  const [confirmRelease, setConfirmRelease] = useState(false);
+  const [releaseBusy, setReleaseBusy] = useState(false);
+  const [associatedDeal, setAssociatedDeal] = useState<DemoDeal>();
   const submitting = useRef(false);
 
   const createCondition = useReducer(reducers.createCondition);
@@ -44,6 +49,8 @@ export function VerificationFlow() {
   const setCheckError = useReducer(reducers.setCheckError);
   const addEvidence = useReducer(reducers.addEvidence);
   const resolveCondition = useReducer(reducers.resolveCondition);
+  const recordSettlementStatus = useReducer(reducers.recordSettlementStatus);
+  const associateDemoDeal = useReducer(reducers.associateDemoDeal);
 
   const selectedCondition = conditions.find((row) => row.id === selectedId)
     ?? [...conditions].sort(newestFirst)[0];
@@ -54,6 +61,42 @@ export function VerificationFlow() {
   const flowDocuments = documents.filter((row) => row.conditionId === selectedCondition?.id);
   const loading = conditionsLoading || checksLoading || evidenceLoading || documentsLoading;
   const formFingerprint = JSON.stringify({ condition: prompt.trim(), document: file ? { name: file.name, type: file.type, size: file.size } : null });
+  const dealId = selectedCondition?.dealId;
+  const settlementDeal = demoDeal && BigInt(demoDeal.dealId) === dealId ? demoDeal
+    : associatedDeal && BigInt(associatedDeal.dealId) === dealId ? associatedDeal : undefined;
+
+  useEffect(() => {
+    if (!dealId || (demoDeal && BigInt(demoDeal.dealId) === dealId) || (associatedDeal && BigInt(associatedDeal.dealId) === dealId)) return;
+    let active = true;
+    fetch(`/api/deal/${dealId.toString()}`).then(async (response) => {
+      if (!response.ok) throw new Error("Deal unavailable");
+      const details = await response.json();
+      if (active) setAssociatedDeal(details);
+    }).catch(() => { if (active) setAssociatedDeal(undefined); });
+    return () => { active = false; };
+  }, [dealId, demoDeal, associatedDeal]);
+
+  const linkDeal = () => run(async () => {
+    if (!selectedCondition || !demoDeal || !demoDeal.funded) throw new Error("Create and fund the Devnet deal first.");
+    await associateDemoDeal({ conditionId: selectedCondition.id, dealId: BigInt(demoDeal.dealId) });
+    setAssociatedDeal(demoDeal);
+    setNotice("Funded Devnet deal linked to this condition in SpacetimeDB.");
+  });
+
+  const release = () => run(async () => {
+    if (!selectedCondition || selectedCondition.finalResult !== true || selectedCondition.settlementStatus !== "ready" || !dealId) return;
+    setReleaseBusy(true);
+    setConfirmRelease(false);
+    try {
+      await recordSettlementStatus({ conditionId: selectedCondition.id, status: "submitted", signature: selectedCondition.settlementSignature });
+      const signature = await requestRelease(Number(dealId));
+      await recordSettlementStatus({ conditionId: selectedCondition.id, status: "confirmed", signature });
+      setNotice("Funds released on Devnet.");
+    } catch {
+      await recordSettlementStatus({ conditionId: selectedCondition.id, status: "failed", signature: selectedCondition.settlementSignature });
+      setNotice(SAFE_RELEASE_ERROR);
+    } finally { setReleaseBusy(false); }
+  });
 
   const run = async (work: () => Promise<void>) => {
     setBusy(true);
@@ -190,6 +233,14 @@ export function VerificationFlow() {
       </div>
     </>}
     <p className="text-xs text-slate-400" aria-live="polite">{notice}</p>
-    {selectedCondition && <p className={`rounded border p-3 text-sm ${selectedCondition.settlementStatus === "ready" ? "border-emerald-800 text-emerald-200" : "border-amber-900 text-amber-100"}`}>{selectedCondition.finalResult === true ? "This condition met the selected verification rules." : selectedCondition.finalResult === false ? "Condition not met. Settlement locked." : "Decision pending · Settlement locked"} · Settlement: {selectedCondition.settlementStatus === "ready" ? "Ready" : "Locked"}</p>}
+    {selectedCondition && <div className={`rounded border p-4 ${selectedCondition.finalResult === true && selectedCondition.settlementStatus === "ready" ? "border-emerald-600 bg-emerald-950/30" : "border-slate-700"}`}>
+      {selectedCondition.finalResult === false ? <><strong>Settlement locked</strong><p className="mt-1 text-sm text-slate-300">Verification requirements were not met.</p></>
+        : selectedCondition.finalResult !== true ? <><strong>Settlement locked</strong><p className="mt-1 text-sm text-slate-300">Verification is still pending.</p></>
+        : selectedCondition.settlementStatus === "confirmed" ? <><strong className="text-lg">Funds released on Devnet</strong>{selectedCondition.settlementSignature && <p className="mt-2"><a className="underline" href={`https://explorer.solana.com/tx/${selectedCondition.settlementSignature}?cluster=devnet`} target="_blank" rel="noreferrer">View transaction on Solana Explorer</a></p>}</>
+        : selectedCondition.settlementStatus === "submitted" || releaseBusy ? <><strong>Releasing…</strong><p className="mt-1 text-sm text-slate-300">Waiting for the Devnet transaction to confirm.</p></>
+        : selectedCondition.settlementStatus === "failed" ? <><strong>Release failed</strong><p className="mt-1 text-sm text-slate-300" aria-live="polite">{notice}</p><button className="mt-3" disabled={!dealId || !settlementDeal || releaseBusy} onClick={() => setConfirmRelease(true)}>Retry</button></>
+        : <><strong className="text-lg">Verification complete · Settlement ready</strong><p className="mt-1 text-sm text-slate-300">The condition passed. Release requires your confirmation.</p>{!dealId && demoDeal && <button className="mt-3" disabled={busy || !demoDeal.funded} onClick={linkDeal}>Use current funded Devnet deal</button>}{dealId && !settlementDeal && <p className="mt-2 text-sm">Loading deal details…</p>}<button className="mt-3 block w-full bg-emerald-700 py-3 text-base font-semibold" disabled={!canRelease(selectedCondition.finalResult, selectedCondition.settlementStatus, Boolean(dealId && settlementDeal), releaseBusy)} onClick={() => setConfirmRelease(true)}>Release test funds on Devnet</button></>}
+      {confirmRelease && <div role="dialog" aria-modal="true" aria-labelledby="release-title" className="mt-4 space-y-3 rounded border border-emerald-700 bg-slate-950 p-4"><h3 id="release-title" className="text-lg font-semibold">Confirm Devnet release</h3><dl className="space-y-1 text-sm"><div><dt className="inline text-slate-400">Network: </dt><dd className="inline">Solana Devnet</dd></div><div><dt className="inline text-slate-400">Releasing: </dt><dd className="inline">Test funds from the existing escrow</dd></div><div><dt className="inline text-slate-400">Recipient: </dt><dd className="inline">{settlementDeal?.recipient ? `${settlementDeal.recipient.slice(0, 5)}…${settlementDeal.recipient.slice(-5)}` : "See deal details"}</dd></div><div><dt className="inline text-slate-400">Amount: </dt><dd className="inline">{settlementDeal?.amountLamports !== undefined ? `${settlementDeal.amountLamports / 1_000_000_000} SOL` : "See deal details"}</dd></div><div><dt className="inline text-slate-400">Why enabled: </dt><dd className="inline">Verification condition passed</dd></div></dl><div className="flex gap-2"><button disabled={releaseBusy || !settlementDeal?.recipient || settlementDeal.amountLamports === undefined} onClick={release}>Confirm release</button><button disabled={releaseBusy} onClick={() => setConfirmRelease(false)}>Cancel</button></div></div>}
+    </div>}
   </section>;
 }

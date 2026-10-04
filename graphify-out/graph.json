@@ -30,7 +30,7 @@
       "file_type": "code",
       "norm_label": "dbconnection",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L182"
+      "source_location": "L184"
     },
     {
       "id": "lib_spacetime_module_bindings_index_dbconnectionbuilder",
@@ -43,7 +43,7 @@
       "file_type": "code",
       "norm_label": "dbconnectionbuilder",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L179"
+      "source_location": "L181"
     },
     {
       "id": "lib_spacetime_module_bindings_index_errorcontext",
@@ -56,7 +56,7 @@
       "file_type": "code",
       "norm_label": "errorcontext",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L171"
+      "source_location": "L173"
     },
     {
       "id": "lib_spacetime_module_bindings_index_eventcontext",
@@ -69,7 +69,7 @@
       "file_type": "code",
       "norm_label": "eventcontext",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L165"
+      "source_location": "L167"
     },
     {
       "id": "lib_spacetime_module_bindings_index_reducereventcontext",
@@ -82,7 +82,7 @@
       "file_type": "code",
       "norm_label": "reducereventcontext",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L167"
+      "source_location": "L169"
     },
     {
       "id": "lib_spacetime_module_bindings_index_subscriptionbuilder",
@@ -95,7 +95,7 @@
       "file_type": "code",
       "norm_label": "subscriptionbuilder",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L176"
+      "source_location": "L178"
     },
     {
       "id": "lib_spacetime_module_bindings_index_subscriptioneventcontext",
@@ -108,7 +108,7 @@
       "file_type": "code",
       "norm_label": "subscriptioneventcontext",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L169"
+      "source_location": "L171"
     },
     {
       "id": "lib_spacetime_module_bindings_index_subscriptionhandle",
@@ -121,7 +121,7 @@
       "file_type": "code",
       "norm_label": "subscriptionhandle",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L173"
+      "source_location": "L175"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_addevidenceparams",
@@ -134,7 +134,7 @@
       "file_type": "code",
       "norm_label": "addevidenceparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L21"
+      "source_location": "L22"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_addverificationcheckparams",
@@ -147,7 +147,20 @@
       "file_type": "code",
       "norm_label": "addverificationcheckparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L22"
+      "source_location": "L23"
+    },
+    {
+      "id": "lib_spacetime_module_bindings_types_reducers_associatedemodealparams",
+      "label": "AssociateDemoDealParams",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "module_bindings/index.ts",
+      "file_type": "code",
+      "norm_label": "associatedemodealparams",
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L24"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_completecheckparams",
@@ -160,7 +173,7 @@
       "file_type": "code",
       "norm_label": "completecheckparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L23"
+      "source_location": "L25"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_createconditionparams",
@@ -173,7 +186,7 @@
       "file_type": "code",
       "norm_label": "createconditionparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L24"
+      "source_location": "L26"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_recordsettlementstatusparams",
@@ -186,7 +199,7 @@
       "file_type": "code",
       "norm_label": "recordsettlementstatusparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L25"
+      "source_location": "L27"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_recorduploadeddocumentparams",
@@ -199,7 +212,7 @@
       "file_type": "code",
       "norm_label": "recorduploadeddocumentparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L26"
+      "source_location": "L28"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_resolveconditionparams",
@@ -212,7 +225,7 @@
       "file_type": "code",
       "norm_label": "resolveconditionparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L27"
+      "source_location": "L29"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_setcheckerrorparams",
@@ -225,7 +238,7 @@
       "file_type": "code",
       "norm_label": "setcheckerrorparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L28"
+      "source_location": "L30"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_setcheckrunningparams",
@@ -238,7 +251,7 @@
       "file_type": "code",
       "norm_label": "setcheckrunningparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L29"
+      "source_location": "L31"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_setconditionstatusparams",
@@ -251,7 +264,7 @@
       "file_type": "code",
       "norm_label": "setconditionstatusparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L30"
+      "source_location": "L32"
     },
     {
       "id": "lib_spacetime_module_bindings_types_reducers_setdocumentextractionstatusparams",
@@ -264,85 +277,7 @@
       "file_type": "code",
       "norm_label": "setdocumentextractionstatusparams",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L31"
-    },
-    {
-      "id": "lib_platform_conditionresult",
-      "label": "ConditionResult",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "conditionresult",
-      "source_file": "lib/platform.ts",
-      "source_location": "L4"
-    },
-    {
-      "id": "lib_platform_constructioncheck",
-      "label": "ConstructionCheck",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "constructioncheck",
-      "source_file": "lib/platform.ts",
-      "source_location": "L3"
-    },
-    {
-      "id": "lib_platform_constructionchecks",
-      "label": "ConstructionChecks",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "constructionchecks",
-      "source_file": "lib/platform.ts",
-      "source_location": "L2"
-    },
-    {
-      "id": "lib_platform_platformglobal",
-      "label": "PlatformGlobal",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "platformglobal",
-      "source_file": "lib/platform.ts",
-      "source_location": "L15"
-    },
-    {
-      "id": "lib_platform_platformstate",
-      "label": "PlatformState",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "platformstate",
-      "source_file": "lib/platform.ts",
-      "source_location": "L5"
-    },
-    {
-      "id": "lib_verifier_submitter",
-      "label": "Submitter",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "submitter",
-      "source_file": "lib/verifier.ts",
-      "source_location": "L3"
+      "source_location": "L33"
     },
     {
       "id": "lib_verification_tools_types_checkresult",
@@ -350,7 +285,7 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 23,
+      "community": 10,
       "community_name": "run/route.ts",
       "file_type": "code",
       "norm_label": "checkresult",
@@ -363,12 +298,116 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 23,
+      "community": 10,
       "community_name": "run/route.ts",
       "file_type": "code",
       "norm_label": "sourceevidence",
       "source_file": "lib/verification-tools/types.ts",
       "source_location": "L1"
+    },
+    {
+      "id": "lib_verification_plan_plancheck",
+      "label": "PlanCheck",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "verification-plan.ts",
+      "file_type": "code",
+      "norm_label": "plancheck",
+      "source_file": "lib/verification-plan.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_verification_plan_verificationplan",
+      "label": "VerificationPlan",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "verification-plan.ts",
+      "file_type": "code",
+      "norm_label": "verificationplan",
+      "source_file": "lib/verification-plan.ts",
+      "source_location": "L8"
+    },
+    {
+      "id": "lib_platform_conditionresult",
+      "label": "ConditionResult",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "conditionresult",
+      "source_file": "lib/platform.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "lib_platform_constructioncheck",
+      "label": "ConstructionCheck",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "constructioncheck",
+      "source_file": "lib/platform.ts",
+      "source_location": "L3"
+    },
+    {
+      "id": "lib_platform_constructionchecks",
+      "label": "ConstructionChecks",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "constructionchecks",
+      "source_file": "lib/platform.ts",
+      "source_location": "L2"
+    },
+    {
+      "id": "lib_platform_platformglobal",
+      "label": "PlatformGlobal",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "platformglobal",
+      "source_file": "lib/platform.ts",
+      "source_location": "L15"
+    },
+    {
+      "id": "lib_platform_platformstate",
+      "label": "PlatformState",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "platformstate",
+      "source_file": "lib/platform.ts",
+      "source_location": "L5"
+    },
+    {
+      "id": "lib_verifier_submitter",
+      "label": "Submitter",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "submitter",
+      "source_file": "lib/verifier.ts",
+      "source_location": "L3"
     },
     {
       "id": "app_page_checkid",
@@ -420,7 +459,7 @@
       "file_type": "code",
       "norm_label": "evidence",
       "source_file": "lib/spacetime/module_bindings/types.ts",
-      "source_location": "L26"
+      "source_location": "L27"
     },
     {
       "id": "lib_spacetime_module_bindings_types_uploadeddocument",
@@ -433,7 +472,7 @@
       "file_type": "code",
       "norm_label": "uploadeddocument",
       "source_file": "lib/spacetime/module_bindings/types.ts",
-      "source_location": "L41"
+      "source_location": "L42"
     },
     {
       "id": "lib_spacetime_module_bindings_types_verificationcheck",
@@ -446,33 +485,33 @@
       "file_type": "code",
       "norm_label": "verificationcheck",
       "source_file": "lib/spacetime/module_bindings/types.ts",
-      "source_location": "L56"
+      "source_location": "L57"
     },
     {
-      "id": "lib_verification_plan_plancheck",
-      "label": "PlanCheck",
+      "id": "lib_spacetime_release_state_settlementstatus",
+      "label": "SettlementStatus",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 4,
       "community_name": "VerificationFlow.tsx",
       "file_type": "code",
-      "norm_label": "plancheck",
-      "source_file": "lib/verification-plan.ts",
+      "norm_label": "settlementstatus",
+      "source_file": "lib/spacetime/release-state.ts",
       "source_location": "L1"
     },
     {
-      "id": "lib_verification_plan_verificationplan",
-      "label": "VerificationPlan",
+      "id": "lib_spacetime_verificationflow_demodeal",
+      "label": "DemoDeal",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 4,
       "community_name": "VerificationFlow.tsx",
       "file_type": "code",
-      "norm_label": "verificationplan",
-      "source_file": "lib/verification-plan.ts",
-      "source_location": "L8"
+      "norm_label": "demodeal",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L20"
     },
     {
       "id": "lib_spacetime_module_bindings_index_dbconnection_builder",
@@ -484,7 +523,7 @@
       "file_type": "code",
       "norm_label": ".builder()",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L184"
+      "source_location": "L186"
     },
     {
       "id": "lib_spacetime_module_bindings_index_dbconnection_subscriptionbuilder",
@@ -496,7 +535,7 @@
       "file_type": "code",
       "norm_label": ".subscriptionbuilder()",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L189"
+      "source_location": "L191"
     },
     {
       "id": "lib_spacetime_provider_spacetimeprovider",
@@ -511,179 +550,11 @@
       "source_location": "L7"
     },
     {
-      "id": "app_api_deal_create_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "app/api/deal/create/route.ts",
-      "source_location": "L4"
-    },
-    {
-      "id": "app_api_platform_result_route_get",
-      "label": "GET()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "get()",
-      "source_file": "app/api/platform/result/route.ts",
-      "source_location": "L4"
-    },
-    {
-      "id": "app_api_platform_result_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "app/api/platform/result/route.ts",
-      "source_location": "L11"
-    },
-    {
-      "id": "app_api_verify_route_post",
-      "label": "POST()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "post()",
-      "source_file": "app/api/verify/route.ts",
-      "source_location": "L3"
-    },
-    {
-      "id": "lib_platform_checksfor",
-      "label": "checksFor()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "checksfor()",
-      "source_file": "lib/platform.ts",
-      "source_location": "L22"
-    },
-    {
-      "id": "lib_platform_copystate",
-      "label": "copyState()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "copystate()",
-      "source_file": "lib/platform.ts",
-      "source_location": "L23"
-    },
-    {
-      "id": "lib_platform_emptychecks",
-      "label": "emptyChecks()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "emptychecks()",
-      "source_file": "lib/platform.ts",
-      "source_location": "L10"
-    },
-    {
-      "id": "lib_platform_getplatformstate",
-      "label": "getPlatformState()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "getplatformstate()",
-      "source_file": "lib/platform.ts",
-      "source_location": "L32"
-    },
-    {
-      "id": "lib_platform_initializeconstructionchecklist",
-      "label": "initializeConstructionChecklist()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "initializeconstructionchecklist()",
-      "source_file": "lib/platform.ts",
-      "source_location": "L25"
-    },
-    {
-      "id": "lib_platform_isfoundationmilestonecomplete",
-      "label": "isFoundationMilestoneComplete()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "isfoundationmilestonecomplete()",
-      "source_file": "lib/platform.ts",
-      "source_location": "L19"
-    },
-    {
-      "id": "lib_platform_updateconstructioncheck",
-      "label": "updateConstructionCheck()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "updateconstructioncheck()",
-      "source_file": "lib/platform.ts",
-      "source_location": "L36"
-    },
-    {
-      "id": "lib_platform_verifycondition",
-      "label": "verifyCondition()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "verifycondition()",
-      "source_file": "lib/platform.ts",
-      "source_location": "L43"
-    },
-    {
-      "id": "lib_verifier_createverifierservice",
-      "label": "createVerifierService()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "createverifierservice()",
-      "source_file": "lib/verifier.ts",
-      "source_location": "L4"
-    },
-    {
-      "id": "app_layout_layout",
-      "label": "Layout()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "layout.tsx",
-      "file_type": "code",
-      "norm_label": "layout()",
-      "source_file": "app/layout.tsx",
-      "source_location": "L3"
-    },
-    {
       "id": "tests_conditional_escrow_expectfail",
       "label": "expectFail()",
       "_callable": true,
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "community_name": "package.json",
       "file_type": "code",
       "norm_label": "expectfail()",
@@ -695,7 +566,7 @@
       "label": "hash()",
       "_callable": true,
       "_origin": "ast",
-      "community": 2,
+      "community": 1,
       "community_name": "package.json",
       "file_type": "code",
       "norm_label": "hash()",
@@ -707,7 +578,7 @@
       "label": "judgeRelevance()",
       "_callable": true,
       "_origin": "ast",
-      "community": 23,
+      "community": 10,
       "community_name": "run/route.ts",
       "file_type": "code",
       "norm_label": "judgerelevance()",
@@ -719,7 +590,7 @@
       "label": "POST()",
       "_callable": true,
       "_origin": "ast",
-      "community": 23,
+      "community": 10,
       "community_name": "run/route.ts",
       "file_type": "code",
       "norm_label": "post()",
@@ -731,7 +602,7 @@
       "label": "searchReddit()",
       "_callable": true,
       "_origin": "ast",
-      "community": 23,
+      "community": 10,
       "community_name": "run/route.ts",
       "file_type": "code",
       "norm_label": "searchreddit()",
@@ -743,7 +614,7 @@
       "label": "searchWeb()",
       "_callable": true,
       "_origin": "ast",
-      "community": 23,
+      "community": 10,
       "community_name": "run/route.ts",
       "file_type": "code",
       "norm_label": "searchweb()",
@@ -755,8 +626,8 @@
       "label": "badRequest()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "VerificationFlow.tsx",
+      "community": 12,
+      "community_name": "verification-plan.ts",
       "file_type": "code",
       "norm_label": "badrequest()",
       "source_file": "app/api/verification-plan/route.ts",
@@ -767,12 +638,204 @@
       "label": "POST()",
       "_callable": true,
       "_origin": "ast",
-      "community": 4,
-      "community_name": "VerificationFlow.tsx",
+      "community": 12,
+      "community_name": "verification-plan.ts",
       "file_type": "code",
       "norm_label": "post()",
       "source_file": "app/api/verification-plan/route.ts",
       "source_location": "L8"
+    },
+    {
+      "id": "lib_verification_plan_buildplannermessages",
+      "label": "buildPlannerMessages()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "verification-plan.ts",
+      "file_type": "code",
+      "norm_label": "buildplannermessages()",
+      "source_file": "lib/verification-plan.ts",
+      "source_location": "L33"
+    },
+    {
+      "id": "lib_verification_plan_parseverificationplan",
+      "label": "parseVerificationPlan()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "verification-plan.ts",
+      "file_type": "code",
+      "norm_label": "parseverificationplan()",
+      "source_file": "lib/verification-plan.ts",
+      "source_location": "L12"
+    },
+    {
+      "id": "app_layout_layout",
+      "label": "Layout()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "layout.tsx",
+      "file_type": "code",
+      "norm_label": "layout()",
+      "source_file": "app/layout.tsx",
+      "source_location": "L3"
+    },
+    {
+      "id": "app_api_deal_create_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "app/api/deal/create/route.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "app_api_platform_result_route_get",
+      "label": "GET()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "get()",
+      "source_file": "app/api/platform/result/route.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "app_api_platform_result_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "app/api/platform/result/route.ts",
+      "source_location": "L11"
+    },
+    {
+      "id": "app_api_verify_route_post",
+      "label": "POST()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "post()",
+      "source_file": "app/api/verify/route.ts",
+      "source_location": "L3"
+    },
+    {
+      "id": "lib_platform_checksfor",
+      "label": "checksFor()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "checksfor()",
+      "source_file": "lib/platform.ts",
+      "source_location": "L22"
+    },
+    {
+      "id": "lib_platform_copystate",
+      "label": "copyState()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "copystate()",
+      "source_file": "lib/platform.ts",
+      "source_location": "L23"
+    },
+    {
+      "id": "lib_platform_emptychecks",
+      "label": "emptyChecks()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "emptychecks()",
+      "source_file": "lib/platform.ts",
+      "source_location": "L10"
+    },
+    {
+      "id": "lib_platform_getplatformstate",
+      "label": "getPlatformState()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "getplatformstate()",
+      "source_file": "lib/platform.ts",
+      "source_location": "L32"
+    },
+    {
+      "id": "lib_platform_initializeconstructionchecklist",
+      "label": "initializeConstructionChecklist()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "initializeconstructionchecklist()",
+      "source_file": "lib/platform.ts",
+      "source_location": "L25"
+    },
+    {
+      "id": "lib_platform_isfoundationmilestonecomplete",
+      "label": "isFoundationMilestoneComplete()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "isfoundationmilestonecomplete()",
+      "source_file": "lib/platform.ts",
+      "source_location": "L19"
+    },
+    {
+      "id": "lib_platform_updateconstructioncheck",
+      "label": "updateConstructionCheck()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "updateconstructioncheck()",
+      "source_file": "lib/platform.ts",
+      "source_location": "L36"
+    },
+    {
+      "id": "lib_platform_verifycondition",
+      "label": "verifyCondition()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "verifycondition()",
+      "source_file": "lib/platform.ts",
+      "source_location": "L43"
+    },
+    {
+      "id": "lib_verifier_createverifierservice",
+      "label": "createVerifierService()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "createverifierservice()",
+      "source_file": "lib/verifier.ts",
+      "source_location": "L4"
     },
     {
       "id": "app_page_api",
@@ -811,6 +874,42 @@
       "source_location": "L20"
     },
     {
+      "id": "lib_spacetime_release_state_canrelease",
+      "label": "canRelease()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "VerificationFlow.tsx",
+      "file_type": "code",
+      "norm_label": "canrelease()",
+      "source_file": "lib/spacetime/release-state.ts",
+      "source_location": "L3"
+    },
+    {
+      "id": "lib_spacetime_release_state_releaselabel",
+      "label": "releaseLabel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "VerificationFlow.tsx",
+      "file_type": "code",
+      "norm_label": "releaselabel()",
+      "source_file": "lib/spacetime/release-state.ts",
+      "source_location": "L7"
+    },
+    {
+      "id": "lib_spacetime_release_state_requestrelease",
+      "label": "requestRelease()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "VerificationFlow.tsx",
+      "file_type": "code",
+      "norm_label": "requestrelease()",
+      "source_file": "lib/spacetime/release-state.ts",
+      "source_location": "L18"
+    },
+    {
       "id": "lib_spacetime_verificationflow_displaytime",
       "label": "displayTime()",
       "_callable": true,
@@ -820,7 +919,7 @@
       "file_type": "code",
       "norm_label": "displaytime()",
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L10"
+      "source_location": "L11"
     },
     {
       "id": "lib_spacetime_verificationflow_newestfirst",
@@ -832,7 +931,7 @@
       "file_type": "code",
       "norm_label": "newestfirst()",
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L14"
+      "source_location": "L15"
     },
     {
       "id": "lib_spacetime_verificationflow_verificationflow",
@@ -844,31 +943,7 @@
       "file_type": "code",
       "norm_label": "verificationflow()",
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L19"
-    },
-    {
-      "id": "lib_verification_plan_buildplannermessages",
-      "label": "buildPlannerMessages()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "VerificationFlow.tsx",
-      "file_type": "code",
-      "norm_label": "buildplannermessages()",
-      "source_file": "lib/verification-plan.ts",
-      "source_location": "L33"
-    },
-    {
-      "id": "lib_verification_plan_parseverificationplan",
-      "label": "parseVerificationPlan()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "VerificationFlow.tsx",
-      "file_type": "code",
-      "norm_label": "parseverificationplan()",
-      "source_file": "lib/verification-plan.ts",
-      "source_location": "L12"
+      "source_location": "L21"
     },
     {
       "id": "app_api_deal_dealid_route_get",
@@ -892,7 +967,7 @@
       "file_type": "code",
       "norm_label": "post()",
       "source_file": "app/api/deal/release/route.ts",
-      "source_location": "L3"
+      "source_location": "L8"
     },
     {
       "id": "lib_solana_addresses",
@@ -1067,36 +1142,36 @@
       "label": "requireCheck()",
       "_callable": true,
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "requirecheck()",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L81"
+      "source_location": "L82"
     },
     {
       "id": "spacetime_spacetimedb_src_index_requirecondition",
       "label": "requireCondition()",
       "_callable": true,
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "requirecondition()",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L75"
+      "source_location": "L76"
     },
     {
       "id": "spacetime_spacetimedb_src_index_requiredocument",
       "label": "requireDocument()",
       "_callable": true,
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "requiredocument()",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L87"
+      "source_location": "L88"
     },
     {
       "id": "lib_spacetime_module_bindings_add_evidence_reducer",
@@ -1118,6 +1193,17 @@
       "file_type": "code",
       "norm_label": "add_verification_check_reducer.ts",
       "source_file": "lib/spacetime/module_bindings/add_verification_check_reducer.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_spacetime_module_bindings_associate_demo_deal_reducer",
+      "label": "associate_demo_deal_reducer.ts",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "module_bindings/index.ts",
+      "file_type": "code",
+      "norm_label": "associate_demo_deal_reducer.ts",
+      "source_file": "lib/spacetime/module_bindings/associate_demo_deal_reducer.ts",
       "source_location": "L1"
     },
     {
@@ -1184,7 +1270,7 @@
       "file_type": "code",
       "norm_label": "procedures",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L162"
+      "source_location": "L164"
     },
     {
       "id": "lib_spacetime_module_bindings_index_proceduresschema",
@@ -1195,7 +1281,7 @@
       "file_type": "code",
       "norm_label": "proceduresschema",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L138"
+      "source_location": "L140"
     },
     {
       "id": "lib_spacetime_module_bindings_index_reducersschema",
@@ -1206,7 +1292,7 @@
       "file_type": "code",
       "norm_label": "reducersschema",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L123"
+      "source_location": "L124"
     },
     {
       "id": "lib_spacetime_module_bindings_index_remote_module",
@@ -1217,7 +1303,7 @@
       "file_type": "code",
       "norm_label": "remote_module",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L142"
+      "source_location": "L144"
     },
     {
       "id": "lib_spacetime_module_bindings_index_tables",
@@ -1228,7 +1314,7 @@
       "file_type": "code",
       "norm_label": "tables",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L156"
+      "source_location": "L158"
     },
     {
       "id": "lib_spacetime_module_bindings_index_tablesschema",
@@ -1239,7 +1325,7 @@
       "file_type": "code",
       "norm_label": "tablesschema",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L60"
+      "source_location": "L61"
     },
     {
       "id": "lib_spacetime_module_bindings_record_settlement_status_reducer",
@@ -1374,132 +1460,363 @@
       "source_location": "L19"
     },
     {
-      "id": "app_api_deal_create_route",
-      "label": "create/route.ts",
+      "id": "package",
+      "label": "package.json",
       "_origin": "ast",
       "community": 1,
-      "community_name": "API and Platform Routes",
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "create/route.ts",
-      "source_file": "app/api/deal/create/route.ts",
+      "norm_label": "package.json",
+      "source_file": "package.json",
       "source_location": "L1"
     },
     {
-      "id": "app_api_platform_result_route",
-      "label": "result/route.ts",
+      "id": "package_dependencies",
+      "label": "dependencies",
       "_origin": "ast",
       "community": 1,
-      "community_name": "API and Platform Routes",
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "result/route.ts",
-      "source_file": "app/api/platform/result/route.ts",
-      "source_location": "L1"
+      "norm_label": "dependencies",
+      "source_file": "package.json",
+      "source_location": "L16"
     },
     {
-      "id": "app_api_platform_result_route_dynamic",
-      "label": "dynamic",
+      "id": "package_dependencies_next",
+      "label": "next",
       "_origin": "ast",
       "community": 1,
-      "community_name": "API and Platform Routes",
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "dynamic",
-      "source_file": "app/api/platform/result/route.ts",
+      "norm_label": "next",
+      "source_file": "package.json",
+      "source_location": "L18"
+    },
+    {
+      "id": "package_dependencies_react",
+      "label": "react",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "react",
+      "source_file": "package.json",
+      "source_location": "L19"
+    },
+    {
+      "id": "package_dependencies_react_dom",
+      "label": "react-dom",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "react-dom",
+      "source_file": "package.json",
+      "source_location": "L20"
+    },
+    {
+      "id": "package_dependencies_solana_web3_js",
+      "label": "@solana/web3.js",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "@solana/web3.js",
+      "source_file": "package.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "package_dependencies_spacetimedb",
+      "label": "spacetimedb",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "spacetimedb",
+      "source_file": "package.json",
+      "source_location": "L21"
+    },
+    {
+      "id": "package_name",
+      "label": "name",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "name",
+      "source_file": "package.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "package_private",
+      "label": "private",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "private",
+      "source_file": "package.json",
       "source_location": "L3"
     },
     {
-      "id": "app_api_verify_route",
-      "label": "verify/route.ts",
+      "id": "tailwind_config",
+      "label": "tailwind.config.ts",
       "_origin": "ast",
       "community": 1,
-      "community_name": "API and Platform Routes",
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "verify/route.ts",
-      "source_file": "app/api/verify/route.ts",
+      "norm_label": "tailwind.config.ts",
+      "source_file": "tailwind.config.ts",
       "source_location": "L1"
     },
     {
-      "id": "lib_platform",
-      "label": "platform.ts",
+      "id": "tests_conditional_escrow",
+      "label": "conditional_escrow.ts",
       "_origin": "ast",
       "community": 1,
-      "community_name": "API and Platform Routes",
+      "community_name": "package.json",
       "file_type": "code",
-      "norm_label": "platform.ts",
-      "source_file": "lib/platform.ts",
+      "norm_label": "conditional_escrow.ts",
+      "source_file": "tests/conditional_escrow.ts",
       "source_location": "L1"
     },
     {
-      "id": "lib_platform_check_labels",
-      "label": "CHECK_LABELS",
+      "id": "ref_autoprefixer",
+      "label": "autoprefixer",
       "_origin": "ast",
       "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "check_labels",
-      "source_file": "lib/platform.ts",
-      "source_location": "L7"
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "autoprefixer",
+      "source_file": "package.json",
+      "source_location": "L31"
     },
     {
-      "id": "lib_platform_foundation_condition_id",
-      "label": "FOUNDATION_CONDITION_ID",
+      "id": "ref_chai",
+      "label": "chai",
       "_origin": "ast",
       "community": 1,
-      "community_name": "API and Platform Routes",
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "chai",
+      "source_file": "package.json",
+      "source_location": "L32"
+    },
+    {
+      "id": "ref_coral_xyz_anchor",
+      "label": "@coral-xyz/anchor",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "@coral-xyz/anchor",
+      "source_file": "package.json",
+      "source_location": "L24"
+    },
+    {
+      "id": "ref_mocha",
+      "label": "mocha",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "mocha",
+      "source_file": "package.json",
+      "source_location": "L33"
+    },
+    {
+      "id": "ref_next",
+      "label": "next",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "next",
+      "source_file": "package.json",
+      "source_location": "L18"
+    },
+    {
+      "id": "ref_postcss",
+      "label": "postcss",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "postcss",
+      "source_file": "package.json",
+      "source_location": "L34"
+    },
+    {
+      "id": "ref_react_dom",
+      "label": "react-dom",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "react-dom",
+      "source_file": "package.json",
+      "source_location": "L20"
+    },
+    {
+      "id": "ref_solana_web3_js",
+      "label": "@solana/web3.js",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "@solana/web3.js",
+      "source_file": "package.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "ref_tailwindcss",
+      "label": "tailwindcss",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "tailwindcss",
+      "source_file": "package.json",
+      "source_location": "L35"
+    },
+    {
+      "id": "ref_tsx",
+      "label": "tsx",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "tsx",
+      "source_file": "package.json",
+      "source_location": "L36"
+    },
+    {
+      "id": "ref_types_bn_js",
+      "label": "@types/bn.js",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "@types/bn.js",
+      "source_file": "package.json",
+      "source_location": "L25"
+    },
+    {
+      "id": "ref_types_chai",
+      "label": "@types/chai",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "@types/chai",
+      "source_file": "package.json",
+      "source_location": "L26"
+    },
+    {
+      "id": "ref_types_mocha",
+      "label": "@types/mocha",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "@types/mocha",
+      "source_file": "package.json",
+      "source_location": "L27"
+    },
+    {
+      "id": "ref_types_node",
+      "label": "@types/node",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "@types/node",
+      "source_file": "package.json",
+      "source_location": "L28"
+    },
+    {
+      "id": "ref_types_react",
+      "label": "@types/react",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "@types/react",
+      "source_file": "package.json",
+      "source_location": "L29"
+    },
+    {
+      "id": "ref_types_react_dom",
+      "label": "@types/react-dom",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "@types/react-dom",
+      "source_file": "package.json",
+      "source_location": "L30"
+    },
+    {
+      "id": "app_api_verification_run_route",
+      "label": "run/route.ts",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "run/route.ts",
       "file_type": "code",
-      "norm_label": "foundation_condition_id",
-      "source_file": "lib/platform.ts",
+      "norm_label": "run/route.ts",
+      "source_file": "app/api/verification/run/route.ts",
       "source_location": "L1"
     },
     {
-      "id": "lib_verifier",
-      "label": "verifier.ts",
+      "id": "app_api_verification_run_route_runtime",
+      "label": "runtime",
       "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
+      "community": 10,
+      "community_name": "run/route.ts",
       "file_type": "code",
-      "norm_label": "verifier.ts",
-      "source_file": "lib/verifier.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "lib_verifier_verifierservice",
-      "label": "verifierService",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "verifierservice",
-      "source_file": "lib/verifier.ts",
-      "source_location": "L12"
-    },
-    {
-      "id": "tests_backend_flow_test",
-      "label": "backend-flow.test.ts",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "backend-flow.test.ts",
-      "source_file": "tests/backend-flow.test.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "tests_backend_flow_test_allcheckids",
-      "label": "allCheckIds",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "API and Platform Routes",
-      "file_type": "code",
-      "norm_label": "allcheckids",
-      "source_file": "tests/backend-flow.test.ts",
+      "norm_label": "runtime",
+      "source_file": "app/api/verification/run/route.ts",
       "source_location": "L6"
+    },
+    {
+      "id": "lib_verification_tools_reddit",
+      "label": "reddit.ts",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "run/route.ts",
+      "file_type": "code",
+      "norm_label": "reddit.ts",
+      "source_file": "lib/verification-tools/reddit.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_verification_tools_types",
+      "label": "verification-tools/types.ts",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "run/route.ts",
+      "file_type": "code",
+      "norm_label": "verification-tools/types.ts",
+      "source_file": "lib/verification-tools/types.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_verification_tools_web",
+      "label": "web.ts",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": "run/route.ts",
+      "file_type": "code",
+      "norm_label": "web.ts",
+      "source_file": "lib/verification-tools/web.ts",
+      "source_location": "L1"
     },
     {
       "id": "package_scripts",
       "label": "scripts",
       "_origin": "ast",
-      "community": 10,
-      "community_name": "Project Scripts",
+      "community": 11,
+      "community_name": "scripts",
       "file_type": "code",
       "norm_label": "scripts",
       "source_file": "package.json",
@@ -1509,8 +1826,8 @@
       "id": "package_scripts_anchor_test",
       "label": "anchor:test",
       "_origin": "ast",
-      "community": 10,
-      "community_name": "Project Scripts",
+      "community": 11,
+      "community_name": "scripts",
       "file_type": "code",
       "norm_label": "anchor:test",
       "source_file": "package.json",
@@ -1520,8 +1837,8 @@
       "id": "package_scripts_build",
       "label": "build",
       "_origin": "ast",
-      "community": 10,
-      "community_name": "Project Scripts",
+      "community": 11,
+      "community_name": "scripts",
       "file_type": "code",
       "norm_label": "build",
       "source_file": "package.json",
@@ -1531,8 +1848,8 @@
       "id": "package_scripts_dev",
       "label": "dev",
       "_origin": "ast",
-      "community": 10,
-      "community_name": "Project Scripts",
+      "community": 11,
+      "community_name": "scripts",
       "file_type": "code",
       "norm_label": "dev",
       "source_file": "package.json",
@@ -1542,8 +1859,8 @@
       "id": "package_scripts_lint",
       "label": "lint",
       "_origin": "ast",
-      "community": 10,
-      "community_name": "Project Scripts",
+      "community": 11,
+      "community_name": "scripts",
       "file_type": "code",
       "norm_label": "lint",
       "source_file": "package.json",
@@ -1553,8 +1870,8 @@
       "id": "package_scripts_spacetime_build",
       "label": "spacetime:build",
       "_origin": "ast",
-      "community": 10,
-      "community_name": "Project Scripts",
+      "community": 11,
+      "community_name": "scripts",
       "file_type": "code",
       "norm_label": "spacetime:build",
       "source_file": "package.json",
@@ -1564,8 +1881,8 @@
       "id": "package_scripts_spacetime_generate",
       "label": "spacetime:generate",
       "_origin": "ast",
-      "community": 10,
-      "community_name": "Project Scripts",
+      "community": 11,
+      "community_name": "scripts",
       "file_type": "code",
       "norm_label": "spacetime:generate",
       "source_file": "package.json",
@@ -1575,8 +1892,8 @@
       "id": "package_scripts_spacetime_publish",
       "label": "spacetime:publish",
       "_origin": "ast",
-      "community": 10,
-      "community_name": "Project Scripts",
+      "community": 11,
+      "community_name": "scripts",
       "file_type": "code",
       "norm_label": "spacetime:publish",
       "source_file": "package.json",
@@ -1586,8 +1903,8 @@
       "id": "package_scripts_spacetime_start",
       "label": "spacetime:start",
       "_origin": "ast",
-      "community": 10,
-      "community_name": "Project Scripts",
+      "community": 11,
+      "community_name": "scripts",
       "file_type": "code",
       "norm_label": "spacetime:start",
       "source_file": "package.json",
@@ -1597,8 +1914,8 @@
       "id": "package_scripts_start",
       "label": "start",
       "_origin": "ast",
-      "community": 10,
-      "community_name": "Project Scripts",
+      "community": 11,
+      "community_name": "scripts",
       "file_type": "code",
       "norm_label": "start",
       "source_file": "package.json",
@@ -1608,18 +1925,62 @@
       "id": "package_scripts_test_backend",
       "label": "test:backend",
       "_origin": "ast",
-      "community": 10,
-      "community_name": "Project Scripts",
+      "community": 11,
+      "community_name": "scripts",
       "file_type": "code",
       "norm_label": "test:backend",
       "source_file": "package.json",
       "source_location": "L9"
     },
     {
+      "id": "app_api_verification_plan_route",
+      "label": "verification-plan/route.ts",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "verification-plan.ts",
+      "file_type": "code",
+      "norm_label": "verification-plan/route.ts",
+      "source_file": "app/api/verification-plan/route.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_api_verification_plan_route_runtime",
+      "label": "runtime",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "verification-plan.ts",
+      "file_type": "code",
+      "norm_label": "runtime",
+      "source_file": "app/api/verification-plan/route.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "lib_verification_plan",
+      "label": "verification-plan.ts",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "verification-plan.ts",
+      "file_type": "code",
+      "norm_label": "verification-plan.ts",
+      "source_file": "lib/verification-plan.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_verification_plan_allowedkinds",
+      "label": "allowedKinds",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "verification-plan.ts",
+      "file_type": "code",
+      "norm_label": "allowedkinds",
+      "source_file": "lib/verification-plan.ts",
+      "source_location": "L10"
+    },
+    {
       "id": "app_layout",
       "label": "layout.tsx",
       "_origin": "ast",
-      "community": 13,
+      "community": 14,
       "community_name": "layout.tsx",
       "file_type": "code",
       "norm_label": "layout.tsx",
@@ -1630,34 +1991,12 @@
       "id": "app_layout_metadata",
       "label": "metadata",
       "_origin": "ast",
-      "community": 13,
+      "community": 14,
       "community_name": "layout.tsx",
       "file_type": "code",
       "norm_label": "metadata",
       "source_file": "app/layout.tsx",
       "source_location": "L2"
-    },
-    {
-      "id": "next",
-      "label": "next",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "next",
-      "confidence": "EXTRACTED",
-      "file_type": "code",
-      "norm_label": "next",
-      "source_file": "next"
-    },
-    {
-      "id": "next_config",
-      "label": "next.config.mjs",
-      "_origin": "ast",
-      "community": 15,
-      "community_name": "next",
-      "file_type": "code",
-      "norm_label": "next.config.mjs",
-      "source_file": "next.config.mjs",
-      "source_location": "L1"
     },
     {
       "id": "next_env_d",
@@ -1693,329 +2032,120 @@
       "source_location": "L1"
     },
     {
-      "id": "package",
-      "label": "package.json",
+      "id": "app_api_deal_create_route",
+      "label": "create/route.ts",
       "_origin": "ast",
       "community": 2,
-      "community_name": "package.json",
+      "community_name": "platform.ts",
       "file_type": "code",
-      "norm_label": "package.json",
-      "source_file": "package.json",
+      "norm_label": "create/route.ts",
+      "source_file": "app/api/deal/create/route.ts",
       "source_location": "L1"
     },
     {
-      "id": "package_dependencies",
-      "label": "dependencies",
+      "id": "app_api_platform_result_route",
+      "label": "result/route.ts",
       "_origin": "ast",
       "community": 2,
-      "community_name": "package.json",
+      "community_name": "platform.ts",
       "file_type": "code",
-      "norm_label": "dependencies",
-      "source_file": "package.json",
-      "source_location": "L16"
+      "norm_label": "result/route.ts",
+      "source_file": "app/api/platform/result/route.ts",
+      "source_location": "L1"
     },
     {
-      "id": "package_dependencies_next",
-      "label": "next",
+      "id": "app_api_platform_result_route_dynamic",
+      "label": "dynamic",
       "_origin": "ast",
       "community": 2,
-      "community_name": "package.json",
+      "community_name": "platform.ts",
       "file_type": "code",
-      "norm_label": "next",
-      "source_file": "package.json",
-      "source_location": "L18"
-    },
-    {
-      "id": "package_dependencies_react",
-      "label": "react",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "react",
-      "source_file": "package.json",
-      "source_location": "L19"
-    },
-    {
-      "id": "package_dependencies_react_dom",
-      "label": "react-dom",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "react-dom",
-      "source_file": "package.json",
-      "source_location": "L20"
-    },
-    {
-      "id": "package_dependencies_solana_web3_js",
-      "label": "@solana/web3.js",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "@solana/web3.js",
-      "source_file": "package.json",
-      "source_location": "L17"
-    },
-    {
-      "id": "package_dependencies_spacetimedb",
-      "label": "spacetimedb",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "spacetimedb",
-      "source_file": "package.json",
-      "source_location": "L21"
-    },
-    {
-      "id": "package_name",
-      "label": "name",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "name",
-      "source_file": "package.json",
-      "source_location": "L2"
-    },
-    {
-      "id": "package_private",
-      "label": "private",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "code",
-      "norm_label": "private",
-      "source_file": "package.json",
+      "norm_label": "dynamic",
+      "source_file": "app/api/platform/result/route.ts",
       "source_location": "L3"
     },
     {
-      "id": "tailwind_config",
-      "label": "tailwind.config.ts",
+      "id": "app_api_verify_route",
+      "label": "verify/route.ts",
       "_origin": "ast",
       "community": 2,
-      "community_name": "package.json",
+      "community_name": "platform.ts",
       "file_type": "code",
-      "norm_label": "tailwind.config.ts",
-      "source_file": "tailwind.config.ts",
+      "norm_label": "verify/route.ts",
+      "source_file": "app/api/verify/route.ts",
       "source_location": "L1"
     },
     {
-      "id": "tests_conditional_escrow",
-      "label": "conditional_escrow.ts",
+      "id": "lib_platform",
+      "label": "platform.ts",
       "_origin": "ast",
       "community": 2,
-      "community_name": "package.json",
+      "community_name": "platform.ts",
       "file_type": "code",
-      "norm_label": "conditional_escrow.ts",
-      "source_file": "tests/conditional_escrow.ts",
+      "norm_label": "platform.ts",
+      "source_file": "lib/platform.ts",
       "source_location": "L1"
     },
     {
-      "id": "package_json_ref_spacetimedb",
-      "label": "spacetimedb",
+      "id": "lib_platform_check_labels",
+      "label": "CHECK_LABELS",
       "_origin": "ast",
       "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "spacetimedb",
-      "source_file": "package.json",
-      "source_location": "L21"
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "check_labels",
+      "source_file": "lib/platform.ts",
+      "source_location": "L7"
     },
     {
-      "id": "package_json_ref_typescript",
-      "label": "typescript",
+      "id": "lib_platform_foundation_condition_id",
+      "label": "FOUNDATION_CONDITION_ID",
       "_origin": "ast",
       "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "typescript",
-      "source_file": "package.json",
-      "source_location": "L37"
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "foundation_condition_id",
+      "source_file": "lib/platform.ts",
+      "source_location": "L1"
     },
     {
-      "id": "ref_autoprefixer",
-      "label": "autoprefixer",
+      "id": "lib_verifier",
+      "label": "verifier.ts",
       "_origin": "ast",
       "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "autoprefixer",
-      "source_file": "package.json",
-      "source_location": "L31"
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "verifier.ts",
+      "source_file": "lib/verifier.ts",
+      "source_location": "L1"
     },
     {
-      "id": "ref_chai",
-      "label": "chai",
+      "id": "lib_verifier_verifierservice",
+      "label": "verifierService",
       "_origin": "ast",
       "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "chai",
-      "source_file": "package.json",
-      "source_location": "L32"
+      "community_name": "platform.ts",
+      "file_type": "code",
+      "norm_label": "verifierservice",
+      "source_file": "lib/verifier.ts",
+      "source_location": "L12"
     },
     {
-      "id": "ref_coral_xyz_anchor",
-      "label": "@coral-xyz/anchor",
+      "id": "next_config",
+      "label": "next.config.mjs",
       "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "@coral-xyz/anchor",
-      "source_file": "package.json",
-      "source_location": "L24"
-    },
-    {
-      "id": "ref_mocha",
-      "label": "mocha",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "mocha",
-      "source_file": "package.json",
-      "source_location": "L33"
-    },
-    {
-      "id": "ref_next",
-      "label": "next",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "next",
-      "source_file": "package.json",
-      "source_location": "L18"
-    },
-    {
-      "id": "ref_postcss",
-      "label": "postcss",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "postcss",
-      "source_file": "package.json",
-      "source_location": "L34"
-    },
-    {
-      "id": "ref_react_dom",
-      "label": "react-dom",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "react-dom",
-      "source_file": "package.json",
-      "source_location": "L20"
-    },
-    {
-      "id": "ref_solana_web3_js",
-      "label": "@solana/web3.js",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "@solana/web3.js",
-      "source_file": "package.json",
-      "source_location": "L17"
-    },
-    {
-      "id": "ref_tailwindcss",
-      "label": "tailwindcss",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "tailwindcss",
-      "source_file": "package.json",
-      "source_location": "L35"
-    },
-    {
-      "id": "ref_tsx",
-      "label": "tsx",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "tsx",
-      "source_file": "package.json",
-      "source_location": "L36"
-    },
-    {
-      "id": "ref_types_bn_js",
-      "label": "@types/bn.js",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "@types/bn.js",
-      "source_file": "package.json",
-      "source_location": "L25"
-    },
-    {
-      "id": "ref_types_chai",
-      "label": "@types/chai",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "@types/chai",
-      "source_file": "package.json",
-      "source_location": "L26"
-    },
-    {
-      "id": "ref_types_mocha",
-      "label": "@types/mocha",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "@types/mocha",
-      "source_file": "package.json",
-      "source_location": "L27"
-    },
-    {
-      "id": "ref_types_node",
-      "label": "@types/node",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "@types/node",
-      "source_file": "package.json",
-      "source_location": "L28"
-    },
-    {
-      "id": "ref_types_react",
-      "label": "@types/react",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "@types/react",
-      "source_file": "package.json",
-      "source_location": "L29"
-    },
-    {
-      "id": "ref_types_react_dom",
-      "label": "@types/react-dom",
-      "_origin": "ast",
-      "community": 2,
-      "community_name": "package.json",
-      "file_type": "concept",
-      "norm_label": "@types/react-dom",
-      "source_file": "package.json",
-      "source_location": "L30"
+      "community": 20,
+      "community_name": "next.config.mjs",
+      "file_type": "code",
+      "norm_label": "next.config.mjs",
+      "source_file": "next.config.mjs",
+      "source_location": "L1"
     },
     {
       "id": "pkg_conditional_escrow",
       "label": "conditional_escrow",
       "_origin": "ast",
-      "community": 20,
+      "community": 21,
       "community_name": "conditional_escrow",
       "ecosystem": "cargo",
       "file_type": "code",
@@ -2029,66 +2159,11 @@
       "id": "postcss_config",
       "label": "postcss.config.mjs",
       "_origin": "ast",
-      "community": 21,
+      "community": 22,
       "community_name": "postcss.config.mjs",
       "file_type": "code",
       "norm_label": "postcss.config.mjs",
       "source_file": "postcss.config.mjs",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_api_verification_run_route",
-      "label": "run/route.ts",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "run/route.ts",
-      "file_type": "code",
-      "norm_label": "run/route.ts",
-      "source_file": "app/api/verification/run/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_api_verification_run_route_runtime",
-      "label": "runtime",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "run/route.ts",
-      "file_type": "code",
-      "norm_label": "runtime",
-      "source_file": "app/api/verification/run/route.ts",
-      "source_location": "L6"
-    },
-    {
-      "id": "lib_verification_tools_reddit",
-      "label": "reddit.ts",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "run/route.ts",
-      "file_type": "code",
-      "norm_label": "reddit.ts",
-      "source_file": "lib/verification-tools/reddit.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "lib_verification_tools_types",
-      "label": "verification-tools/types.ts",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "run/route.ts",
-      "file_type": "code",
-      "norm_label": "verification-tools/types.ts",
-      "source_file": "lib/verification-tools/types.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "lib_verification_tools_web",
-      "label": "web.ts",
-      "_origin": "ast",
-      "community": 23,
-      "community_name": "run/route.ts",
-      "file_type": "code",
-      "norm_label": "web.ts",
-      "source_file": "lib/verification-tools/web.ts",
       "source_location": "L1"
     },
     {
@@ -2378,28 +2453,6 @@
       "source_location": ""
     },
     {
-      "id": "app_api_verification_plan_route",
-      "label": "verification-plan/route.ts",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "VerificationFlow.tsx",
-      "file_type": "code",
-      "norm_label": "verification-plan/route.ts",
-      "source_file": "app/api/verification-plan/route.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "app_api_verification_plan_route_runtime",
-      "label": "runtime",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "VerificationFlow.tsx",
-      "file_type": "code",
-      "norm_label": "runtime",
-      "source_file": "app/api/verification-plan/route.ts",
-      "source_location": "L4"
-    },
-    {
       "id": "app_page",
       "label": "page.tsx",
       "_origin": "ast",
@@ -2430,7 +2483,7 @@
       "file_type": "code",
       "norm_label": "reducers",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L159"
+      "source_location": "L161"
     },
     {
       "id": "lib_spacetime_module_bindings_types",
@@ -2444,6 +2497,28 @@
       "source_location": "L1"
     },
     {
+      "id": "lib_spacetime_release_state",
+      "label": "release-state.ts",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "VerificationFlow.tsx",
+      "file_type": "code",
+      "norm_label": "release-state.ts",
+      "source_file": "lib/spacetime/release-state.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "lib_spacetime_release_state_safe_release_error",
+      "label": "SAFE_RELEASE_ERROR",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "VerificationFlow.tsx",
+      "file_type": "code",
+      "norm_label": "safe_release_error",
+      "source_file": "lib/spacetime/release-state.ts",
+      "source_location": "L16"
+    },
+    {
       "id": "lib_spacetime_verificationflow",
       "label": "VerificationFlow.tsx",
       "_origin": "ast",
@@ -2455,26 +2530,26 @@
       "source_location": "L1"
     },
     {
-      "id": "lib_verification_plan",
-      "label": "verification-plan.ts",
+      "id": "tests_backend_flow_test",
+      "label": "backend-flow.test.ts",
       "_origin": "ast",
       "community": 4,
       "community_name": "VerificationFlow.tsx",
       "file_type": "code",
-      "norm_label": "verification-plan.ts",
-      "source_file": "lib/verification-plan.ts",
+      "norm_label": "backend-flow.test.ts",
+      "source_file": "tests/backend-flow.test.ts",
       "source_location": "L1"
     },
     {
-      "id": "lib_verification_plan_allowedkinds",
-      "label": "allowedKinds",
+      "id": "tests_backend_flow_test_allcheckids",
+      "label": "allCheckIds",
       "_origin": "ast",
       "community": 4,
       "community_name": "VerificationFlow.tsx",
       "file_type": "code",
-      "norm_label": "allowedkinds",
-      "source_file": "lib/verification-plan.ts",
-      "source_location": "L10"
+      "norm_label": "allcheckids",
+      "source_file": "tests/backend-flow.test.ts",
+      "source_location": "L7"
     },
     {
       "id": "app_api_deal_dealid_route",
@@ -2543,230 +2618,10 @@
       "source_location": "L7"
     },
     {
-      "id": "tsconfig",
-      "label": "tsconfig.json",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "tsconfig.json",
-      "source_file": "tsconfig.json",
-      "source_location": "L1"
-    },
-    {
-      "id": "tsconfig_compileroptions",
-      "label": "compilerOptions",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "compileroptions",
-      "source_file": "tsconfig.json",
-      "source_location": "L2"
-    },
-    {
-      "id": "tsconfig_compileroptions_allowjs",
-      "label": "allowJs",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "allowjs",
-      "source_file": "tsconfig.json",
-      "source_location": "L20"
-    },
-    {
-      "id": "tsconfig_compileroptions_esmoduleinterop",
-      "label": "esModuleInterop",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "esmoduleinterop",
-      "source_file": "tsconfig.json",
-      "source_location": "L19"
-    },
-    {
-      "id": "tsconfig_compileroptions_incremental",
-      "label": "incremental",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "incremental",
-      "source_file": "tsconfig.json",
-      "source_location": "L21"
-    },
-    {
-      "id": "tsconfig_compileroptions_isolatedmodules",
-      "label": "isolatedModules",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "isolatedmodules",
-      "source_file": "tsconfig.json",
-      "source_location": "L33"
-    },
-    {
-      "id": "tsconfig_compileroptions_jsx",
-      "label": "jsx",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "jsx",
-      "source_file": "tsconfig.json",
-      "source_location": "L18"
-    },
-    {
-      "id": "tsconfig_compileroptions_lib",
-      "label": "lib",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "lib",
-      "source_file": "tsconfig.json",
-      "source_location": "L4"
-    },
-    {
-      "id": "tsconfig_compileroptions_module",
-      "label": "module",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "module",
-      "source_file": "tsconfig.json",
-      "source_location": "L16"
-    },
-    {
-      "id": "tsconfig_compileroptions_moduleresolution",
-      "label": "moduleResolution",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "moduleresolution",
-      "source_file": "tsconfig.json",
-      "source_location": "L17"
-    },
-    {
-      "id": "tsconfig_compileroptions_noemit",
-      "label": "noEmit",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "noemit",
-      "source_file": "tsconfig.json",
-      "source_location": "L10"
-    },
-    {
-      "id": "tsconfig_compileroptions_paths",
-      "label": "paths",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "paths",
-      "source_file": "tsconfig.json",
-      "source_location": "L27"
-    },
-    {
-      "id": "tsconfig_compileroptions_plugins",
-      "label": "plugins",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "plugins",
-      "source_file": "tsconfig.json",
-      "source_location": "L22"
-    },
-    {
-      "id": "tsconfig_compileroptions_resolvejsonmodule",
-      "label": "resolveJsonModule",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "resolvejsonmodule",
-      "source_file": "tsconfig.json",
-      "source_location": "L32"
-    },
-    {
-      "id": "tsconfig_compileroptions_skiplibcheck",
-      "label": "skipLibCheck",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "skiplibcheck",
-      "source_file": "tsconfig.json",
-      "source_location": "L11"
-    },
-    {
-      "id": "tsconfig_compileroptions_strict",
-      "label": "strict",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "strict",
-      "source_file": "tsconfig.json",
-      "source_location": "L9"
-    },
-    {
-      "id": "tsconfig_compileroptions_target",
-      "label": "target",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "target",
-      "source_file": "tsconfig.json",
-      "source_location": "L3"
-    },
-    {
-      "id": "tsconfig_compileroptions_types",
-      "label": "types",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "types",
-      "source_file": "tsconfig.json",
-      "source_location": "L12"
-    },
-    {
-      "id": "tsconfig_exclude",
-      "label": "exclude",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "exclude",
-      "source_file": "tsconfig.json",
-      "source_location": "L41"
-    },
-    {
-      "id": "tsconfig_include",
-      "label": "include",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "TypeScript Configuration",
-      "file_type": "code",
-      "norm_label": "include",
-      "source_file": "tsconfig.json",
-      "source_location": "L35"
-    },
-    {
       "id": "spacetime_spacetimedb_src_index",
       "label": "src/index.ts",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "src/index.ts",
@@ -2777,40 +2632,51 @@
       "id": "spacetime_spacetimedb_src_index_add_evidence",
       "label": "add_evidence",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "add_evidence",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L161"
+      "source_location": "L163"
     },
     {
       "id": "spacetime_spacetimedb_src_index_add_verification_check",
       "label": "add_verification_check",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "add_verification_check",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L117"
+      "source_location": "L119"
+    },
+    {
+      "id": "spacetime_spacetimedb_src_index_associate_demo_deal",
+      "label": "associate_demo_deal",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "src/index.ts",
+      "file_type": "code",
+      "norm_label": "associate_demo_deal",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L251"
     },
     {
       "id": "spacetime_spacetimedb_src_index_complete_check",
       "label": "complete_check",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "complete_check",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L141"
+      "source_location": "L143"
     },
     {
       "id": "spacetime_spacetimedb_src_index_condition",
       "label": "condition",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "condition",
@@ -2821,133 +2687,353 @@
       "id": "spacetime_spacetimedb_src_index_create_condition",
       "label": "create_condition",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "create_condition",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L93"
+      "source_location": "L94"
     },
     {
       "id": "spacetime_spacetimedb_src_index_evidence",
       "label": "evidence",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "evidence",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L38"
+      "source_location": "L39"
     },
     {
       "id": "spacetime_spacetimedb_src_index_record_settlement_status",
       "label": "record_settlement_status",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "record_settlement_status",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L239"
+      "source_location": "L241"
     },
     {
       "id": "spacetime_spacetimedb_src_index_record_uploaded_document",
       "label": "record_uploaded_document",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "record_uploaded_document",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L191"
+      "source_location": "L193"
     },
     {
       "id": "spacetime_spacetimedb_src_index_resolve_condition",
       "label": "resolve_condition",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "resolve_condition",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L225"
+      "source_location": "L227"
     },
     {
       "id": "spacetime_spacetimedb_src_index_set_check_error",
       "label": "set_check_error",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "set_check_error",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L151"
+      "source_location": "L153"
     },
     {
       "id": "spacetime_spacetimedb_src_index_set_check_running",
       "label": "set_check_running",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "set_check_running",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L134"
+      "source_location": "L136"
     },
     {
       "id": "spacetime_spacetimedb_src_index_set_condition_status",
       "label": "set_condition_status",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "set_condition_status",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L108"
+      "source_location": "L110"
     },
     {
       "id": "spacetime_spacetimedb_src_index_set_document_extraction_status",
       "label": "set_document_extraction_status",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "set_document_extraction_status",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L214"
+      "source_location": "L216"
     },
     {
       "id": "spacetime_spacetimedb_src_index_spacetimedb",
       "label": "spacetimedb",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "spacetimedb",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L72"
+      "source_location": "L73"
     },
     {
       "id": "spacetime_spacetimedb_src_index_uploadeddocument",
       "label": "uploadedDocument",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "uploadeddocument",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L55"
+      "source_location": "L56"
     },
     {
       "id": "spacetime_spacetimedb_src_index_verificationcheck",
       "label": "verificationCheck",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "src/index.ts",
       "file_type": "code",
       "norm_label": "verificationcheck",
       "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L21"
+    },
+    {
+      "id": "tsconfig",
+      "label": "tsconfig.json",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "tsconfig.json",
+      "source_file": "tsconfig.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "compileroptions",
+      "source_file": "tsconfig.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "tsconfig_compileroptions_allowjs",
+      "label": "allowJs",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "allowjs",
+      "source_file": "tsconfig.json",
       "source_location": "L20"
+    },
+    {
+      "id": "tsconfig_compileroptions_esmoduleinterop",
+      "label": "esModuleInterop",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "esmoduleinterop",
+      "source_file": "tsconfig.json",
+      "source_location": "L19"
+    },
+    {
+      "id": "tsconfig_compileroptions_incremental",
+      "label": "incremental",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "incremental",
+      "source_file": "tsconfig.json",
+      "source_location": "L21"
+    },
+    {
+      "id": "tsconfig_compileroptions_isolatedmodules",
+      "label": "isolatedModules",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "isolatedmodules",
+      "source_file": "tsconfig.json",
+      "source_location": "L33"
+    },
+    {
+      "id": "tsconfig_compileroptions_jsx",
+      "label": "jsx",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "jsx",
+      "source_file": "tsconfig.json",
+      "source_location": "L18"
+    },
+    {
+      "id": "tsconfig_compileroptions_lib",
+      "label": "lib",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "lib",
+      "source_file": "tsconfig.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "tsconfig_compileroptions_module",
+      "label": "module",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "module",
+      "source_file": "tsconfig.json",
+      "source_location": "L16"
+    },
+    {
+      "id": "tsconfig_compileroptions_moduleresolution",
+      "label": "moduleResolution",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "moduleresolution",
+      "source_file": "tsconfig.json",
+      "source_location": "L17"
+    },
+    {
+      "id": "tsconfig_compileroptions_noemit",
+      "label": "noEmit",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "noemit",
+      "source_file": "tsconfig.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "tsconfig_compileroptions_paths",
+      "label": "paths",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "paths",
+      "source_file": "tsconfig.json",
+      "source_location": "L27"
+    },
+    {
+      "id": "tsconfig_compileroptions_plugins",
+      "label": "plugins",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "plugins",
+      "source_file": "tsconfig.json",
+      "source_location": "L22"
+    },
+    {
+      "id": "tsconfig_compileroptions_resolvejsonmodule",
+      "label": "resolveJsonModule",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "resolvejsonmodule",
+      "source_file": "tsconfig.json",
+      "source_location": "L32"
+    },
+    {
+      "id": "tsconfig_compileroptions_skiplibcheck",
+      "label": "skipLibCheck",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "skiplibcheck",
+      "source_file": "tsconfig.json",
+      "source_location": "L11"
+    },
+    {
+      "id": "tsconfig_compileroptions_strict",
+      "label": "strict",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "strict",
+      "source_file": "tsconfig.json",
+      "source_location": "L9"
+    },
+    {
+      "id": "tsconfig_compileroptions_target",
+      "label": "target",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "target",
+      "source_file": "tsconfig.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "tsconfig_compileroptions_types",
+      "label": "types",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "types",
+      "source_file": "tsconfig.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "tsconfig_exclude",
+      "label": "exclude",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "exclude",
+      "source_file": "tsconfig.json",
+      "source_location": "L41"
+    },
+    {
+      "id": "tsconfig_include",
+      "label": "include",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "compilerOptions",
+      "file_type": "code",
+      "norm_label": "include",
+      "source_file": "tsconfig.json",
+      "source_location": "L35"
     },
     {
       "id": "spacetime_spacetimedb_package",
@@ -3104,26 +3190,26 @@
       "source_location": "L3"
     },
     {
-      "id": "spacetime_spacetimedb_package_json_ref_spacetimedb",
+      "id": "package_json_ref_spacetimedb",
       "label": "spacetimedb",
       "_origin": "ast",
       "community": 8,
       "community_name": "spacetimedb/package.json",
       "file_type": "concept",
       "norm_label": "spacetimedb",
-      "source_file": "spacetime/spacetimedb/package.json",
-      "source_location": "L13"
+      "source_file": "package.json",
+      "source_location": "L21"
     },
     {
-      "id": "spacetime_spacetimedb_package_json_ref_typescript",
+      "id": "package_json_ref_typescript",
       "label": "typescript",
       "_origin": "ast",
       "community": 8,
       "community_name": "spacetimedb/package.json",
       "file_type": "concept",
       "norm_label": "typescript",
-      "source_file": "spacetime/spacetimedb/package.json",
-      "source_location": "L16"
+      "source_file": "package.json",
+      "source_location": "L37"
     },
     {
       "id": "package_devdependencies",
@@ -3296,7 +3382,7 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
-      "community": 12,
+      "community": 13,
       "community_name": "Deterministic Condition Evaluator",
       "contributor": null,
       "file_type": "concept",
@@ -3311,7 +3397,7 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
-      "community": 12,
+      "community": 13,
       "community_name": "Deterministic Condition Evaluator",
       "contributor": null,
       "file_type": "concept",
@@ -3326,7 +3412,7 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
-      "community": 12,
+      "community": 13,
       "community_name": "Deterministic Condition Evaluator",
       "contributor": null,
       "file_type": "concept",
@@ -3341,7 +3427,7 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
-      "community": 12,
+      "community": 13,
       "community_name": "Deterministic Condition Evaluator",
       "contributor": null,
       "file_type": "concept",
@@ -3356,7 +3442,7 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
-      "community": 12,
+      "community": 13,
       "community_name": "Deterministic Condition Evaluator",
       "contributor": null,
       "file_type": "concept",
@@ -3371,7 +3457,7 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
-      "community": 12,
+      "community": 13,
       "community_name": "Deterministic Condition Evaluator",
       "contributor": null,
       "file_type": "concept",
@@ -3386,7 +3472,7 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
-      "community": 12,
+      "community": 13,
       "community_name": "Deterministic Condition Evaluator",
       "contributor": null,
       "file_type": "concept",
@@ -3401,7 +3487,7 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
-      "community": 12,
+      "community": 13,
       "community_name": "Deterministic Condition Evaluator",
       "contributor": null,
       "file_type": "concept",
@@ -3416,7 +3502,7 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
-      "community": 12,
+      "community": 13,
       "community_name": "Deterministic Condition Evaluator",
       "contributor": null,
       "file_type": "rationale",
@@ -3431,7 +3517,7 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
-      "community": 14,
+      "community": 15,
       "community_name": "SpacetimeDB Core Concepts",
       "contributor": null,
       "file_type": "concept",
@@ -3446,7 +3532,7 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
-      "community": 14,
+      "community": 15,
       "community_name": "SpacetimeDB Core Concepts",
       "contributor": null,
       "file_type": "concept",
@@ -3461,7 +3547,7 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
-      "community": 14,
+      "community": 15,
       "community_name": "SpacetimeDB Core Concepts",
       "contributor": null,
       "file_type": "document",
@@ -3536,7 +3622,7 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
-      "community": 22,
+      "community": 23,
       "community_name": "Conditional Escrow MVP",
       "contributor": null,
       "file_type": "document",
@@ -3585,6 +3671,30 @@
     },
     {
       "source": "app_api_deal_release_route_post",
+      "target": "lib_solana_getdeal",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "app/api/deal/release/route.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "app_api_deal_release_route_post",
+      "target": "lib_solana_submitcondition",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "app/api/deal/release/route.ts",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "app_api_deal_release_route_post",
       "target": "lib_solana_releasedeal",
       "relation": "calls",
       "_origin": "ast",
@@ -3592,7 +3702,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/deal/release/route.ts",
-      "source_location": "L4",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -4144,7 +4254,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L185",
+      "source_location": "L187",
       "weight": 1.0
     },
     {
@@ -4156,7 +4266,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L185",
+      "source_location": "L187",
       "weight": 1.0
     },
     {
@@ -4168,7 +4278,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L190",
+      "source_location": "L192",
       "weight": 1.0
     },
     {
@@ -4192,7 +4302,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L171",
+      "source_location": "L214",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_verificationflow_verificationflow",
+      "target": "lib_spacetime_release_state_canrelease",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L242",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_verificationflow_verificationflow",
+      "target": "lib_spacetime_release_state_requestrelease",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L92",
       "weight": 1.0
     },
     {
@@ -4216,7 +4350,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L174",
+      "source_location": "L176",
       "weight": 1.0
     },
     {
@@ -4228,7 +4362,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L175",
+      "source_location": "L177",
       "weight": 1.0
     },
     {
@@ -4240,7 +4374,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L120",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "spacetime_spacetimedb_src_index_associate_demo_deal",
+      "target": "spacetime_spacetimedb_src_index_requirecondition",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L254",
       "weight": 1.0
     },
     {
@@ -4252,7 +4398,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L144",
+      "source_location": "L146",
       "weight": 1.0
     },
     {
@@ -4264,7 +4410,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L146",
+      "source_location": "L148",
       "weight": 1.0
     },
     {
@@ -4276,7 +4422,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L243",
+      "source_location": "L245",
       "weight": 1.0
     },
     {
@@ -4288,7 +4434,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L201",
+      "source_location": "L203",
       "weight": 1.0
     },
     {
@@ -4300,24 +4446,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L228",
+      "source_location": "L230",
       "weight": 1.0
     },
     {
       "source": "spacetime_spacetimedb_src_index_set_check_error",
       "target": "spacetime_spacetimedb_src_index_requirecheck",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L154",
-      "weight": 1.0
-    },
-    {
-      "source": "spacetime_spacetimedb_src_index_set_check_error",
-      "target": "spacetime_spacetimedb_src_index_requirecondition",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4328,6 +4462,18 @@
       "weight": 1.0
     },
     {
+      "source": "spacetime_spacetimedb_src_index_set_check_error",
+      "target": "spacetime_spacetimedb_src_index_requirecondition",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L158",
+      "weight": 1.0
+    },
+    {
       "source": "spacetime_spacetimedb_src_index_set_check_running",
       "target": "spacetime_spacetimedb_src_index_requirecheck",
       "relation": "calls",
@@ -4336,7 +4482,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L135",
+      "source_location": "L137",
       "weight": 1.0
     },
     {
@@ -4348,7 +4494,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L137",
+      "source_location": "L139",
       "weight": 1.0
     },
     {
@@ -4360,7 +4506,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L112",
+      "source_location": "L114",
       "weight": 1.0
     },
     {
@@ -4372,7 +4518,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L218",
+      "source_location": "L220",
       "weight": 1.0
     },
     {
@@ -4384,7 +4530,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L220",
+      "source_location": "L222",
       "weight": 1.0
     },
     {
@@ -4905,7 +5051,31 @@
     },
     {
       "source": "app_api_deal_release_route",
+      "target": "lib_solana_getdeal",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/api/deal/release/route.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "app_api_deal_release_route",
       "target": "lib_solana_releasedeal",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "app/api/deal/release/route.ts",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "app_api_deal_release_route",
+      "target": "lib_solana_submitcondition",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5153,6 +5323,42 @@
       "context": "import",
       "source_file": "lib/spacetime/VerificationFlow.tsx",
       "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_verificationflow",
+      "target": "lib_spacetime_release_state_canrelease",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_verificationflow",
+      "target": "lib_spacetime_release_state_requestrelease",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_verificationflow",
+      "target": "lib_spacetime_release_state_safe_release_error",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -5457,7 +5663,7 @@
     },
     {
       "source": "spacetime_spacetimedb_package",
-      "target": "spacetime_spacetimedb_package_json_ref_spacetimedb",
+      "target": "package_json_ref_spacetimedb",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5469,7 +5675,7 @@
     },
     {
       "source": "spacetime_spacetimedb_package",
-      "target": "spacetime_spacetimedb_package_json_ref_typescript",
+      "target": "package_json_ref_typescript",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5561,6 +5767,54 @@
       "context": "import",
       "source_file": "tests/backend-flow.test.ts",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_backend_flow_test",
+      "target": "lib_spacetime_release_state_canrelease",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/backend-flow.test.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_backend_flow_test",
+      "target": "lib_spacetime_release_state_releaselabel",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/backend-flow.test.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_backend_flow_test",
+      "target": "lib_spacetime_release_state_requestrelease",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/backend-flow.test.ts",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_backend_flow_test",
+      "target": "lib_spacetime_release_state_safe_release_error",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/backend-flow.test.ts",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -5758,7 +6012,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_complete_check_reducer",
+      "target": "lib_spacetime_module_bindings_associate_demo_deal_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5770,7 +6024,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_create_condition_reducer",
+      "target": "lib_spacetime_module_bindings_complete_check_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5782,7 +6036,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_record_settlement_status_reducer",
+      "target": "lib_spacetime_module_bindings_create_condition_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5794,7 +6048,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_record_uploaded_document_reducer",
+      "target": "lib_spacetime_module_bindings_record_settlement_status_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5806,7 +6060,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_resolve_condition_reducer",
+      "target": "lib_spacetime_module_bindings_record_uploaded_document_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5818,7 +6072,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_set_check_error_reducer",
+      "target": "lib_spacetime_module_bindings_resolve_condition_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5830,7 +6084,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_set_check_running_reducer",
+      "target": "lib_spacetime_module_bindings_set_check_error_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5842,7 +6096,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_set_condition_status_reducer",
+      "target": "lib_spacetime_module_bindings_set_check_running_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5854,7 +6108,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_set_document_extraction_status_reducer",
+      "target": "lib_spacetime_module_bindings_set_condition_status_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5866,19 +6120,19 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_condition_table",
+      "target": "lib_spacetime_module_bindings_set_document_extraction_status_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L52",
+      "source_location": "L48",
       "weight": 1.0
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_evidence_table",
+      "target": "lib_spacetime_module_bindings_condition_table",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5890,7 +6144,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_uploaded_document_table",
+      "target": "lib_spacetime_module_bindings_evidence_table",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5902,7 +6156,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_index",
-      "target": "lib_spacetime_module_bindings_verification_check_table",
+      "target": "lib_spacetime_module_bindings_uploaded_document_table",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5910,6 +6164,18 @@
       "context": "import",
       "source_file": "lib/spacetime/module_bindings/index.ts",
       "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_index",
+      "target": "lib_spacetime_module_bindings_verification_check_table",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/module_bindings/index.ts",
+      "source_location": "L56",
       "weight": 1.0
     },
     {
@@ -5926,7 +6192,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_complete_check_reducer",
+      "target": "lib_spacetime_module_bindings_associate_demo_deal_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5938,7 +6204,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_create_condition_reducer",
+      "target": "lib_spacetime_module_bindings_complete_check_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5950,7 +6216,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_record_settlement_status_reducer",
+      "target": "lib_spacetime_module_bindings_create_condition_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5962,7 +6228,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_record_uploaded_document_reducer",
+      "target": "lib_spacetime_module_bindings_record_settlement_status_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5974,7 +6240,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_resolve_condition_reducer",
+      "target": "lib_spacetime_module_bindings_record_uploaded_document_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5986,7 +6252,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_set_check_error_reducer",
+      "target": "lib_spacetime_module_bindings_resolve_condition_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5998,7 +6264,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_set_check_running_reducer",
+      "target": "lib_spacetime_module_bindings_set_check_error_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6010,7 +6276,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_set_condition_status_reducer",
+      "target": "lib_spacetime_module_bindings_set_check_running_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6022,7 +6288,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_set_document_extraction_status_reducer",
+      "target": "lib_spacetime_module_bindings_set_condition_status_reducer",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6030,6 +6296,18 @@
       "context": "import",
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
       "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_types_reducers",
+      "target": "lib_spacetime_module_bindings_set_document_extraction_status_reducer",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -6116,6 +6394,18 @@
       "source_file": "lib/spacetime/VerificationFlow.tsx",
       "source_location": "L8",
       "type_only": true,
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_verificationflow",
+      "target": "lib_spacetime_release_state",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -6215,6 +6505,18 @@
       "context": "import",
       "source_file": "tests/backend-flow.test.ts",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_backend_flow_test",
+      "target": "lib_spacetime_release_state",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "tests/backend-flow.test.ts",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -6451,7 +6753,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/deal/release/route.ts",
-      "source_location": "L3",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -7012,7 +7314,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L123",
+      "source_location": "L124",
       "weight": 1.0
     },
     {
@@ -7023,7 +7325,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L138",
+      "source_location": "L140",
       "weight": 1.0
     },
     {
@@ -7034,7 +7336,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L142",
+      "source_location": "L144",
       "weight": 1.0
     },
     {
@@ -7045,7 +7347,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L156",
+      "source_location": "L158",
       "weight": 1.0
     },
     {
@@ -7056,7 +7358,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L159",
+      "source_location": "L161",
       "weight": 1.0
     },
     {
@@ -7067,7 +7369,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L162",
+      "source_location": "L164",
       "weight": 1.0
     },
     {
@@ -7078,7 +7380,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L165",
+      "source_location": "L167",
       "weight": 1.0
     },
     {
@@ -7089,7 +7391,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L167",
+      "source_location": "L169",
       "weight": 1.0
     },
     {
@@ -7100,7 +7402,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L169",
+      "source_location": "L171",
       "weight": 1.0
     },
     {
@@ -7111,7 +7413,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L171",
+      "source_location": "L173",
       "weight": 1.0
     },
     {
@@ -7122,7 +7424,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L173",
+      "source_location": "L175",
       "weight": 1.0
     },
     {
@@ -7133,7 +7435,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L176",
+      "source_location": "L178",
       "weight": 1.0
     },
     {
@@ -7144,7 +7446,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L179",
+      "source_location": "L181",
       "weight": 1.0
     },
     {
@@ -7155,7 +7457,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L182",
+      "source_location": "L184",
       "weight": 1.0
     },
     {
@@ -7166,7 +7468,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L60",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -7177,7 +7479,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/types.ts",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -7188,7 +7490,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/types.ts",
-      "source_location": "L39",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -7199,7 +7501,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/types.ts",
-      "source_location": "L54",
+      "source_location": "L55",
       "weight": 1.0
     },
     {
@@ -7210,7 +7512,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/types.ts",
-      "source_location": "L70",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -7221,7 +7523,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L21",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -7232,23 +7534,12 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
-      "source_location": "L22",
-      "weight": 1.0
-    },
-    {
-      "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_types_reducers_completecheckparams",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
       "source_location": "L23",
       "weight": 1.0
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_types_reducers_createconditionparams",
+      "target": "lib_spacetime_module_bindings_types_reducers_associatedemodealparams",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7259,7 +7550,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_types_reducers_recordsettlementstatusparams",
+      "target": "lib_spacetime_module_bindings_types_reducers_completecheckparams",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7270,7 +7561,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_types_reducers_recorduploadeddocumentparams",
+      "target": "lib_spacetime_module_bindings_types_reducers_createconditionparams",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7281,7 +7572,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_types_reducers_resolveconditionparams",
+      "target": "lib_spacetime_module_bindings_types_reducers_recordsettlementstatusparams",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7292,7 +7583,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_types_reducers_setcheckerrorparams",
+      "target": "lib_spacetime_module_bindings_types_reducers_recorduploadeddocumentparams",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7303,7 +7594,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_types_reducers_setcheckrunningparams",
+      "target": "lib_spacetime_module_bindings_types_reducers_resolveconditionparams",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7314,7 +7605,7 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_types_reducers_setconditionstatusparams",
+      "target": "lib_spacetime_module_bindings_types_reducers_setcheckerrorparams",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -7325,13 +7616,35 @@
     },
     {
       "source": "lib_spacetime_module_bindings_types_reducers",
-      "target": "lib_spacetime_module_bindings_types_reducers_setdocumentextractionstatusparams",
+      "target": "lib_spacetime_module_bindings_types_reducers_setcheckrunningparams",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
       "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_types_reducers",
+      "target": "lib_spacetime_module_bindings_types_reducers_setconditionstatusparams",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_module_bindings_types_reducers",
+      "target": "lib_spacetime_module_bindings_types_reducers_setdocumentextractionstatusparams",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/module_bindings/types/reducers.ts",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -7346,6 +7659,61 @@
       "weight": 1.0
     },
     {
+      "source": "lib_spacetime_release_state",
+      "target": "lib_spacetime_release_state_settlementstatus",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/release-state.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_release_state",
+      "target": "lib_spacetime_release_state_safe_release_error",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/release-state.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_release_state",
+      "target": "lib_spacetime_release_state_requestrelease",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/release-state.ts",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_release_state",
+      "target": "lib_spacetime_release_state_canrelease",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/release-state.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_release_state",
+      "target": "lib_spacetime_release_state_releaselabel",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/release-state.ts",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
       "source": "lib_spacetime_verificationflow",
       "target": "lib_spacetime_verificationflow_displaytime",
       "relation": "contains",
@@ -7353,7 +7721,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L10",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -7364,7 +7732,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "lib_spacetime_verificationflow",
+      "target": "lib_spacetime_verificationflow_demodeal",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/spacetime/VerificationFlow.tsx",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -7375,7 +7754,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L19",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -8222,7 +8601,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L108",
+      "source_location": "L110",
       "weight": 1.0
     },
     {
@@ -8233,7 +8612,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L117",
+      "source_location": "L119",
       "weight": 1.0
     },
     {
@@ -8244,7 +8623,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L134",
+      "source_location": "L136",
       "weight": 1.0
     },
     {
@@ -8255,7 +8634,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L141",
+      "source_location": "L143",
       "weight": 1.0
     },
     {
@@ -8266,7 +8645,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L151",
+      "source_location": "L153",
       "weight": 1.0
     },
     {
@@ -8277,7 +8656,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L161",
+      "source_location": "L163",
       "weight": 1.0
     },
     {
@@ -8288,7 +8667,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L191",
+      "source_location": "L193",
       "weight": 1.0
     },
     {
@@ -8299,7 +8678,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -8310,7 +8689,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L214",
+      "source_location": "L216",
       "weight": 1.0
     },
     {
@@ -8321,7 +8700,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L225",
+      "source_location": "L227",
       "weight": 1.0
     },
     {
@@ -8332,7 +8711,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L239",
+      "source_location": "L241",
+      "weight": 1.0
+    },
+    {
+      "source": "spacetime_spacetimedb_src_index",
+      "target": "spacetime_spacetimedb_src_index_associate_demo_deal",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "spacetime/spacetimedb/src/index.ts",
+      "source_location": "L251",
       "weight": 1.0
     },
     {
@@ -8343,7 +8733,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L38",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -8365,7 +8755,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L55",
+      "source_location": "L56",
       "weight": 1.0
     },
     {
@@ -8376,7 +8766,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L72",
+      "source_location": "L73",
       "weight": 1.0
     },
     {
@@ -8387,7 +8777,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L75",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -8398,7 +8788,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L81",
+      "source_location": "L82",
       "weight": 1.0
     },
     {
@@ -8409,7 +8799,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L87",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
@@ -8420,7 +8810,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "spacetime/spacetimedb/src/index.ts",
-      "source_location": "L93",
+      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -8431,7 +8821,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "tests/backend-flow.test.ts",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -8666,15 +9056,6 @@
       "weight": 1.0
     },
     {
-      "source": "next_config",
-      "target": "next",
-      "relation": "dynamic_import",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "next.config.mjs"
-    },
-    {
       "source": "lib_spacetime_module_bindings_index_dbconnection",
       "target": "lib_spacetime_module_bindings_index_dbconnection_subscriptionbuilder",
       "relation": "method",
@@ -8682,7 +9063,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/spacetime/module_bindings/index.ts",
-      "source_location": "L189",
+      "source_location": "L191",
       "weight": 1.0
     },
     {
@@ -8705,7 +9086,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "lib/spacetime/VerificationFlow.tsx",
-      "source_location": "L49",
+      "source_location": "L56",
       "weight": 1.0
     },
     {
@@ -8878,5 +9259,5 @@
       "source_file": "README.md"
     }
   ],
-  "built_at_commit": "c4b4f0e75b33e84fc18f1fb1a2ccdd55c8e676c7"
+  "built_at_commit": "421dde97bb9aa440486a7b59266ca61fb90fbcc5"
 }

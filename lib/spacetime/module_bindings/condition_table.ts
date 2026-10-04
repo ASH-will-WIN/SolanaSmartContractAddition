@@ -18,6 +18,7 @@ export default __t.row({
   finalResult: __t.option(__t.bool()).name("final_result"),
   settlementStatus: __t.string().name("settlement_status"),
   settlementSignature: __t.option(__t.string()).name("settlement_signature"),
+  dealId: __t.option(__t.u64()).name("deal_id"),
   createdAt: __t.timestamp().name("created_at"),
   updatedAt: __t.timestamp().name("updated_at"),
 });

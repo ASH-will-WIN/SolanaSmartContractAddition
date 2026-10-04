@@ -2,8 +2,31 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { FOUNDATION_CONDITION_ID, getPlatformState, initializeConstructionChecklist, isFoundationMilestoneComplete, updateConstructionCheck, verifyCondition } from "../lib/platform";
 import { createVerifierService } from "../lib/verifier";
+import { canRelease, releaseLabel, requestRelease, SAFE_RELEASE_ERROR } from "../lib/spacetime/release-state";
 
 const allCheckIds = ["permit_uploaded", "blueprint_uploaded", "progress_evidence_approved", "contractor_approved", "inspector_approved"] as const;
+
+test("release is gated by the live true result, ready status, deal link, and idle submission", () => {
+  assert.equal(canRelease(false, "ready", true, false), false);
+  assert.equal(canRelease(true, "idle", true, false), false);
+  assert.equal(canRelease(true, "ready", false, false), false);
+  assert.equal(canRelease(true, "ready", true, true), false);
+  assert.equal(canRelease(true, "ready", true, false), true);
+  assert.equal(releaseLabel(false, "ready"), "Settlement locked");
+  assert.equal(releaseLabel(true, "confirmed"), "Funds released on Devnet");
+  assert.equal(releaseLabel(true, "failed"), "Release failed");
+  assert.equal(SAFE_RELEASE_ERROR, "Release failed. Check the deal state and retry.");
+});
+
+test("release client accepts a real signature and masks API failure details", async () => {
+  const success = await requestRelease(77, async (_input, init) => {
+    assert.equal(init?.method, "POST");
+    assert.deepEqual(JSON.parse(String(init?.body)), { dealId: 77 });
+    return Response.json({ signature: "devnet-signature" });
+  });
+  assert.equal(success, "devnet-signature");
+  await assert.rejects(() => requestRelease(77, async () => Response.json({ error: "internal RPC details" }, { status: 500 })), new RegExp(SAFE_RELEASE_ERROR));
+});
 
 test("checklists calculate false for zero or four checks and true for all five", () => {
   initializeConstructionChecklist(101);

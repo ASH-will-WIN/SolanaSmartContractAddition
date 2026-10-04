@@ -1,6 +1,21 @@
 import { NextResponse } from "next/server";
-import { releaseDeal } from "@/lib/solana";
+import { getDeal, releaseDeal, submitCondition } from "@/lib/solana";
+
+// Existing demo escrows are created with this on-chain condition hash. The
+// SpacetimeDB condition result gates the explicit browser action; this constant
+// only keeps the current escrow program's expected condition identifier.
+const DEMO_ESCROW_CONDITION = "foundation_milestone_complete";
 export async function POST(request: Request) {
-  try { const { dealId } = await request.json(); if (!Number.isInteger(dealId)) throw new Error("dealId is required"); return NextResponse.json(await releaseDeal(dealId)); }
-  catch (error) { return NextResponse.json({ error: error instanceof Error ? error.message : "Release failed" }, { status: 400 }); }
+  try {
+    const { dealId } = await request.json();
+    if (!Number.isSafeInteger(dealId) || dealId <= 0) return NextResponse.json({ error: "Invalid demo deal." }, { status: 400 });
+    const deal = await getDeal(dealId);
+    if (!deal.funded) return NextResponse.json({ error: "This deal is not funded." }, { status: 409 });
+    if (deal.released) return NextResponse.json({ error: "This deal has already been released." }, { status: 409 });
+    await submitCondition(dealId, DEMO_ESCROW_CONDITION, true);
+    const result = await releaseDeal(dealId);
+    return NextResponse.json({ ...result, status: "confirmed", dealStatus: "released" });
+  } catch {
+    return NextResponse.json({ error: "Devnet release failed. Check the deal state and try again." }, { status: 400 });
+  }
 }

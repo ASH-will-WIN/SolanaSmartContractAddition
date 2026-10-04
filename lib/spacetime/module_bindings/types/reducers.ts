@@ -8,6 +8,7 @@ import { type Infer as __Infer } from "spacetimedb";
 // Import all reducer arg schemas
 import AddEvidenceReducer from "../add_evidence_reducer";
 import AddVerificationCheckReducer from "../add_verification_check_reducer";
+import AssociateDemoDealReducer from "../associate_demo_deal_reducer";
 import CompleteCheckReducer from "../complete_check_reducer";
 import CreateConditionReducer from "../create_condition_reducer";
 import RecordSettlementStatusReducer from "../record_settlement_status_reducer";
@@ -20,6 +21,7 @@ import SetDocumentExtractionStatusReducer from "../set_document_extraction_statu
 
 export type AddEvidenceParams = __Infer<typeof AddEvidenceReducer>;
 export type AddVerificationCheckParams = __Infer<typeof AddVerificationCheckReducer>;
+export type AssociateDemoDealParams = __Infer<typeof AssociateDemoDealReducer>;
 export type CompleteCheckParams = __Infer<typeof CompleteCheckReducer>;
 export type CreateConditionParams = __Infer<typeof CreateConditionReducer>;
 export type RecordSettlementStatusParams = __Infer<typeof RecordSettlementStatusReducer>;

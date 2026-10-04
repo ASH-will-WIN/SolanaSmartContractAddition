@@ -12,6 +12,7 @@ const condition = table(
     finalResult: t.option(t.bool()),
     settlementStatus: t.string(),
     settlementSignature: t.option(t.string()),
+    dealId: t.option(t.u64()),
     createdAt: t.timestamp(),
     updatedAt: t.timestamp(),
   },
@@ -100,6 +101,7 @@ export const create_condition = spacetimedb.reducer({ prompt: t.string() }, (ctx
     finalResult: undefined,
     settlementStatus: 'idle',
     settlementSignature: undefined,
+    dealId: undefined,
     createdAt: ctx.timestamp,
     updatedAt: ctx.timestamp,
   });
@@ -243,5 +245,14 @@ export const record_settlement_status = spacetimedb.reducer(
     const row = requireCondition(ctx, conditionId);
     if (status !== 'idle' && row.finalResult !== true) throw new Error('Settlement requires a true condition result');
     ctx.db.condition.id.update({ ...row, settlementStatus: status, settlementSignature: signature, updatedAt: ctx.timestamp });
+  },
+);
+
+export const associate_demo_deal = spacetimedb.reducer(
+  { conditionId: t.u64(), dealId: t.u64() },
+  (ctx, { conditionId, dealId }) => {
+    const row = requireCondition(ctx, conditionId);
+    if (row.finalResult === true && row.settlementStatus === 'confirmed') throw new Error('A confirmed condition cannot change its deal');
+    ctx.db.condition.id.update({ ...row, dealId, updatedAt: ctx.timestamp });
   },
 );
