@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
 import { getDeal, releaseDeal, submitCondition } from "@/lib/solana";
 
-// Existing demo escrows are created with this on-chain condition hash. The
-// SpacetimeDB condition result gates the explicit browser action; this constant
-// only keeps the current escrow program's expected condition identifier.
+// Existing demo escrows use this on-chain condition hash. The app calls this
+// route only after the live verifier records a true result.
 const DEMO_ESCROW_CONDITION = "foundation_milestone_complete";
 export async function POST(request: Request) {
   try {

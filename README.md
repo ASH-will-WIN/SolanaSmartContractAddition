@@ -1,10 +1,10 @@
-# Conditional Escrow MVP
+# Programmable Settlement
 
-A small, devnet-only proof of this flow:
+A devnet-only proof that turns a plain-language real-world condition into an on-chain settlement rule:
 
-`mock construction checklist → platform-calculated condition → centralized verifier transaction → Anchor condition state → native SOL escrow release`
+`human-world condition → off-chain verification → trusted verifier result → Anchor condition check → native SOL escrow release`
 
-It uses **test SOL on Solana devnet only**. It is not a trustless oracle and does not use mainnet, real money, SPL tokens, banking, AI, or evidence analysis. The deployed Devnet program is `B3bW1RfHFGNZG1PDZkPukpBQnDWE2yLmUuk2StqHgMK7`.
+It uses **test SOL on Solana devnet only**. It is not a trustless oracle and does not use mainnet, real money, SPL tokens, banking, or production authorization. The deployed Devnet program is `B3bW1RfHFGNZG1PDZkPukpBQnDWE2yLmUuk2StqHgMK7`.
 
 ## Setup
 
@@ -95,27 +95,24 @@ npm run dev
 
 SpacetimeDB listens on `127.0.0.1:3001` and Next.js uses its usual port 3000. The database name is `condition-oracle`. Override `NEXT_PUBLIC_SPACETIMEDB_URI` or `NEXT_PUBLIC_SPACETIMEDB_DATABASE` in `.env.local` if needed. The checked-in template config is explicitly set to the local server; nothing in this setup publishes to Maincloud. Run `npm run spacetime:generate` after changing the module schema to refresh generated client bindings.
 
-In the **Verification Plan** section, enter a condition and click **Generate verification plan**. The plan and optional document metadata are written through real reducers; subscribed rows appear without a refresh. Link the current funded Devnet deal to the condition when the condition passes.
+In the condition designer, describe what must become true and choose **Generate plan**. This creates the condition and proposed checks without starting verification. Edit the condition and check instructions from the graph detail drawer, then choose **ENABLE AUTOMATION** when the plan is ready. A new condition starts from a blank workspace; prior conditions are available in History.
 
 ### Verification runner
 
-Set `XAI_API_KEY` and `FIRECRAWL_API_KEY` in `.env.local` (server side only; never use `NEXT_PUBLIC_` names). `XAI_MODEL` defaults to `grok-4.3`. Generating a plan calls `POST /api/verification-plan`; clicking **Run verification** calls `POST /api/verification/run`, searches up to three Reddit and Firecrawl web results per check, asks Grok to judge relevance from those snippets, and writes evidence and check results through SpacetimeDB reducers. Reddit checks use Firecrawl public-web search restricted to `site:reddit.com`, because Reddit's public JSON search endpoint is blocked in the demo environment. Document checks only confirm attached metadata; file contents are never uploaded or read. A true result marks settlement **Ready** but does not send a Solana transaction.
+Set `XAI_API_KEY` and `FIRECRAWL_API_KEY` in `.env.local` (server side only; never use `NEXT_PUBLIC_` names). `XAI_MODEL` defaults to `grok-4.3`. Generating a plan calls `POST /api/verification-plan`; after enabling, the demo condition triggers automatically and calls the real `POST /api/verification/run` runner. The runner searches public web and Reddit sources, asks Grok to judge relevance from the returned snippets, and writes evidence and check results through SpacetimeDB reducers. Reddit checks use Firecrawl public-web search restricted to `site:reddit.com`; Reddit's public API is not used. Document attachments record metadata only; file contents are not uploaded or parsed. The graph and history are backed by subscribed SpacetimeDB rows.
 
 External calls stay in Next.js routes: SpacetimeDB reducers remain deterministic and do not call Grok, Reddit, web search, document parsers, Nessie, filesystem APIs, clocks, randomness, or Solana RPC.
 
 ### Devnet release demo
 
-1. Create and fund the existing Devnet deal.
-2. Generate a verification plan and run it.
-3. Get a true result from the current SpacetimeDB condition.
-4. Confirm its settlement status is **Ready**.
-5. Link the current funded deal if it is not already linked, then click **Release test funds on Devnet**.
-6. Review the recipient, amount, and Devnet confirmation panel.
-7. Click **Confirm release**.
-8. Show **Funds released on Devnet** and its real Solana Explorer transaction link.
+1. Create and fund the Devnet deal.
+2. Describe the condition, generate its plan, review or edit it, then enable automation.
+3. About 1.5 seconds later, the demo trigger starts the real verification runner. This trigger simulates an event; it is not an external webhook.
+4. A false result leaves the escrow locked. A true result with a funded linked deal automatically submits the verifier result and release through the existing Devnet path.
+5. The full-screen execution view shows the actual Anchor condition check and, after confirmation, the released amount and real Solana Explorer transaction link. If no funded deal is linked, it states that no funds moved.
 
-Nothing is released when verification finishes. The separate human confirmation sends one explicit Devnet release request; the subscribed SpacetimeDB condition records submitted, confirmed, or failed settlement state and the returned signature.
+SpacetimeDB records the automation and settlement progression, including submitted, confirmed, and failed. Reducer guards prevent a second trigger or release submission for the same condition. The Anchor escrow also checks its stored verification result, funded state, and released flag. This demo uses a centralized configured verifier; it is not a trustless oracle.
 
 ## Intentionally omitted
 
-Nessie, real document parsing, stronger evaluation rules, automatic Solana release, custom attestations, wallet connections, SPL/stablecoins, banking, mainnet, multi-party oracles, and production authorization/key management are intentionally out of scope.
+Nessie, deep document parsing, wallet connections, SPL/stablecoins, banking, mainnet, external trigger integrations, multi-party oracles, and production authorization/key management are intentionally out of scope. Automatic release is limited to the Devnet demo flow.
