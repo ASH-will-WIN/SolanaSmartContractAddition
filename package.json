@@ -1,5 +1,5 @@
 {
-  "name": "conditional-escrow-mvp",
+  "name": "solstice",
   "private": true,
   "scripts": {
     "dev": "next dev",
