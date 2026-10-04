@@ -1,40 +1,35 @@
 # Graph Report - SolanaAbstractionLayer  (2026-10-04)
 
 ## Corpus Check
-- cluster-only mode — file stats not available
+- 58 files · ~22,674 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 310 nodes · 486 edges · 24 communities (15 shown, 6 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.78)
+- 325 nodes · 502 edges · 23 communities (15 shown, 5 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.75)
 - Token cost: 0 input · 0 output
 
-## Graph Freshness
-- Built from commit: `0ff293a6`
-- Run `git rev-parse HEAD` and compare to check if the graph is stale.
-- Run `graphify update .` after code changes (no API cost).
-
 ## Community Hubs (Navigation)
-- module_bindings/index.ts
-- package.json
-- platform.ts
-- lib.rs
-- VerificationFlow.tsx
-- Solana API Helpers
-- src/index.ts
-- compilerOptions
-- spacetimedb/package.json
+- SpacetimeDB Client Bindings
+- Frontend Graph and Providers
+- Legacy Checklist Verifier
+- Runtime Dependencies
+- Anchor Escrow Program
+- Solana Deal API
+- SpacetimeDB Reducers and Tables
+- TypeScript Configuration
 - Development Dependencies
-- run/route.ts
-- scripts
-- verification-plan.ts
-- Deterministic Condition Evaluator
-- layout.tsx
-- SpacetimeDB Core Concepts
-- next-env.d.ts
-- SpacetimeDB CLI
-- Reducer Context API
-- conditional_escrow
-- Conditional Escrow MVP
+- Product Architecture Documentation
+- SpacetimeDB Module Metadata
+- Verification Evidence Runner
+- Project Command Scripts
+- Verification Plan Planner
+- Next.js App Shell
+- SpacetimeDB Design Guidance
+- Next.js Environment Types
+- SpacetimeDB CLI Guidance
+- SpacetimeDB SDK Guidance
+- Anchor Crate Metadata
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 17 edges
@@ -49,8 +44,8 @@
 10. `getPlatformState()` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `POST()` --calls--> `createAndFundDeal()`  [EXTRACTED]
-  app/api/deal/create/route.ts → lib/solana.ts
+- `POST()` --calls--> `initializeConstructionChecklist()`  [EXTRACTED]
+  app/api/deal/create/route.ts → lib/platform.ts
 - `GET()` --calls--> `getPlatformState()`  [EXTRACTED]
   app/api/platform/result/route.ts → lib/platform.ts
 - `POST()` --calls--> `updateConstructionCheck()`  [EXTRACTED]
@@ -64,89 +59,89 @@
 - None detected.
 
 ## Hyperedges (group relationships)
-- **Verification to Escrow Release Flow** — readme_platform_checklist, readme_centralized_verifier, readme_anchor_escrow_program [EXTRACTED 1.00]
+- **Verification to Escrow Release Flow** — readme_platform_checklist, readme_centralized_verifier, readme_anchor_program, readme_human_confirmation [EXTRACTED 1.00]
 
-## Communities (24 total, 6 thin omitted)
+## Communities (23 total, 5 thin omitted)
 
-### Community 0 - "module_bindings/index.ts"
-Cohesion: 0.05
-Nodes (28): DbConnection, DbConnectionBuilder, ErrorContext, EventContext, procedures, proceduresSchema, ReducerEventContext, reducersSchema (+20 more)
+### Community 0 - "SpacetimeDB Client Bindings"
+Cohesion: 0.06
+Nodes (22): ErrorContext, EventContext, procedures, proceduresSchema, ReducerEventContext, reducersSchema, REMOTE_MODULE, SubscriptionEventContext (+14 more)
 
-### Community 1 - "package.json"
-Cohesion: 0.07
-Nodes (24): dependencies, next, react, react-dom, @solana/web3.js, spacetimedb, name, private (+16 more)
+### Community 1 - "Frontend Graph and Providers"
+Cohesion: 0.08
+Nodes (24): api(), DemoDeal, Home(), DbConnection, DbConnectionBuilder, reducers, SubscriptionBuilder, tables (+16 more)
 
-### Community 2 - "platform.ts"
-Cohesion: 0.12
-Nodes (22): POST(), dynamic, GET(), POST(), CHECK_LABELS, checksFor(), ConditionResult, ConstructionCheck (+14 more)
+### Community 2 - "Legacy Checklist Verifier"
+Cohesion: 0.11
+Nodes (27): dynamic, GET(), POST(), CHECK_LABELS, checksFor(), ConditionResult, ConstructionCheck, ConstructionChecks (+19 more)
 
-### Community 3 - "lib.rs"
+### Community 3 - "Runtime Dependencies"
+Cohesion: 0.06
+Nodes (28): dependencies, next, react, react-dom, @solana/web3.js, spacetimedb, @xyflow/react, name (+20 more)
+
+### Community 4 - "Anchor Escrow Program"
 Cohesion: 0.22
 Nodes (25): Account, Context, Program, ConditionResultSubmitted, Config, create_deal(), CreateDeal, Deal (+17 more)
 
-### Community 4 - "VerificationFlow.tsx"
-Cohesion: 0.13
-Nodes (21): api(), checkDetails, CheckId, explorer(), Home(), PlatformState, reducers, Condition (+13 more)
+### Community 5 - "Solana Deal API"
+Cohesion: 0.21
+Nodes (19): POST(), GET(), POST(), addresses(), conditionHash(), CONFIG_SEED, createAndFundDeal(), DEAL_SEED (+11 more)
 
-### Community 5 - "Solana API Helpers"
-Cohesion: 0.24
-Nodes (18): GET(), POST(), addresses(), conditionHash(), CONFIG_SEED, createAndFundDeal(), DEAL_SEED, discriminator() (+10 more)
-
-### Community 6 - "src/index.ts"
+### Community 6 - "SpacetimeDB Reducers and Tables"
 Cohesion: 0.17
 Nodes (20): add_evidence, add_verification_check, associate_demo_deal, complete_check, condition, create_condition, evidence, record_settlement_status (+12 more)
 
-### Community 7 - "compilerOptions"
+### Community 7 - "TypeScript Configuration"
 Cohesion: 0.10
 Nodes (19): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+11 more)
 
-### Community 8 - "spacetimedb/package.json"
-Cohesion: 0.12
-Nodes (15): spacetimedb, typescript, author, dependencies, spacetimedb, description, devDependencies, typescript (+7 more)
-
-### Community 9 - "Development Dependencies"
+### Community 8 - "Development Dependencies"
 Cohesion: 0.13
 Nodes (15): devDependencies, autoprefixer, chai, @coral-xyz/anchor, mocha, postcss, tailwindcss, tsx (+7 more)
 
-### Community 10 - "run/route.ts"
+### Community 9 - "Product Architecture Documentation"
+Cohesion: 0.16
+Nodes (15): Anchor Conditional Escrow Program, Centralized Verifier Service, Conditional Escrow MVP, Development-Open Table and Reducer Access, Firecrawl Web Search, Grok, Human Release Confirmation, Next.js Frontend (+7 more)
+
+### Community 10 - "SpacetimeDB Module Metadata"
+Cohesion: 0.14
+Nodes (13): author, dependencies, spacetimedb, description, devDependencies, typescript, keywords, license (+5 more)
+
+### Community 11 - "Verification Evidence Runner"
 Cohesion: 0.44
 Nodes (7): judgeRelevance(), POST(), runtime, searchReddit(), CheckResult, SourceEvidence, searchWeb()
 
-### Community 11 - "scripts"
+### Community 12 - "Project Command Scripts"
 Cohesion: 0.18
 Nodes (11): scripts, anchor:test, build, dev, lint, spacetime:build, spacetime:generate, spacetime:publish (+3 more)
 
-### Community 12 - "verification-plan.ts"
+### Community 13 - "Verification Plan Planner"
 Cohesion: 0.31
 Nodes (8): badRequest(), POST(), runtime, allowedKinds, buildPlannerMessages(), parseVerificationPlan(), PlanCheck, VerificationPlan
 
-### Community 13 - "Deterministic Condition Evaluator"
-Cohesion: 0.28
-Nodes (9): Anchor Escrow Program, Centralized Solana Verifier, Deterministic Condition Evaluator, Future API Verification Worker, Grok Verification Planning Route, Platform Checklist, SpacetimeDB Live Verification State, Deterministic SpacetimeDB Reducers (+1 more)
-
-### Community 15 - "SpacetimeDB Core Concepts"
+### Community 15 - "SpacetimeDB Design Guidance"
 Cohesion: 0.67
 Nodes (3): Deterministic Reducers, SpacetimeDB Core Concepts, Subscriptions
 
 ## Knowledge Gaps
-- **131 isolated node(s):** `ErrorContext`, `EventContext`, `ReducerEventContext`, `SubscriptionEventContext`, `SubscriptionHandle` (+126 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 146 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **137 isolated node(s):** `ErrorContext`, `EventContext`, `ReducerEventContext`, `SubscriptionEventContext`, `SubscriptionHandle` (+132 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 158 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `react` connect `module_bindings/index.ts` to `package.json`, `VerificationFlow.tsx`?**
-  _High betweenness centrality (0.140) - this node is a cross-community bridge._
-- **Why does `@solana/web3.js` connect `package.json` to `Solana API Helpers`?**
-  _High betweenness centrality (0.083) - this node is a cross-community bridge._
-- **Why does `devDependencies` connect `Development Dependencies` to `package.json`?**
-  _High betweenness centrality (0.058) - this node is a cross-community bridge._
+- **Why does `react` connect `Frontend Graph and Providers` to `Runtime Dependencies`?**
+  _High betweenness centrality (0.075) - this node is a cross-community bridge._
+- **Why does `@solana/web3.js` connect `Runtime Dependencies` to `Solana Deal API`?**
+  _High betweenness centrality (0.065) - this node is a cross-community bridge._
+- **Why does `devDependencies` connect `Development Dependencies` to `Runtime Dependencies`?**
+  _High betweenness centrality (0.052) - this node is a cross-community bridge._
 - **What connects `ErrorContext`, `EventContext`, `ReducerEventContext` to the rest of the system?**
-  _131 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `module_bindings/index.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.05442176870748299 - nodes in this community are weakly interconnected._
-- **Should `package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.07142857142857142 - nodes in this community are weakly interconnected._
-- **Should `platform.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.12169312169312169 - nodes in this community are weakly interconnected._
+  _137 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `SpacetimeDB Client Bindings` be split into smaller, more focused modules?**
+  _Cohesion score 0.0641025641025641 - nodes in this community are weakly interconnected._
+- **Should `Frontend Graph and Providers` be split into smaller, more focused modules?**
+  _Cohesion score 0.08403361344537816 - nodes in this community are weakly interconnected._
+- **Should `Legacy Checklist Verifier` be split into smaller, more focused modules?**
+  _Cohesion score 0.10873440285204991 - nodes in this community are weakly interconnected._
