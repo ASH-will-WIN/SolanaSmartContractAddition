@@ -44,7 +44,16 @@ export async function POST(request: Request) {
       body: JSON.stringify({ model: process.env.XAI_MODEL || "grok-4.3", messages: buildPlannerMessages({ condition, hasDocument: documents.length > 0, documents: documents.map(({ fileName, mimeType }) => ({ fileName, mimeType })) }), response_format: { type: "json_object" }, temperature: 0.2 }),
       signal: AbortSignal.timeout(30_000),
     });
-    if (!response.ok) throw new Error("Provider request failed");
+    if (response.status === 401 || response.status === 403) {
+      return NextResponse.json({ error: "The planning service rejected XAI_API_KEY. Check the key in .env.local, then restart Next.js." }, { status: 502 });
+    }
+    if (response.status === 429) {
+      return NextResponse.json({ error: "The planning service is rate-limiting requests. Wait a moment, then try again." }, { status: 503 });
+    }
+    if (response.status === 400) {
+      return NextResponse.json({ error: "The planning provider rejected its model request. Check XAI_MODEL in .env.local, then restart Next.js." }, { status: 502 });
+    }
+    if (!response.ok) throw new Error(`Planning provider returned ${response.status}`);
     const payload: unknown = await response.json();
     if (!payload || typeof payload !== "object") throw new Error("Invalid provider response");
     const choice = (payload as { choices?: Array<{ message?: { content?: unknown } }> }).choices?.[0];
@@ -52,7 +61,13 @@ export async function POST(request: Request) {
     if (typeof content !== "string") throw new Error("Invalid provider response");
     const plan = parseVerificationPlan(JSON.parse(content), documents.length > 0);
     return NextResponse.json(plan);
-  } catch {
+  } catch (error) {
+    if (error instanceof Error && error.name === "TimeoutError") {
+      return NextResponse.json({ error: "The planning service took longer than 30 seconds. Check your connection and try again." }, { status: 504 });
+    }
+    if (error instanceof TypeError) {
+      return NextResponse.json({ error: "Could not reach the planning service. Check your internet connection and try again." }, { status: 502 });
+    }
     return NextResponse.json({ error: "Could not generate a valid verification plan. Please try again." }, { status: 502 });
   }
 }
