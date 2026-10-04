@@ -95,7 +95,7 @@ npm run dev
 
 SpacetimeDB listens on `127.0.0.1:3001` and Next.js uses its usual port 3000. The database name is `condition-oracle`. Override `NEXT_PUBLIC_SPACETIMEDB_URI` or `NEXT_PUBLIC_SPACETIMEDB_DATABASE` in `.env.local` if needed. The checked-in template config is explicitly set to the local server; nothing in this setup publishes to Maincloud. Run `npm run spacetime:generate` after changing the module schema to refresh generated client bindings.
 
-In the condition designer, describe what must become true and choose **Generate plan**. This creates the condition and proposed checks without starting verification. Edit the condition and check instructions from the graph detail drawer, then choose **ENABLE AUTOMATION** when the plan is ready. A new condition starts from a blank workspace; prior conditions are available in History.
+In the condition designer, write the real-world rule and choose **ORCHESTRATE CONDITION**. This creates the condition and proposed checks without starting verification. Edit the condition and check instructions from the graph detail drawer, then choose **ENABLE CONDITION** to make the plan live. A new condition starts from a blank workspace; prior conditions are available in History.
 
 ### Verification runner
 
