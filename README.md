@@ -2,9 +2,9 @@
 
 A small, devnet-only proof of this flow:
 
-`fake platform result → centralized verifier transaction → Anchor condition state → native SOL escrow release`
+`mock construction checklist → platform-calculated condition → centralized verifier transaction → Anchor condition state → native SOL escrow release`
 
-It uses **test SOL on Solana devnet only**. It is not a trustless oracle and does not use mainnet, real money, SPL tokens, banking, AI, or evidence analysis.
+It uses **test SOL on Solana devnet only**. It is not a trustless oracle and does not use mainnet, real money, SPL tokens, banking, AI, or evidence analysis. The deployed Devnet program is `B3bW1RfHFGNZG1PDZkPukpBQnDWE2yLmUuk2StqHgMK7`.
 
 ## Setup
 
@@ -45,7 +45,16 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`. Create and fund the 0.1 SOL deal, set FALSE, run verification, and observe release fail. Then set TRUE, verify again, release, and open the displayed devnet Explorer links.
+Open `http://localhost:3000`. Create a **fresh** 0.001 SOL deal with `foundation_milestone_complete`; this amount keeps the escrow PDA rent-exempt while remaining small for demos. Existing deals have a fixed, older condition hash and cannot be reused for this demo. The payer must have sufficient Devnet SOL before you create and fund a deal. Each fresh deal also consumes account rent and transaction fees, so repeated live Devnet runs still consume payer balance beyond the escrow amount.
+
+The checklist begins with all five checks incomplete. Its actions are deliberately mock/demo actions only: they do not upload files, inspect evidence, or obtain real approvals. The shown filenames and approval labels are mock metadata.
+
+1. Mark any four checks complete and leave inspector approval incomplete.
+2. Run verification: the centralized verifier independently reads the platform's current checklist, calculates `false`, and the program keeps payment locked.
+3. Approve as inspector and run verification again. The verifier calculates `true` and records it on-chain.
+4. The deal is now **ready to release**, not released. Click **Release Payment** as a separate explicit action, then open the Devnet Explorer links.
+
+Checklist state is process-local memory indexed by deal ID and resets if the server restarts. It is intentionally not a database or production evidence store.
 
 ## Tests
 
@@ -54,15 +63,47 @@ npm run test:backend
 anchor test
 ```
 
-The Anchor suite uses Anchor's local validator/test SOL for deterministic contract tests; deployment and the web demo use devnet. It covers config, creation, funding, unauthorized and wrong-condition results, false/true updates, release guards, recipient balance, double release, and unfunded release.
+`npm run test:backend` uses mocks only: it does not contact Devnet, sign, or send transactions. It covers zero/four/all-five checklist states, unknown check rejection, per-deal state, verifier-controlled submission, false-to-true release eligibility, mock unauthorized submission, duplicate release, and stored payment amount.
+
+The Anchor suite uses Anchor's local validator/test SOL for deterministic contract tests; deployment and the web demo use Devnet. In this environment, Anchor 0.30.1 IDL generation is blocked before tests run by `proc_macro2::Span::source_file()`; use `anchor build --no-idl` for the existing deployment and do not report that suite as passing until that toolchain issue is resolved.
 
 ## Architecture
 
-- **Fake platform:** process-local demo state selected through the UI. `verifyCondition()` returns the current state only for the active deal/condition.
-- **Verifier:** a centralized, server-side service. It calls the fake platform itself, then signs `submit_condition_result` using `VERIFIER_KEYPAIR_PATH`.
+- **Platform:** process-local, per-deal mock construction checklist. It calculates the foundation result only when all five checks are true.
+- **Verifier:** a centralized, server-side service. It calls the platform itself (the frontend never supplies a final boolean), then signs `submit_condition_result` using `VERIFIER_KEYPAIR_PATH`.
 - **Program:** stores a verifier-controlled result in a deal PDA and releases the exact stored amount from its escrow PDA only after a true result.
-- **Frontend:** calls API routes only; it has no private key and never sends a result directly to Solana.
+- **Frontend:** subscribes directly to SpacetimeDB for live verification state and calls existing API routes for the escrow demo; it has no private key and never sends a result directly to Solana.
+
+## Live verification state with SpacetimeDB
+
+The local SpacetimeDB module is in `spacetime/spacetimedb`. Public `condition`, `verification_check`, `evidence`, and `uploaded_document` tables back the live flow section on the page. All writes go through deterministic reducers; reducers use `ctx.timestamp`, return no data, and make no external calls. The generated browser bindings live in `lib/spacetime/module_bindings`.
+
+For this hackathon demo only, tables are public and reducers are development-open so the browser can create and update flow rows. This is not production authorization. TODO before deployment: restrict writes to an authorized worker identity and scope reads by owner.
+
+### Run the local state demo
+
+Use separate terminals from the repository root:
+
+```bash
+npm run spacetime:start
+```
+
+```bash
+npm run spacetime:publish
+```
+
+```bash
+npm run dev
+```
+
+SpacetimeDB listens on `127.0.0.1:3001` and Next.js uses its usual port 3000. The database name is `condition-oracle`. Override `NEXT_PUBLIC_SPACETIMEDB_URI` or `NEXT_PUBLIC_SPACETIMEDB_DATABASE` in `.env.local` if needed. The checked-in template config is explicitly set to the local server; nothing in this setup publishes to Maincloud. Run `npm run spacetime:generate` after changing the module schema to refresh generated client bindings.
+
+In the **Live Verification Flow** section, create a condition or click **Run local demo reducers**. The demo writes a condition, document metadata, three checks, one evidence row, check outcomes, and a true or false final result through real reducers. UI rows come from subscriptions, so updates appear without a refresh. The document bytes, external verification sources, and Solana settlement are not part of this demonstration.
+
+### Future API worker boundary
+
+Future Next.js API routes will receive a verification request, call Grok and the selected external tools, normalize findings into structured evidence, then invoke SpacetimeDB reducers to update checks and evidence. A deterministic evaluator will resolve the condition; only a true resolved condition should proceed to the existing Solana verifier. Keep external calls in Next.js routes or workers: reducers must remain deterministic and must not call Grok, Reddit, web search, document parsers, Nessie, filesystem APIs, clocks, randomness, or Solana RPC.
 
 ## Intentionally omitted
 
-Real evidence verification, AI/document/image analysis, custom attestations, wallet connections, SPL/stablecoins, banking, mainnet, multi-party oracles, deal persistence/database, and production key management are intentionally out of scope.
+Real evidence verification, AI/document/image analysis, custom attestations, wallet connections, SPL/stablecoins, banking, mainnet, multi-party oracles, the API worker, and production authorization/key management are intentionally out of scope.

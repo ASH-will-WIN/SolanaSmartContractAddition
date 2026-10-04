@@ -1,4 +1,6 @@
 node_modules/
+.spacetime-data/
+spacetime/spacetimedb/dist/
 .next/
 target/
 .anchor/
