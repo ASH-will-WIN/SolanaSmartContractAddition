@@ -160,6 +160,13 @@ a:hover { text-decoration: underline; }
   .execution-timeline { grid-template-columns: 1fr; gap: 0; margin: 28px 0; }.trace-step { display: flex; align-items: flex-start; gap: 13px; padding: 0; }.trace-marker { flex: 0 0 30px; margin: 0; }.trace-copy { padding: 2px 0 0; }.trace-copy strong { font-size: 11px; }.trace-copy small { padding-bottom: 19px; }
   .trace-connector { width: 1px; height: 25px; margin: 0 0 0 14px; }.trace-connector::after { top: auto; right: -4px; bottom: -7px; transform: rotate(90deg); }.trace-connector i { top: 0; left: -2px; }.trace-connector.is-lit i { animation-name: signal-drop; }.execution-panels { grid-template-columns: 1fr; gap: 10px; }.program-panel, .settlement-panel { padding: 17px; }.execution-story-footer { align-items: flex-start; font-size: 7px; }
 }
+.rule-editor-dock.is-revising { left: 24px; width: min(760px, calc(100% - 460px)); transform: none; }
+.rule-editor-dock .attachment-stack { max-height: 78px; overflow-y: auto; }
+.condition-preview { margin: 16px 0 7px; }
+.condition-preview > span { color: #818a94; font: 9px ui-monospace, monospace; letter-spacing: .8px; }
+.condition-preview p { margin: 8px 0 0; color: #e2e5e7; font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
+.condition-preview small { display: block; margin-top: 8px; color: #859087; font-size: 10px; line-height: 1.5; }
+@media (max-width: 780px) { .rule-editor-dock.is-revising { left: 10px; width: calc(100% - 20px); } }
 
 /* The execution story advances one focused scene at a time. */
 .execution-timeline { display: block; margin: 34px 0 38px; }
@@ -200,3 +207,12 @@ a:hover { text-decoration: underline; }
   .trace-step .trace-copy > span { font-size: 7px; }.trace-step .trace-copy strong { margin: 7px 0 5px; font-size: 19px; }.trace-step .trace-copy small { font-size: 9px; }.trace-direction { font-size: 18px; }
   .trace-progress { margin: 17px 17px 0; }.trace-progress-caption { margin-inline: 17px; }
 }
+.rule-editor-footer.has-plan-actions .dock-enable { margin-left: auto; }
+.rule-editor-footer.has-plan-actions .composer-submit { margin-left: 0; }
+.rule-editor-footer.has-plan-actions { flex-wrap: wrap; }
+.rule-editor-footer.has-plan-actions .metadata-note { flex: 1 1 110px; }
+.dock-enable { height: 31px; padding: 0 12px; border: 1px solid #47594c; border-radius: 3px; background: #151d18; color: #bcc9bf; font: 8px ui-monospace, monospace; letter-spacing: .45px; white-space: nowrap; transition: border-color .2s, background .2s, color .2s; }
+.dock-enable:hover:not(:disabled) { border-color: #8abe95; background: #192a1d; color: #c7f3ce; }
+.dock-enable:disabled { cursor: not-allowed; opacity: .42; }
+@media (max-width: 780px) { .rule-editor-footer.has-plan-actions .dock-enable { margin-left: 0; width: 100%; } }
+@media (max-width: 780px) { .detail-drawer.has-plan-dock { bottom: 280px; } }

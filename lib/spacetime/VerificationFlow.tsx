@@ -120,7 +120,7 @@ function newestFirst<T extends { createdAt: { microsSinceUnixEpoch: bigint } }>(
 function conditionHistoryState(condition: Condition) {
   return condition.status === "executed" || condition.settlementStatus === "confirmed" ? "EXECUTED"
     : condition.status === "verifying" ? "VERIFYING" : condition.status === "triggered" ? "TRIGGERED" : condition.status === "enabled" ? "ENABLED"
-    : condition.status === "failed" ? "FAILED" : condition.finalResult !== undefined ? "RESOLVED" : "DESIGNING";
+    : condition.status === "failed" ? "FAILED" : condition.status === "draft" ? "DRAFT" : condition.finalResult !== undefined ? "RESOLVED" : "DESIGNING";
 }
 
 export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = false }: { demoDeal?: DemoDeal; onCreateDemoDeal?: () => void; creatingDeal?: boolean }) {
@@ -161,7 +161,6 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
   const resolveCondition = useReducer(reducers.resolveCondition);
   const recordSettlementStatus = useReducer(reducers.recordSettlementStatus);
   const associateDemoDeal = useReducer(reducers.associateDemoDeal);
-  const updateConditionPrompt = useReducer(reducers.updateConditionPrompt);
   const updateVerificationCheck = useReducer(reducers.updateVerificationCheck);
   const selectedCondition = draftMode ? undefined : conditions.find((row) => row.id === selectedId);
   const flowChecks = useMemo(() => checks.filter((row) => row.conditionId === selectedCondition?.id).sort((a, b) => a.sequence - b.sequence), [checks, selectedCondition?.id]);
@@ -169,6 +168,7 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
   const flowDocuments = documents.filter((row) => row.conditionId === selectedCondition?.id);
   const loading = conditionsLoading || checksLoading || evidenceLoading || documentsLoading;
   const formFingerprint = JSON.stringify({ condition: prompt.trim(), documents: files.map((file) => ({ name: file.name, type: file.type, size: file.size })) });
+  const revisionHasChanges = Boolean(selectedCondition?.status === "planning" && (prompt.trim() !== selectedCondition.prompt.trim() || files.length > 0));
   const dealId = selectedCondition?.dealId;
   const settlementDeal = demoDeal && BigInt(demoDeal.dealId) === dealId ? demoDeal : associatedDeal && BigInt(associatedDeal.dealId) === dealId ? associatedDeal : undefined;
   const selectedCheck = flowChecks.find((check) => selectedNode === `plan-${check.id.toString()}` || selectedNode === `result-${check.id.toString()}`);
@@ -190,16 +190,22 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
   const createPlan = () => run(async () => {
     if (submitting.current) return;
     submitting.current = true;
+    const previousPlan = selectedCondition?.status === "planning" ? selectedCondition : undefined;
     try {
       if (!prompt.trim()) throw new Error("Enter a condition first.");
       const connection = getConnection();
       if (!connection) throw new Error("SpacetimeDB is not connected yet.");
+      const planDocuments = [
+        ...flowDocuments.map((document) => ({ fileName: document.fileName, mimeType: document.mimeType, byteCount: Number(document.byteCount) })),
+        ...files.map((file) => ({ fileName: file.name, mimeType: file.type || "application/octet-stream", byteCount: file.size })),
+      ];
+      if (planDocuments.length > 10) throw new Error("A plan can include up to 10 evidence files. Remove an attachment before revising it.");
       setNotice("Asking the planning model to design verification checks…");
-      const response = await fetch("/api/verification-plan", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ condition: prompt.trim(), ...(files.length ? { documents: files.map((file) => ({ fileName: file.name, mimeType: file.type || "application/octet-stream", byteCount: file.size })) } : {}) }) });
+      const response = await fetch("/api/verification-plan", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ condition: prompt.trim(), ...(planDocuments.length ? { documents: planDocuments } : {}) }) });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || "Could not generate a plan.");
       const plan = result as VerificationPlan;
-      setNotice("Plan designed. Saving the condition to SpacetimeDB…");
+      setNotice(previousPlan ? "Plan revised. Saving a new draft version…" : "Plan designed. Saving the condition to SpacetimeDB…");
       const priorIds = new Set((Array.from(connection.db.condition.iter()) as Condition[]).map((row) => row.id.toString()));
       await createCondition({ prompt: prompt.trim() });
       let inserted: Condition | undefined;
@@ -208,12 +214,10 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
         if (!inserted) await new Promise((resolve) => setTimeout(resolve, 100));
       }
       if (!inserted) throw new Error("The condition was written, but its subscribed row has not arrived yet.");
-      setSelectedId(inserted.id); setSelectedNode("condition");
-      setDraftMode(false);
-      setNotice("Condition saved. Writing its verification checks…");
       const priorCheckIds = new Set((Array.from(connection.db.verificationCheck.iter()) as VerificationCheck[]).map((row) => row.id.toString()));
       await setConditionStatus({ conditionId: inserted.id, status: "planning" });
-      for (const file of files) await recordUploadedDocument({ conditionId: inserted.id, fileName: file.name, mimeType: file.type || "application/octet-stream", byteCount: BigInt(file.size), contentHash: "metadata-only", storageReference: "metadata-only" });
+      setNotice("Condition saved. Writing its verification checks…");
+      for (const file of planDocuments) await recordUploadedDocument({ conditionId: inserted.id, fileName: file.fileName, mimeType: file.mimeType, byteCount: BigInt(file.byteCount), contentHash: "metadata-only", storageReference: "metadata-only" });
       for (const [index, check] of plan.checks.entries()) await addVerificationCheck({ conditionId: inserted.id, sequence: index + 1, kind: check.kind, label: check.label, instruction: check.instruction });
       setNotice("Checks saved. Waiting for SpacetimeDB to sync the plan…");
       const expected = new Set(plan.checks.map((_, index) => index + 1));
@@ -224,7 +228,13 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
         await new Promise((resolve) => setTimeout(resolve, 100));
       }
       if (createdChecks.length !== plan.checks.length) throw new Error("The plan was saved; waiting for its subscribed checks.");
-      setPlanSummaries((current) => ({ ...current, [inserted!.id.toString()]: plan.summary })); setSubmittedFingerprint(formFingerprint); setNotice("Plan saved. Nothing is live yet, and verification has not started.");
+      setPlanSummaries((current) => ({ ...current, [inserted!.id.toString()]: plan.summary }));
+      setFiles([]); setSubmittedFingerprint(""); setSelectedId(inserted.id); setSelectedNode("condition"); setDraftMode(false);
+      if (previousPlan) {
+        setNotice("Revised plan saved. Marking the previous version as inactive…");
+        await setConditionStatus({ conditionId: previousPlan.id, status: "draft" });
+      }
+      setNotice(previousPlan ? "Revised plan saved. The previous version is preserved as a draft in History." : "Plan saved. Nothing is live yet, and verification has not started.");
     } finally { submitting.current = false; }
   });
   const runVerification = () => run(async () => {
@@ -309,9 +319,8 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
     if (selectedCondition.finalResult === true) await releaseForCondition(selectedCondition, BigInt(demoDeal.dealId));
   });
   const editAsNew = () => { if (selectedCondition) { setPrompt(selectedCondition.prompt); setFiles([]); setSubmittedFingerprint(""); setDraftMode(true); setSelectedId(undefined); setSelectedNode(undefined); setNotice("Draft copied. Orchestrate it to create a new verification plan."); } };
-  const startNew = () => { setDraftMode(true); setSelectedId(undefined); setSelectedNode(undefined); setPrompt(""); setFiles([]); setNotice("Describe what must become true before settlement executes."); setHistoryOpen(false); };
-  const openCondition = (condition: Condition) => { setDraftMode(false); setSelectedId(condition.id); setSelectedNode("condition"); setPrompt(""); setHistoryOpen(false); };
-  const saveConditionPrompt = (value: string) => run(async () => { if (!selectedCondition) return; await updateConditionPrompt({ conditionId: selectedCondition.id, prompt: value }); setNotice("Condition updated."); });
+  const startNew = () => { setDraftMode(true); setSelectedId(undefined); setSelectedNode(undefined); setPrompt(""); setFiles([]); setSubmittedFingerprint(""); setNotice("Describe what must become true before settlement executes."); setHistoryOpen(false); };
+  const openCondition = (condition: Condition) => { setDraftMode(false); setSelectedId(condition.id); setSelectedNode("condition"); setPrompt(condition.status === "planning" ? condition.prompt : ""); setFiles([]); setHistoryOpen(false); };
   const saveCheck = (check: VerificationCheck, label: string, instruction: string) => run(async () => { await updateVerificationCheck({ checkId: check.id, label, instruction }); setNotice("Verification check updated."); });
   const explain = () => {
     if (!selectedCondition) return setNotice("Create a condition first to see its decision path.");
@@ -335,22 +344,22 @@ export function VerificationFlow({ demoDeal, onCreateDemoDeal, creatingDeal = fa
       {selectedCondition && !flowChecks.length && <div className="empty-canvas plan-empty"><span>PLAN NOT GENERATED</span><p>Saved check branches will appear here.<br />Build a verification plan below to continue.</p></div>}
       {loading && !selectedCondition && <div className="sync-note">Connecting to SpacetimeDB…</div>}
       {triggerToast && <div className="trigger-toast">● CONDITION TRIGGERED <span>Verification started automatically.</span></div>}
-      {!selectedCondition && <div className="rule-editor-dock">
-        <div className="rule-editor-heading"><span>RULE EDITOR <i>·</i> DRAFT 01</span><span>NO TRANSACTION UNTIL CONDITION IS ENABLED</span></div>
+      {(!selectedCondition || selectedCondition.status === "planning") && <div className={`rule-editor-dock${selectedCondition ? " is-revising" : ""}`}>
+        <div className="rule-editor-heading"><span>{selectedCondition ? "REVISE SAVED PLAN" : "RULE EDITOR · DRAFT 01"}</span><span>{selectedCondition ? "CHANGES CREATE A NEW DRAFT VERSION" : "NO TRANSACTION UNTIL CONDITION IS ENABLED"}</span></div>
         <div className="rule-equation">
           <label className="rule-when"><span><b>IF</b> REAL-WORLD CONDITION</span><textarea aria-label="Condition prompt" rows={2} maxLength={2000} placeholder="A whistleblower claim is independently corroborated…" value={prompt} onChange={(event) => setPrompt(event.target.value)} onKeyDown={(event) => { if ((event.metaKey || event.ctrlKey) && event.key === "Enter") void createPlan(); }} /></label>
           <div className="rule-arrow" aria-hidden="true">→</div>
           <div className="rule-then"><span><b>THEN</b> ON-CHAIN ACTION</span><code>release_payment()</code><small>Anchor · conditional_escrow · funded Devnet deal</small></div>
         </div>
-        {files.length > 0 && <div className="attachment-stack">{files.map((file, index) => <div className="attachment-card" key={`${file.name}-${file.size}-${index}`}><span className="file-type">{file.name.split(".").pop()?.toUpperCase().slice(0, 5) || "FILE"}</span><strong>{file.name}</strong><span>METADATA ONLY</span><button aria-label={`Remove ${file.name}`} onClick={() => setFiles((current) => current.filter((_, fileIndex) => fileIndex !== index))}>×</button></div>)}</div>}
-        <div className="rule-editor-footer"><label className="attach-button" title="Attach document metadata"><input type="file" hidden multiple disabled={busy} onChange={(event) => { const incoming = Array.from(event.target.files ?? []); setFiles((current) => [...current, ...incoming].slice(0, 10)); event.target.value = ""; }} />＋ <span>Attach evidence metadata</span></label><span className="metadata-note">Files are not uploaded or parsed.</span><button className="composer-submit" disabled={busy || !isActive || !prompt.trim() || submittedFingerprint === formFingerprint} onClick={createPlan}>{busy ? "Orchestrating…" : "ORCHESTRATE CONDITION ↗"}</button></div>
+        {(flowDocuments.length > 0 || files.length > 0) && <div className="attachment-stack">{flowDocuments.map((document) => <div className="attachment-card" key={`saved-${document.id}`}><span className="file-type">{document.fileName.split(".").pop()?.toUpperCase().slice(0, 5) || "FILE"}</span><strong>{document.fileName}</strong><span>SAVED METADATA</span></div>)}{files.map((file, index) => <div className="attachment-card" key={`${file.name}-${file.size}-${index}`}><span className="file-type">{file.name.split(".").pop()?.toUpperCase().slice(0, 5) || "FILE"}</span><strong>{file.name}</strong><span>METADATA ONLY</span><button aria-label={`Remove ${file.name}`} onClick={() => setFiles((current) => current.filter((_, fileIndex) => fileIndex !== index))}>×</button></div>)}</div>}
+        <div className={`rule-editor-footer${selectedCondition ? " has-plan-actions" : ""}`}><label className="attach-button" title="Attach document metadata"><input type="file" hidden multiple disabled={busy} onChange={(event) => { const incoming = Array.from(event.target.files ?? []); setFiles((current) => [...current, ...incoming].slice(0, 10)); event.target.value = ""; }} />＋ <span>Attach evidence metadata</span></label><span className="metadata-note">{selectedCondition ? revisionHasChanges ? "Rebuild to apply these edits before enabling." : "Click a check in the graph to edit its instructions." : "Files are not uploaded or parsed."}</span>{selectedCondition && <button className="dock-enable" disabled={busy || !isActive || revisionHasChanges || !flowChecks.length} title={revisionHasChanges ? "Rebuild the plan to apply your edits before enabling." : undefined} onClick={enableAutomation}>ENABLE CONDITION</button>}<button className="composer-submit" disabled={busy || !isActive || !prompt.trim() || (selectedCondition ? !revisionHasChanges : submittedFingerprint === formFingerprint)} onClick={createPlan}>{busy ? "Orchestrating…" : selectedCondition ? "REBUILD PLAN ↗" : "ORCHESTRATE CONDITION ↗"}</button></div>
         <div className="rule-editor-status" role="status" aria-live="polite">{notice}</div>
       </div>}
     </section>
-    {selectedNodeKind && <><button className="drawer-scrim" aria-label="Close details" onClick={() => setSelectedNode(undefined)} /><aside className="detail-drawer" aria-label={`${selectedNodeKind} details`}>
+    {selectedNodeKind && <><button className="drawer-scrim" aria-label="Close details" onClick={() => setSelectedNode(undefined)} /><aside className={`detail-drawer${selectedCondition?.status === "planning" ? " has-plan-dock" : ""}`} aria-label={`${selectedNodeKind} details`}>
       <div className="drawer-heading"><div><span>NODE DETAILS</span><h2>{selectedNodeKind === "condition" ? "Condition" : selectedNodeKind === "plan" ? "Check plan" : selectedNodeKind === "result" ? "Evidence & evaluation" : selectedNodeKind === "resolution" ? "Final resolution" : "Solana settlement"}</h2></div><button aria-label="Close details" className="drawer-close" onClick={() => setSelectedNode(undefined)}>×</button></div>
-      {selectedNodeKind === "condition" && selectedCondition && <div className="drawer-content">{selectedCondition.status !== "planning" && <StatePill tone="active">{selectedCondition.status === "enabled" ? "ENABLED" : selectedCondition.status === "triggered" ? "TRIGGERED" : selectedCondition.status === "verifying" ? "VERIFYING" : selectedCondition.status === "executed" ? "EXECUTED" : selectedCondition.status.toUpperCase()}</StatePill>}<label className="edit-label">CONTRACT CONDITION<textarea className="drawer-editor" key={`${selectedCondition.id}-prompt`} defaultValue={selectedCondition.prompt} disabled={selectedCondition.status !== "planning"} onBlur={(event) => { if (event.target.value !== selectedCondition.prompt) void saveConditionPrompt(event.target.value); }} /></label><DetailRow label="Created" value={displayTime(selectedCondition.createdAt)} /><DetailRow label="Condition ID" value={selectedCondition.id.toString()} /><DetailRow label="Plan summary" value={planSummaries[selectedCondition.id.toString()] || `${flowChecks.length} proposed checks`} />{flowDocuments.length > 0 && <DetailRow label="Documents" value={flowDocuments.map((doc) => doc.fileName).join(", ")} />}
-        {flowChecks.length > 0 && selectedCondition.status === "planning" && <><div className="activation-card"><span>PLAN SAVED · NOT LIVE</span><p>When enabled, this demo waits 1.5 seconds, then starts verification automatically.</p><button className="drawer-primary-button" disabled={busy} onClick={enableAutomation}>{busy ? "Enabling…" : "ENABLE CONDITION"}</button></div><div className="action-feedback" role="status" aria-live="polite">{notice}</div></>}{selectedCondition.status === "enabled" && <div className="drawer-hint">✓ CONDITION ENABLED<br />Waiting for the demo trigger…</div>}{!flowChecks.length && <div className="drawer-hint">Orchestrate a verification plan before enabling this condition.</div>}</div>}
+      {selectedNodeKind === "condition" && selectedCondition && <div className="drawer-content">{selectedCondition.status !== "planning" && <StatePill tone="active">{selectedCondition.status === "enabled" ? "ENABLED" : selectedCondition.status === "triggered" ? "TRIGGERED" : selectedCondition.status === "verifying" ? "VERIFYING" : selectedCondition.status === "executed" ? "EXECUTED" : selectedCondition.status.toUpperCase()}</StatePill>}<div className="condition-preview"><span>CONTRACT CONDITION</span><p>{selectedCondition.prompt}</p>{selectedCondition.status === "planning" && <small>Edit the rule in the bottom bar to generate a revised plan.</small>}</div><DetailRow label="Created" value={displayTime(selectedCondition.createdAt)} /><DetailRow label="Condition ID" value={selectedCondition.id.toString()} /><DetailRow label="Plan summary" value={planSummaries[selectedCondition.id.toString()] || `${flowChecks.length} proposed checks`} />{flowDocuments.length > 0 && <DetailRow label="Documents" value={flowDocuments.map((doc) => doc.fileName).join(", ")} />}
+        {flowChecks.length > 0 && selectedCondition.status === "planning" && <><div className="activation-card"><span>PLAN SAVED · NOT LIVE</span><p>When enabled, this demo waits 1.5 seconds, then starts verification automatically. Review the checks, then enable from the bottom bar.</p></div><div className="action-feedback" role="status" aria-live="polite">{notice}</div></>}{selectedCondition.status === "draft" && flowChecks.length > 0 && <div className="drawer-hint">This plan was replaced by a newer draft. It is preserved in History and cannot be enabled.</div>}{selectedCondition.status === "enabled" && <div className="drawer-hint">✓ CONDITION ENABLED<br />Waiting for the demo trigger…</div>}{!flowChecks.length && <div className="drawer-hint">Orchestrate a verification plan before enabling this condition.</div>}</div>}
       {(selectedNodeKind === "plan" || selectedNodeKind === "result") && selectedCheck && <div className="drawer-content"><StatePill tone={selectedNodeKind === "plan" ? "active" : statusTone(selectedCheck.status === "pending" ? "pending" : selectedCheck.status === "complete" ? selectedCheck.passed ? "passed" : "failed" : selectedCheck.status)}>{selectedNodeKind === "plan" ? selectedCheck.kind : selectedCheck.status === "complete" ? selectedCheck.passed ? "passed" : "failed" : selectedCheck.status}</StatePill>{selectedNodeKind === "plan" && selectedCondition?.status === "planning" ? <><label className="edit-label">PROPOSED CHECK<input className="drawer-editor" key={`${selectedCheck.id}-label`} defaultValue={selectedCheck.label} onBlur={(event) => { if (event.target.value !== selectedCheck.label) void saveCheck(selectedCheck, event.target.value, selectedCheck.instruction); }} /></label><label className="edit-label">INSTRUCTION<textarea className="drawer-editor" key={`${selectedCheck.id}-instruction`} defaultValue={selectedCheck.instruction} onBlur={(event) => { if (event.target.value !== selectedCheck.instruction) void saveCheck(selectedCheck, selectedCheck.label, event.target.value); }} /></label></> : <><h3 className="drawer-primary">{selectedCheck.label}</h3><DetailRow label="Instruction" value={selectedCheck.instruction} /></>}<DetailRow label="Check type" value={selectedCheck.kind} /><DetailRow label="Current status" value={selectedCheck.status === "complete" ? selectedCheck.passed ? "Passed" : "Failed" : selectedCheck.status} /><DetailRow label="Required" value="Yes" />{selectedCheck.summary && <DetailRow label="Evaluation" value={selectedCheck.summary} />}
         {selectedNodeKind === "result" && <><div className="drawer-section-title">EVIDENCE · {selectedEvidence.length}</div>{selectedEvidence.length ? selectedEvidence.map((item) => <article key={item.id.toString()} className="evidence-item"><div className="evidence-meta">{item.sourceType}{item.authorOrSource ? ` · ${item.authorOrSource}` : ""}</div><strong>{item.url ? <a href={item.url} target="_blank" rel="noopener noreferrer">{item.title} ↗</a> : item.title}</strong><p>{item.snippet || "No snippet provided."}</p><time>{displayTime(item.createdAt)}</time></article>) : <div className="drawer-hint">No evidence rows are attached to this check yet. Evidence appears here when the live verification runner records it.</div>}</>}</div>}
       {selectedNodeKind === "resolution" && selectedCondition && <div className="drawer-content"><StatePill tone={statusTone(selectedCondition.finalResult === true ? "true" : selectedCondition.finalResult === false ? "false" : "pending")}>{selectedCondition.finalResult === true ? "TRUE" : selectedCondition.finalResult === false ? "FALSE" : "PENDING"}</StatePill><h3 className="drawer-primary">{selectedCondition.finalResult === true ? "Condition verified" : selectedCondition.finalResult === false ? "Condition not verified" : "Verification in progress"}</h3><DetailRow label="Required checks passed" value={`${flowChecks.filter((check) => check.passed === true).length} / ${flowChecks.length}`} />{flowChecks.map((check) => <div className="outcome-row" key={check.id.toString()}><span className={`outcome-dot ${statusTone(check.status === "complete" ? check.passed ? "passed" : "failed" : check.status)}`} /><span>{check.label}</span><b>{check.status === "complete" ? check.passed ? "PASS" : "FAIL" : check.status.toUpperCase()}</b></div>)}<div className="drawer-hint">{selectedCondition.finalResult === false ? "One or more required checks did not pass, so settlement remains locked." : "The final result comes from the live verification runner."}</div></div>}
