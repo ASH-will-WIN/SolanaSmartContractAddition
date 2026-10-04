@@ -99,7 +99,7 @@ In the **Verification Plan** section, enter a condition and click **Generate ver
 
 ### Verification runner
 
-Set `XAI_API_KEY` and `FIRECRAWL_API_KEY` in `.env.local` (server side only; never use `NEXT_PUBLIC_` names). `XAI_MODEL` defaults to `grok-4.3`. Generating a plan calls `POST /api/verification-plan`; clicking **Run verification** calls `POST /api/verification/run`, searches up to three Reddit and Firecrawl web results per check, asks Grok to judge relevance from those snippets, and writes evidence and check results through SpacetimeDB reducers. Reddit uses its public search JSON endpoint. Document checks only confirm attached metadata; file contents are never uploaded or read. A true result marks settlement **Ready** but does not send a Solana transaction.
+Set `XAI_API_KEY` and `FIRECRAWL_API_KEY` in `.env.local` (server side only; never use `NEXT_PUBLIC_` names). `XAI_MODEL` defaults to `grok-4.3`. Generating a plan calls `POST /api/verification-plan`; clicking **Run verification** calls `POST /api/verification/run`, searches up to three Reddit and Firecrawl web results per check, asks Grok to judge relevance from those snippets, and writes evidence and check results through SpacetimeDB reducers. Reddit checks use Firecrawl public-web search restricted to `site:reddit.com`, because Reddit's public JSON search endpoint is blocked in the demo environment. Document checks only confirm attached metadata; file contents are never uploaded or read. A true result marks settlement **Ready** but does not send a Solana transaction.
 
 External calls stay in Next.js routes: SpacetimeDB reducers remain deterministic and do not call Grok, Reddit, web search, document parsers, Nessie, filesystem APIs, clocks, randomness, or Solana RPC.
 
