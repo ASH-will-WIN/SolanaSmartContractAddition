@@ -98,7 +98,11 @@ npm run dev
 
 SpacetimeDB listens on `127.0.0.1:3001` and Next.js uses its usual port 3000. The database name is `condition-oracle`. Override `NEXT_PUBLIC_SPACETIMEDB_URI` or `NEXT_PUBLIC_SPACETIMEDB_DATABASE` in `.env.local` if needed. The checked-in template config is explicitly set to the local server; nothing in this setup publishes to Maincloud. Run `npm run spacetime:generate` after changing the module schema to refresh generated client bindings.
 
-In the **Live Verification Flow** section, create a condition or click **Run local demo reducers**. The demo writes a condition, document metadata, three checks, one evidence row, check outcomes, and a true or false final result through real reducers. UI rows come from subscriptions, so updates appear without a refresh. The document bytes, external verification sources, and Solana settlement are not part of this demonstration.
+In the **Verification Plan** section, enter a condition and click **Generate verification plan**. The plan and optional document metadata are written through real reducers; subscribed rows appear without a refresh. File bytes, external evidence sources, and Solana settlement are not part of this demonstration.
+
+### Grok planning slice
+
+Set `XAI_API_KEY` in `.env.local` (server side only; never use a `NEXT_PUBLIC_` name). `XAI_MODEL` defaults to `grok-4.3`. The Verification Plan form calls `POST /api/verification-plan`, then creates the condition, optional document metadata, and ordered checks through the existing SpacetimeDB reducers. File bytes are never uploaded or read. The displayed rows come from the existing subscriptions. At this stage, external evidence collection has not started; a future server-side verification worker will own writes after it runs the Reddit, web, and document checks.
 
 ### Future API worker boundary
 
