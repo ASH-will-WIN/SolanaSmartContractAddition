@@ -1,0 +1,16 @@
+[features]
+resolution = true
+skip-lint = false
+
+[programs.localnet]
+conditional_escrow = "B3bW1RfHFGNZG1PDZkPukpBQnDWE2yLmUuk2StqHgMK7"
+
+[programs.devnet]
+conditional_escrow = "B3bW1RfHFGNZG1PDZkPukpBQnDWE2yLmUuk2StqHgMK7"
+
+[provider]
+cluster = "devnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "npx tsx tests/conditional_escrow.ts"
