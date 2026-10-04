@@ -12,9 +12,9 @@ const condition = table(
     finalResult: t.option(t.bool()),
     settlementStatus: t.string(),
     settlementSignature: t.option(t.string()),
-    dealId: t.option(t.u64()),
     createdAt: t.timestamp(),
     updatedAt: t.timestamp(),
+    dealId: t.option(t.u64()).default(undefined),
   },
 );
 

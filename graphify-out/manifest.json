@@ -162,10 +162,10 @@
     "semantic_hash": "370bf40884d764f3470bb1bace844b08"
   },
   "lib/spacetime/module_bindings/condition_table.ts": {
-    "mtime": 1791108512.483548,
-    "seen": 1791108770.310557,
-    "ast_hash": "86ff50f7f1bf8119fcdd0c9734c47c09",
-    "semantic_hash": "86ff50f7f1bf8119fcdd0c9734c47c09"
+    "mtime": 1791108974.7205439,
+    "seen": 1791108999.777837,
+    "ast_hash": "26542936a14b23cbe6af8ab78bf2a328",
+    "semantic_hash": "26542936a14b23cbe6af8ab78bf2a328"
   },
   "lib/spacetime/module_bindings/create_condition_reducer.ts": {
     "mtime": 1791101716.8728282,
@@ -222,10 +222,10 @@
     "semantic_hash": "5c346b80c0418b240e2a0d8f94498e5c"
   },
   "lib/spacetime/module_bindings/types.ts": {
-    "mtime": 1791108512.4843256,
-    "seen": 1791108770.3109791,
-    "ast_hash": "feb5cb1db08d4f045ed64abaacc12592",
-    "semantic_hash": "feb5cb1db08d4f045ed64abaacc12592"
+    "mtime": 1791108974.7227635,
+    "seen": 1791108999.778353,
+    "ast_hash": "9b3c0277d688a2b9137109d498d07ae0",
+    "semantic_hash": "9b3c0277d688a2b9137109d498d07ae0"
   },
   "lib/spacetime/module_bindings/types/procedures.ts": {
     "mtime": 1791101716.8739843,
@@ -264,10 +264,10 @@
     "semantic_hash": "936d4350a97d0bce39871904b7edfc58"
   },
   "spacetime/spacetimedb/src/index.ts": {
-    "mtime": 1791108509.7768145,
-    "seen": 1791108770.311571,
-    "ast_hash": "d0a2b07c752d2ab8d2a5bd10ced60b42",
-    "semantic_hash": "d0a2b07c752d2ab8d2a5bd10ced60b42"
+    "mtime": 1791108970.249035,
+    "seen": 1791108999.7791739,
+    "ast_hash": "9bd9e7888f212aa281a1f2b7930e8dcd",
+    "semantic_hash": "9bd9e7888f212aa281a1f2b7930e8dcd"
   },
   "spacetime/spacetimedb/tsconfig.json": {
     "mtime": 1791101505.101723,
